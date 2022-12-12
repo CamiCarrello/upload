@@ -1,21 +1,79 @@
 .channelPage{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-    background-color: #13131a;
+  display: flex;
+  flex-direction:column;
+  position: relative;
+  padding: 20px 180px 0 180px;
+  color: white;
 
-    .banner{
-      width: max-content;
-      height: 80px;
-    }
+  .banner{      
+    width: 100%;
 
-    .left{
-      float: left;
-    }
-
+    .bannerChannel{
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+    -webkit-mask-image: linear-gradient(to top, transparent 5%, rgb(0, 0, 0) 20%);
+    } 
     
+    .informationBanner{
+      margin-left: 20px;
+    }
   }
+
+  .logoChannel{
+    position: absolute;
+    float: right;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    bottom: 60px;
+    right: 210px;
+    border: 3px solid white;
+  }  
+}
   
-  
-  
+.main {  
+  position: relative;
+  padding-left: 180px; /* Same as the width of the sidenav */ 
+  color: #c6c6c8;
+  font-size: 12px;
+
+  .container {
+    display: inline-block;
+    // justify-content: space-between;
+    align-content: center;
+    margin: 0 35px 35px 0;
+    width: 300px;
+    height: 250px;
+    flex-wrap: wrap;
+    padding-right: 20px;
+    background-color: rgb(70, 70, 70);
+    border-radius: 10px;
+  }
+
+  .thumbnail {
+    position: absolute;
+    max-width: 300px; 
+    min-width: 200px;  
+    padding: 0 35px 35px 0;
+
+      img{
+        width: 300px;
+        height: 150px;
+        border-radius: 10px;
+      }
+
+      .time {
+      margin-bottom: -60px;
+      border-radius: 7px;
+      background-color: black;
+      color: white;
+      font-size: smaller;
+      width: 40px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }   
+}

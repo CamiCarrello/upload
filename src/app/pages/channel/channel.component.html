@@ -1,11 +1,27 @@
-<div class="channelPage">
+<div class="channelPage" *ngFor="let channel of channels">
   <div class="banner">
-    <img src="../../../assets/imgs/bannerFoodsChannel.JPG">
-  </div>
-  <div class="left"><b>Karoline Rocha</b>
-    <p>Aqui entra uma descrição!</p>
+    <!-- <img [src]="channel.cover_photo"> -->
+    <img class="bannerChannel" src="../../../assets/imgs/bannerFoodsChannel.JPG">
+    <div class="informationBanner">
+      <p>{{ channel.author }}</p>
+      <p>Aqui entra uma descrição sobre o canal de fulano de tal.</p> 
+    </div>    
   </div> 
-  <div class="right">
-    <img src="../../../assets/imgs/karolLogo.jpeg">  
+  <div>
+    <!-- <img [src]="channel.user_photo">   -->
+    <img class="logoChannel" src="../../../assets/imgs/karolLogo.jpeg">
+  </div>    
+</div>
+
+<div class="main">
+  <h2>Vídeos</h2>
+   <div class="container" *ngFor="let video of videos">
+    <div class="thumbnail">
+      <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}">
+      <div class="time">01:56</div>
+        <b>{{ video.title }}</b>
+    </div>  
   </div>
 </div>
+ 
+

@@ -9,6 +9,7 @@ import { MenuSideBarComponent } from './components/menu-side-bar/menu-side-bar.c
 import { CardSuggestedChannelsComponent } from './components/card-suggested-channels/card-suggested-channels.component';
 import { CardSuggestedThemesComponent } from './components/card-suggested-themes/card-suggested-themes.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CommentsComponent } from './components/comments/comments.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
