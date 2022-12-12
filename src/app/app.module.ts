@@ -10,6 +10,7 @@ import { CardSuggestedChannelsComponent } from './components/card-suggested-chan
 import { CardSuggestedThemesComponent } from './components/card-suggested-themes/card-suggested-themes.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     MenuSideBarComponent,
     CardSuggestedChannelsComponent,
     CardSuggestedThemesComponent,
-    CommentsComponent
+    CommentsComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,
