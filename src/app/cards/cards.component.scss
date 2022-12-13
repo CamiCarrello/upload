@@ -1,0 +1,34 @@
+.container {
+    position: fixed;
+    height: 100%;
+    top: 15px;
+    right: 15px;
+    width: 15%;
+    padding-bottom: 10%;
+
+    .channels{
+        margin-top: 20px;
+        height: 50%;
+        color: #606068;
+        font-size: 12px;
+        border:  1px;
+        display: flex;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,.5);
+        padding: 6px;
+    }
+
+    .themes{
+        margin-top: 20px;
+        height: 50%;
+        color: #606068;
+        font-size: 12px;
+        border:  1px;
+        display: flex;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,.5);
+        padding: 6px;
+        padding-bottom: 10px;
+    }
+}
+
