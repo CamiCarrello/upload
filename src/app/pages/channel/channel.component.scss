@@ -1,24 +1,24 @@
 .channelPage{
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
   position: relative;
-  padding: 20px 20px 0 180px;
+  padding: 20px 180px 0 180px;
   color: white;
-  flex: 1;
-
+  
   .banner{      
+    position: relative;
     width: 100%;
+    background-color: aquamarine;
 
     .bannerChannel{
-    width: 100%;
-    height: 220px;
-    border-radius: 10px;
-    -webkit-mask-image: linear-gradient(to top, transparent 5%, rgb(0, 0, 0) 20%);
-    } 
+      display: inline-block;
+      align-content: center;
+      width: 100%;
+      height: 220px;
+      padding-left: 180px;
+      -webkit-mask-image: linear-gradient(to top, transparent 5%, rgb(0, 0, 0) 20%);
     
-    .informationBanner{
-      margin-left: 20px;
-    }
+    } 
   }
 
   .logoChannel{
@@ -33,48 +33,34 @@
   }  
 }
   
-.main {  
+.cardVideos {  
   position: relative;
   padding-left: 180px; /* Same as the width of the sidenav */ 
   color: #c6c6c8;
   font-size: 12px;
+  width: 100%;
 
-  .container {
-    width: 100%;
+  .cards {
     display: inline-block;
     align-content: center;
     margin: 0 35px 35px 0;
-    width: 300px;
+    width: 30%;
     height: 250px;
-    flex-wrap: wrap;
-    padding-right: 20px;
-    background-color: rgb(70, 70, 70);
+    background-color: rgb(33, 33, 33);
     border-radius: 10px;
   }
 
-  .thumbnail {
+  .informations {
     position: absolute;
     max-width: 300px; 
     min-width: 200px;  
-    padding: 0 35px 35px 0;
+    padding-left: 10px;
 
-      img{
+      img {
         width: 300px;
-        height: 150px;
+        height: 200px;
         border-radius: 10px;
+        padding-bottom: 10px;
       }
-
-      .time {
-      margin-bottom: -60px;
-      border-radius: 7px;
-      background-color: black;
-      color: white;
-      font-size: smaller;
-      width: 40px;
-      height: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
   }   
 }

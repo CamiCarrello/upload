@@ -8,7 +8,7 @@ import { ChannelComponent } from './pages/channel/channel.component';
 import { MenuSideBarComponent } from './components/menu-side-bar/menu-side-bar.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CardsComponent } from './cards/cards.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 @NgModule({
   declarations: [
