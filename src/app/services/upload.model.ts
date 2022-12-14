@@ -11,6 +11,7 @@ export interface Channel {
     nid: string;
 }
 
+
 export interface VideosResponse {
     data: Video[];
 }
@@ -29,4 +30,14 @@ export interface Video {
     duration: string;
     id_user: string;
     comment_count: string;
+}
+
+export interface PlaylistResponse {
+    data: Playlist[];
+}
+
+export interface Playlist {
+    title: string;
+    category:string;
+    videos_playlist: string;
 }

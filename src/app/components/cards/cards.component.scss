@@ -5,30 +5,29 @@
     right: 15px;
     width: 15%;
     padding-bottom: 10%;
-
-    .channels{
-        margin-top: 20px;
-        height: 50%;
-        color: #606068;
-        font-size: 12px;
-        border:  1px;
-        display: flex;
-        border-radius: 10px;
-        border: 1px solid rgba(255,255,255,.5);
-        padding: 6px;
+    
+    .channels {
+       background-color: rgb(28, 28, 36);
+       margin-top: 20px;
+       height: 50%;
+       color: rgb(245,245,247);
+       font-size: 12px;
+       border: 1px;
+       display: flex;
+       border-radius: 10px;
+       padding: 6px;
     }
 
-    .themes{
-        margin-top: 20px;
-        height: 50%;
-        color: #606068;
-        font-size: 12px;
-        border:  1px;
-        display: flex;
-        border-radius: 10px;
-        border: 1px solid rgba(255,255,255,.5);
-        padding: 6px;
-        padding-bottom: 10px;
-    }
-}
-
+    .themes {
+       background-color: rgb(28, 28, 36);
+       margin-top: 20px;
+       height: 50%;
+       color: rgb(245,245,247);
+       font-size: 12px;
+       border: 1px;
+       display: flex;
+       border-radius: 10px;
+       padding: 6px;
+       padding-bottom: 10px; 
+    } 
+ }

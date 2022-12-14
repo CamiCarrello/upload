@@ -1,76 +1,101 @@
-.container{
+.channelPage{
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction:column;
   position: relative;
-  background-color: #13131a;
-  .sidenav1 {
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color:#1c1c24;
-    overflow-x: hidden;
-    padding-top: 20px;
-    }
-  .sidenav1 a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 12px;
-    color: #606068;
-    display: block;
-    }
-  .sidenav1 a:hover {
-    color: #c0c0c2;
-    }
-  .sidenav2 {
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: #13131a;
-    overflow-x: hidden;
-    padding-top: 20px;
-    }
-  .sidenav2 a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 12px;
-    color: #606068;
-    display: block;
-    }
-  .sidenav2 a:hover {
-      color:#c0c0c2;
-    }
-  .main {
-    margin-left: 160px; /* Same as the width of the sidenav */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 10px 10px;
-    color: #c6c6c8;
-    font-size: 12px;
-    }
-  @media screen and (max-height: 450px) {
-    .sidenav1 {padding-top: 15px;}
-    .sidenav1 a {font-size: 18px;}
-    .sidenav2 {padding-top: 15px;}
-    .sidenav2 a {font-size: 18px;}
-    }
-  .tags{
-    padding: 20px 12px;
-    font-size: 12px;
-    color: #606068;
+  padding: 20px 180px 0 180px;
+  color: white;
+  
+  .banner{      
+    position: relative;
+    width: 100%;
+    background-color: aquamarine;
 
+    .bannerChannel{
+      display: inline-block;
+      align-content: center;
+      width: 100%;
+      height: 220px;
+      padding-left: 180px;
+      -webkit-mask-image: linear-gradient(to top, transparent 5%, rgb(0, 0, 0) 20%);    
+    } 
   }
 
- 
-  img{
-    width:100%;
-    padding: auto;
+  .logoChannel{
+    position: absolute;
+    float: right;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    bottom: 10px;
+    right: 160px;
+    border: 2px solid white;
+  }  
+}
+  
+.cardVideos {  
+  position: relative;
+  padding-left: 180px; /* Same as the width of the sidenav */ 
+  color: #c6c6c8;
+  font-size: 12px;
+  width: 100%;
+  text-transform: uppercase;
+
+  .cards {
+    display: inline-block;
+    align-content: center;
+    margin: 0 35px 35px 0;
+    width: 30%;
+    height: 250px;
+    background-color: rgb(33, 33, 33);
+    border-radius: 10px;
   }
+
+  .informations {
+    position: absolute;
+    max-width: 300px; 
+    min-width: 200px;  
+    padding-left: 10px;
+
+    img {
+      width: 300px;
+      height: 200px;
+      border-radius: 10px;
+      padding-bottom: 10px;
+    }
+  }   
 }
 
+.cardPage {
+  color: rgb(198,198,200);
+  font-size: 12px;
+  padding: 20px 0 0 180px;
+  width: 100%;
 
+  .cards {
+    display: inline-flex;
+    position: relative;
+    flex-direction: row;
+    width: 30%;
+    height: 320px;
+    margin: 10px 40px 50px 75px;
+
+    .informations {
+    background-color: rgb(28,28,36);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    border-radius: 10px;
+
+      p {
+        margin-left: 10px;
+      }
+      
+      img {
+        border-radius: 10px;
+        width: 100%;
+        height: 260px;
+      }
+    }
+  }
+}

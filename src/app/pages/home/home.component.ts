@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Video } from 'src/app/services/upload.model';
+import { UploadService } from 'src/app/services/upload.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  videos: Video[] = [];
+
+  constructor(private upload: UploadService) { }
 
   ngOnInit(): void {
+    this.upload.getVideos().subscribe(video => {
+      this.videos = video;
+    })
   }
-
 }

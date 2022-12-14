@@ -11,15 +11,17 @@
   </div>  
 </div>
 
-<div class="cardVideos">
+<div class="cardPage">
   <h2>Vídeos</h2>
-  <div class="cards" *ngFor="let video of videos">
-    <div class="informations">
-      <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}">
-      <b>{{ video.title }}</b>
-    </div>
+<div class="cards" *ngFor="let video of videos">
+  <div class="informations">
+    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}">
+    <p>{{ video.title }}</p>
   </div>
 </div>
+</div>
+
+
 <div>    
 <app-comments></app-comments>
 </div>

@@ -9,6 +9,7 @@ import { MenuSideBarComponent } from './components/menu-side-bar/menu-side-bar.c
 import { CommentsComponent } from './components/comments/comments.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardsComponent } from './components/cards/cards.component';
+import { PlaylistComponent } from './pages/playlist/playlist.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CardsComponent } from './components/cards/cards.component';
     ChannelComponent,
     MenuSideBarComponent,
     CommentsComponent,
-    CardsComponent
+    CardsComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,

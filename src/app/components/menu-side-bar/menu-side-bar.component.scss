@@ -1,9 +1,10 @@
 .container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-    background-color: #13131a;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  background-color: #13131a;
+
     .menuSideBar {
       height: 100%;
       width: 160px;
@@ -14,25 +15,23 @@
       background-color:#1c1c24;
       overflow-x: hidden;
       padding-top: 20px;
-      }
-    .menuSideBar a {
+    }
+
+    .menuSideBar a, .tags {
       padding: 6px 8px 6px 16px;
       text-decoration: none;
       font-size: 12px;
       color: #606068;
       display: block;
-      }
+    }
+
     .menuSideBar a:hover {
       color: #c0c0c2;
-      }
+    }
+
     img {
       width: fit-content;
       height: 50px;
       padding: 6px 8px 6px 16px;
     }
-
-    .tags{
-      color: white;
-      padding-left: 16px;
-    }
-    }
+  }
