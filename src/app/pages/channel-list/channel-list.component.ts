@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UploadService } from 'src/app/services/upload.service';
+import { Channel } from 'src/app/services/upload.model';
+// import { Video } from 'src/app/services/upload.model';
 
 @Component({
   selector: 'app-channel-list',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChannelListComponent implements OnInit {
 
-  constructor() { }
+  channelList: Channel [] = [];
+
+  // videos: Video [] = [];  
+
+  constructor(private upload: UploadService) { }
 
   ngOnInit(): void {
+    this.upload.getChannelsList().subscribe(channel => {
+      this.channelList = channel;
+      console.log(channel)
+    })
   }
-
 }
