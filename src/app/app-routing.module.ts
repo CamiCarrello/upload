@@ -7,7 +7,8 @@ import { PlaylistComponent } from './pages/playlist/playlist.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'channel', component: ChannelComponent},
+  {path: 'channelList', component: ChannelComponent},
+  {path: 'channel/:id_channel', component: ChannelComponent},  
   {path: 'playlist', component: PlaylistComponent}
 ];
 

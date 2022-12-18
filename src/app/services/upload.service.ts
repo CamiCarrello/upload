@@ -17,8 +17,12 @@ export class UploadService {
     return this.http.get<Video[]>(BASE_URL + "api/videos");
   }
 
-  getChannels() {
-    return this.http.get<Channel[]>(BASE_URL + "api/channel");
+  getChannelsList() {
+      return this.http.get<Channel[]>(BASE_URL + "api/channel");
+    }
+
+  getChannels(id_channel: string) {
+    return this.http.get<Channel[]>(BASE_URL + "api/channel/" + id_channel);
   }
   
   getPlaylist() {

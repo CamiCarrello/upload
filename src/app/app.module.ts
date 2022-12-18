@@ -10,6 +10,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardsComponent } from './components/cards/cards.component';
 import { PlaylistComponent } from './pages/playlist/playlist.component';
+import { ChannelListComponent } from './pages/channel-list/channel-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PlaylistComponent } from './pages/playlist/playlist.component';
     MenuSideBarComponent,
     CommentsComponent,
     CardsComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    ChannelListComponent
   ],
   imports: [
     BrowserModule,

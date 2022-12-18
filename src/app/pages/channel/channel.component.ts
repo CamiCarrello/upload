@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UploadService } from 'src/app/services/upload.service';
 import { Channel } from 'src/app/services/upload.model';
 import { Video } from 'src/app/services/upload.model';
@@ -14,10 +15,11 @@ export class ChannelComponent implements OnInit {
 
   videos: Video [] = [];  
 
-  constructor(private upload: UploadService) { }
+  constructor(private upload: UploadService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-     this.upload.getChannels().subscribe(channel => {
+    let id_channel = this.route.snapshot.params['id_channel'];
+     this.upload.getChannels(id_channel).subscribe(channel => {
         this.channels = channel;
         console.log(channel)
     })

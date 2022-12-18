@@ -3,14 +3,13 @@ export interface ChannelsResponse {
 }
 
 export interface Channel {
+    id: string;
     channel_name: string;
     author: string;
     category:string;
-    cover_photo: string;
-    user_photo: string;
-    nid: string;
+    field_media_image: string;
+    field_media_image_1: string;
 }
-
 
 export interface VideosResponse {
     data: Video[];
