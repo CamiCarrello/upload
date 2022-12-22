@@ -18,8 +18,8 @@ export class ChannelComponent implements OnInit {
   constructor(private upload: UploadService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    let id_channel = this.route.snapshot.params['id_channel'];
-     this.upload.getChannels(id_channel).subscribe(channel => {
+    // let id_channel = this.route.snapshot.params['id_channel'];
+     this.upload.getChannels(/*id_channel*/).subscribe(channel => {
         this.channels = channel;
         console.log(channel)
     })
