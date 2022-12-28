@@ -1,0 +1,26 @@
+<div class="channelPage" *ngFor="let channel of channels">
+  <div class="banner">
+    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{channel.field_media_image_1}}">
+    <div class="informationBanner">
+      <p>{{ channel.author }}</p>
+      <p>Aqui entra uma descrição sobre o canal de fulano de tal.</p>
+    </div>
+  </div>
+  <div class="logoChannel">
+    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.field_media_image }}">
+  </div>
+</div>
+
+<div class="cardPage">
+  <h2>Vídeos</h2>
+<div class="cards" *ngFor="let video of videos">
+  <div class="informations">
+    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}">
+    <p>{{ video.title }}</p>
+  </div>
+</div>
+</div>
+
+<div>
+<app-comments></app-comments>
+</div>

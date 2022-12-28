@@ -1,0 +1,70 @@
+.channelPage{
+  padding: 0 20px 20px 180px;
+  color: rgb(198,198,200);
+  display: flex;
+  flex-wrap: wrap;
+
+  .banner img{
+    position: static;
+    width: 100%;
+    height: 180px;
+    -webkit-mask-image: linear-gradient(to top, transparent 5%, rgb(0, 0, 0) 20%);
+
+    .informationBanner{
+      display: inline-block;
+      width: 100%;
+      padding-left: 200px;
+    }
+  }
+
+  .logoChannel {
+    position: relative;
+
+    img {
+      position: absolute;
+      float: right;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      bottom: 80px;
+      right: 60px;
+      border: 3px solid white;
+    }
+  }
+}
+
+.cardPage {
+  width: 100%;
+  padding: 0 0 0 185px;
+  color: rgb(198,198,200);
+
+  .cards {
+    display: inline-flex;
+    flex-direction: row;
+    position: relative;
+    width: 28%;
+    height: 300px;
+    margin: 0 62px 62px 0;
+
+    .informations{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      font-size: 15px;
+      background-color: rgb(28,28,36);
+      border-radius: 15px;
+
+      p {
+        margin-left: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      img {
+        border-radius: 10px;
+        width: 100%;
+        height: 220px;
+      }
+    }
+  }
+}
