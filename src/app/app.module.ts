@@ -12,6 +12,8 @@ import { CardsComponent } from './components/cards/cards.component';
 import { PlaylistComponent } from './pages/playlist/playlist.component';
 import { ChannelListComponent } from './pages/channel-list/channel-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ThemesComponent } from './pages/themes/themes.component';
+import { VideoComponent } from './pages/video/video.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommentsComponent,
     CardsComponent,
     PlaylistComponent,
-    ChannelListComponent
+    ChannelListComponent,
+    ThemesComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,

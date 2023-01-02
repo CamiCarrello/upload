@@ -1,101 +1,79 @@
-.channelPage{
-  display: flex;
-  flex-direction:column;
-  position: relative;
-  padding: 20px 180px 0 180px;
-  color: white;
-  
-  .banner{      
-    position: relative;
-    width: 100%;
-    background-color: aquamarine;
-
-    .bannerChannel{
-      display: inline-block;
-      align-content: center;
-      width: 100%;
-      height: 220px;
-      padding-left: 180px;
-      -webkit-mask-image: linear-gradient(to top, transparent 5%, rgb(0, 0, 0) 20%);    
-    } 
-  }
-
-  .logoChannel{
-    position: absolute;
-    float: right;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    bottom: 10px;
-    right: 160px;
-    border: 2px solid white;
-  }  
-}
-  
-.cardVideos {  
-  position: relative;
-  padding-left: 180px; /* Same as the width of the sidenav */ 
-  color: #c6c6c8;
-  font-size: 12px;
-  width: 100%;
-  text-transform: uppercase;
-
-  .cards {
-    display: inline-block;
-    align-content: center;
-    margin: 0 35px 35px 0;
-    width: 30%;
-    height: 250px;
-    background-color: rgb(33, 33, 33);
-    border-radius: 10px;
-  }
-
-  .informations {
-    position: absolute;
-    max-width: 300px; 
-    min-width: 200px;  
-    padding-left: 10px;
-
-    img {
-      width: 300px;
-      height: 200px;
-      border-radius: 10px;
-      padding-bottom: 10px;
-    }
-  }   
-}
-
 .cardPage {
-  color: rgb(198,198,200);
+  color: rgb(198, 198, 200);
   font-size: 12px;
-  padding: 20px 0 0 180px;
-  width: 100%;
+  padding: 5px 0 0 180px;
+  margin-bottom: 50px;
+  flex-grow: 2;
+  width: 80%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  .titlePage {
+    width: 90%;
+    color: rgb(198, 198, 200);
+    font-size: 12px;
+    padding: 5px 0 0 80px;
+    margin-bottom: 50px;
+    flex-grow: 2;
+    display: flex;
+    flex-wrap: wrap;
+  }
 
   .cards {
     display: inline-flex;
     position: relative;
     flex-direction: row;
-    width: 30%;
+    flex-grow: 2;
     height: 320px;
-    margin: 10px 40px 50px 75px;
+    margin: 3px 5px 20px 75px;
+    width: 33.33%;
+    padding: 10px 10px;
 
     .informations {
-    background-color: rgb(28,28,36);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    font-size: 12px;
-    border-radius: 10px;
+      background-color: rgb(28, 28, 36);
+      width: 100%;
+      font-size: 12px;
+      border-radius: 10px;
 
       p {
         margin-left: 10px;
       }
-      
+
       img {
-        border-radius: 10px;
+        /* border-radius: 10px;
+      width: 100%;
+       */
         width: 100%;
+        border-radius: 12px;
         height: 260px;
       }
+    }
+
+    .bookmark {
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      padding: 15px;
+      width: 80px;
+      height: 60px;
+      display: flex;
+      cursor: pointer;
+      color: #606068;
+      font-size: 1.5em;
+    }
+
+    .share {
+      position: absolute;
+      bottom: -5px;
+      right: -8px;
+      padding: 15px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      cursor: pointer;
+      color: #606068;
+      font-size: 1.5em;
     }
   }
 }

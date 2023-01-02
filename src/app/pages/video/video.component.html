@@ -1,0 +1,25 @@
+<div class="container" *ngIf="video_ready">
+    <div class="player">
+        <h1> {{ video.title }} </h1>
+        <div class="video">
+            <iframe [src]="video.url " title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <div class="informations">
+            <div class="user">
+                <div class="user-photo">
+                    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.user_photo }}">
+                </div>
+                <div class="userInfo">
+                    <span class="user_name"> <strong>{{ video.user_name }} </strong></span>
+                    <span class="created"> Há {{ video.created }} dias. </span>
+                </div>
+            </div>
+
+            <p> {{ video.description }} </p>
+        </div>
+
+    </div>
+    <app-cards></app-cards>
+</div>
