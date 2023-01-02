@@ -1,22 +1,23 @@
-<div class="container">
-  <div class="sidenav1">
-    <img src="./../../../assets/imgs/logo.png" alt="">
-    <a href="#">Início</a>
-    <a href="#">Canais</a>
-    <a href="#">Temáticas</a>
-    <a href="#">Playlists</a>
-    <p class="tags">TAGS</p>
+<div class="cardPage">
+  <div class="titlePage">
+    <h2>Últimos videos</h2>
+  </div>
+  <div class="cards" *ngFor="let video of videos" [routerLink]="['video/'+ video.id]">
+    <div class="informations">
+      <img
+        src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
+          video.thumbnail
+        }}"
+      />
+      <a class="bookmark" href="">
+        <fa-icon [icon]="faBookmark" class="faIcon"> </fa-icon>
+      </a>
+      <a class="share" href="">
+        <fa-icon [icon]="faShareSquare" class="faIcon"> </fa-icon>
+      </a>
+      <p>{{ video.title }}</p>
+    </div>
   </div>
 
-  <div class="main">
-    <h2>Últimos vídeos</h2>
-  </div>
-
-  <div class="sidenav2">
-    <a href="#">CANAIS SUGERIDOS</a>
-    <a href="#">Temáticas Sugeridas</a>
-
-  </div>
+  <app-cards></app-cards>
 </div>
-
-

@@ -1,79 +1,68 @@
-.channelPage{
-  display: flex;
-  flex-direction:column;
-  position: relative;
-  padding: 20px 180px 0 180px;
-  color: white;
+.channelPage{  
+  padding: 0 20px 20px 180px;
+  color: rgb(198,198,200);
 
-  .banner{      
+  .banner img{
+    position: static;
     width: 100%;
+    height: 180px;
+    -webkit-mask-image: linear-gradient(to top, transparent 5%, rgb(0, 0, 0) 20%); 
 
-    .bannerChannel{
-    width: 100%;
-    height: 220px;
-    border-radius: 10px;
-    -webkit-mask-image: linear-gradient(to top, transparent 5%, rgb(0, 0, 0) 20%);
-    } 
-    
     .informationBanner{
-      margin-left: 20px;
+      display: inline-block;
+      width: 100%;
+      padding-left: 200px;
     }
   }
 
-  .logoChannel{
-    position: absolute;
-    float: right;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    bottom: 60px;
-    right: 210px;
-    border: 3px solid white;
+  .logoChannel {
+    position: relative;
+
+    img {
+      position: absolute;
+      float: right;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      bottom: 80px;
+      right: 60px;
+      border: 3px solid white;
+    }
   }  
 }
   
-.main {  
-  position: relative;
-  padding-left: 180px; /* Same as the width of the sidenav */ 
-  color: #c6c6c8;
-  font-size: 12px;
+.cardPage {
+  width: 100%;
+  padding: 0 0 0 185px;
+  color: rgb(198,198,200);
 
-  .container {
-    display: inline-block;
-    // justify-content: space-between;
-    align-content: center;
-    margin: 0 35px 35px 0;
-    width: 300px;
-    height: 250px;
-    flex-wrap: wrap;
-    padding-right: 20px;
-    background-color: rgb(70, 70, 70);
-    border-radius: 10px;
-  }
+  .cards {  
+    display: inline-flex;
+    flex-direction: row;
+    position: relative;    
+    width: 28%;
+    height: 300px;
+    margin: 0 62px 62px 0;      
 
-  .thumbnail {
-    position: absolute;
-    max-width: 300px; 
-    min-width: 200px;  
-    padding: 0 35px 35px 0;
+    .informations{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      font-size: 15px;
+      background-color: rgb(28,28,36);
+      border-radius: 15px; 
 
-      img{
-        width: 300px;
-        height: 150px;
-        border-radius: 10px;
+      p {
+        margin-left: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
       }
 
-      .time {
-      margin-bottom: -60px;
-      border-radius: 7px;
-      background-color: black;
-      color: white;
-      font-size: smaller;
-      width: 40px;
-      height: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }   
+      img {
+        border-radius: 10px; 
+        width: 100%;
+        height: 220px; 
+      }
+    }  
+  }
 }

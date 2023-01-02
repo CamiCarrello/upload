@@ -1,12 +1,13 @@
 .container{
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: center; */
     position: relative;
     background-color: #13131a;
+    /* width: 100%; */
     .menuSideBar {
       height: 100%;
-      width: 160px;
+      width: 250px; /*mudou*/
       position: fixed;
       z-index: 1;
       top: 0;
@@ -15,18 +16,36 @@
       overflow-x: hidden;
       padding-top: 20px;
       }
-    .menuSideBar a {
+    .menuSideBar a, .tag, .tags {
       padding: 6px 8px 6px 16px;
       text-decoration: none;
-      font-size: 12px;
+      font-size: 20px;
       color: #606068;
       display: block;
       }
     .menuSideBar a:hover {
       color: #c0c0c2;
       }
+    .box {
+      display: flex;
+      flex-wrap: wrap;
+      .tags{
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 5px;
+        border: solid #606068 1px;
+        padding: 4px;
+        color: #c0c0c2;
+        margin: 4px;
+
+
+      }
+
+    }
+
     img {
       width: fit-content;
-      height: 40px;
+      height: 50px;
+      padding: 6px 8px 6px 16px;
     }
     }

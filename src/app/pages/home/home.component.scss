@@ -1,76 +1,88 @@
-.container{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: relative;
-  background-color: #13131a;
-  .sidenav1 {
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color:#1c1c24;
-    overflow-x: hidden;
-    padding-top: 20px;
-    }
-  .sidenav1 a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 12px;
-    color: #606068;
-    display: block;
-    }
-  .sidenav1 a:hover {
-    color: #c0c0c2;
-    }
-  .sidenav2 {
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: #13131a;
-    overflow-x: hidden;
-    padding-top: 20px;
-    }
-  .sidenav2 a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 12px;
-    color: #606068;
-    display: block;
-    }
-  .sidenav2 a:hover {
-      color:#c0c0c2;
-    }
-  .main {
-    margin-left: 160px; /* Same as the width of the sidenav */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 10px 10px;
-    color: #c6c6c8;
-    font-size: 12px;
-    }
-  @media screen and (max-height: 450px) {
-    .sidenav1 {padding-top: 15px;}
-    .sidenav1 a {font-size: 18px;}
-    .sidenav2 {padding-top: 15px;}
-    .sidenav2 a {font-size: 18px;}
-    }
-  .tags{
-    padding: 20px 12px;
-    font-size: 12px;
-    color: #606068;
 
+
+.cardPage {
+  color: rgb(198, 198, 200);
+  font-size: 12px;
+  padding: 5px 0 0 180px;
+  margin-bottom: 50px;
+  flex-grow: 2;
+  width: 80%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  .titlePage {
+    width: 90%;
+    color: rgb(198, 198, 200);
+    font-size: 12px;
+    padding: 5px 0 0 80px;
+    margin-bottom: 50px;
+    flex-grow: 2;
+    display: flex;
+    flex-wrap: wrap;
   }
 
- 
-  img{
-    width:100%;
-    padding: auto;
+
+
+  .cards {
+    display: inline-flex;
+    position: relative;
+    flex-direction: row;
+    flex-grow: 2;
+    height: 320px;
+    margin: 3px 5px 20px 75px;
+    width: 33.33%;
+    padding: 10px 10px;
+
+
+    .informations {
+      background-color: rgb(28, 28, 36);
+      width: 100%;
+      font-size: 12px;
+      border-radius: 10px;
+
+      p {
+        margin-left: 10px;
+      }
+
+      img {
+        /* border-radius: 10px;
+      width: 100%;
+       */
+        width: 100%;
+        border-radius: 12px;
+        height: 260px;
+      }
+
+    }
+
+    .bookmark {
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      padding: 15px;
+      width: 80px;
+      height: 60px;
+      display: flex;
+      cursor: pointer;
+      color: #606068;
+      font-size: 1.5em;
+    }
+
+
+    .share {
+      position: absolute;
+      bottom: -5px;
+      right: -8px;
+      padding: 15px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      cursor: pointer;
+      color: #606068;
+      font-size: 1.5em;
+
+    } 
+
   }
 }
-
-

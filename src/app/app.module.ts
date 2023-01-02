@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ChannelComponent } from './pages/channel/channel.component';
 import { MenuSideBarComponent } from './components/menu-side-bar/menu-side-bar.component';
-import { CardSuggestedChannelsComponent } from './components/card-suggested-channels/card-suggested-channels.component';
-import { CardSuggestedThemesComponent } from './components/card-suggested-themes/card-suggested-themes.component';
+import { CardsComponent } from './components/cards/cards.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PlaylistComponent } from './playlist/playlist.component';
+import { PlaylistComponent } from './pages/playlist/playlist.component';
+import { ThemesComponent } from './pages/themes/themes.component';
+import { ChannelListComponent } from './pages/channel-list/channel-list.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { VideoComponent } from './pages/video/video.component';
+
 
 @NgModule({
   declarations: [
@@ -18,15 +22,19 @@ import { PlaylistComponent } from './playlist/playlist.component';
     HomeComponent,
     ChannelComponent,
     MenuSideBarComponent,
-    CardSuggestedChannelsComponent,
-    CardSuggestedThemesComponent,
+    ThemesComponent,
+    CardsComponent,
     CommentsComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    ChannelListComponent,
+    VideoComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

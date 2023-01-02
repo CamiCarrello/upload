@@ -1,3 +1,24 @@
-* {
-  background-color: #13131a;
+.container{
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  
+  .sidebar{ // coluna 1
+    height: 100vh;
+    width: 250px;
+    color: white;
+    grid-area: 1/1/1/2;
+
+  }
+
+  .outlet{ // coluna 2
+    flex: 1;
+    height: 100vh;
+    background-color: yellow; //backgroud para testes
+    color: black;
+    
+    overflow: auto;
+    grid-area: 1/2/1/3;
+    
+
+  }
 }
