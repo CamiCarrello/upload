@@ -1,7 +1,79 @@
-.principal{
-    color: white;
-    display: flex;
-    flex-direction:column;
-    position: relative;
-    padding: 20px 180px 0 180px;
+h2 {
+    color: #f1f1f1;
+    font-size: 30px;
+    padding: 1%;
+    margin-bottom: -10px;
+}
+
+.cardPage {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: auto;
+    padding-left: 1%;
+    width: 85%;
+    /* Testando scss para colocar cards lado a lado
+    display: inline-block;
+    flex-wrap: wrap; */
+    /* Float four columns side by side */
+    /* color: white;
+    float: left;
+    padding: 20px 0 0 180px; */
+    /* padding: 0 10px; */
+
+    .playTitle {
+        .title {
+            font-size: 1.5em;
+        }
+    }
+
+    .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+    }
+
+    .informations {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        text-align: center;
+        /* width: 30%;
+        height: 320px; */
+
+        img {
+            border-radius: 10px;
+            width: 320px;
+            height: 260px;
+        }
+        p {
+            width: 320px;
+        }
+
+        video {
+            width: 320px;
+            height: 240px;
+            border-radius: 10px;
+        }
+    }
+
+    /* Remove extra left and right margins, due to padding */
+    .row {
+        margin: 0 -5px 10px -5px;
+        display: inline-block;
+        flex-wrap: wrap;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { UploadService } from 'src/app/services/upload.service';
-import { Channel } from 'src/app/services/upload.model';
-import { Video } from 'src/app/services/upload.model';
+import { Channel, Video, Themes } from 'src/app/services/upload.model';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-cards',
@@ -9,20 +10,41 @@ import { Video } from 'src/app/services/upload.model';
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
-  channels: Channel[] = [];
+  channelList: Channel[] = [];
   videos: Video[] = [];
+  suggested_theme: Themes = {} as Themes;
+  suggested_themes: Themes[] = [];
 
 
-  constructor(private upload: UploadService) { }
+
+
+  constructor(private upload: UploadService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.upload.getChannels().subscribe(channel => {
-      this.channels = channel;
-  })
 
-  this.upload.getVideos().subscribe(video => {
-    this.videos = video;
-  })
-}
 
+    this.upload.getThemes().subscribe(theme => {
+      this.suggested_themes = <Themes[]>theme;
+      this.suggested_theme = this.suggested_themes[0];
+
+      
+    })
+
+    this.upload.getChannelsList().subscribe(channel => {
+      this.channelList = channel;
+    })
+
+    this.upload.getVideos().subscribe(video => {
+      this.videos = video;
+    })
+
+
+
+
+
+
+
+
+
+  }
 }

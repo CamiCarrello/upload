@@ -1,0 +1,101 @@
+.container {
+    display: flex;
+    overflow: auto;
+
+    .player {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        height: 100vh;
+        width: 80%;
+
+        .title {
+            margin: 3% 10% 0 10%;
+        }
+
+        .tags {
+            margin: 1% 10%;
+            color: blue;
+            font-weight: bold;
+        }
+
+        .video {
+            display: flex;
+            justify-content: center;
+
+            iframe {
+                width: 100%;
+                height: 500px;
+                border-radius: 15px;
+                margin: 0 3%;
+            }
+        }
+
+        .user {
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            padding: 1% 5%;
+
+            .user-photo {
+                img {
+                    border-radius: 50%;
+                    height: 60px;
+                    width: 60px;
+                    border: 1px solid black;
+                }
+            }
+
+            .userInfo {
+                padding: 3% 3%;
+                display: flex;
+                flex-direction: column;
+
+                .user_name {
+                    margin-bottom: 13%;
+                }
+            }
+        }
+
+        .description {
+            display: flex;
+            justify-items: center;
+            width: 97%;
+            margin: 3% 3%;
+            padding: 2%;
+            border: 1px;
+            border-radius: 13px;
+            background-color: #1c1c24;
+            letter-spacing: 1px;
+            line-height: 1.5;
+        }
+
+        .comments {
+            display: flex;
+            margin-left: 3%;
+
+            .comment {
+                margin: 1% 3%;
+                padding: 10px;
+            }
+        }
+    }
+
+    /* .cards {
+        width: 250px;
+    } */
+}
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        grid-template-columns: 1fr;
+
+        p {
+            margin: 5%;
+        }
+    }
+
+    app-cards {
+        display: none;
+    }
+}

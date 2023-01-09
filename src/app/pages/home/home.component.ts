@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Video } from 'src/app/services/upload.model';
+import { Video, Channel } from 'src/app/services/upload.model';
 import { UploadService } from 'src/app/services/upload.service';
-import {faHomeUser} from '@fortawesome/free-solid-svg-icons';
-import {faBookmark} from '@fortawesome/free-regular-svg-icons';
-import {faShareSquare} from '@fortawesome/free-regular-svg-icons';
-
+import {faHomeUser, faShareNodes } from '@fortawesome/free-solid-svg-icons';
+import { faBookmark} from '@fortawesome/free-regular-svg-icons';
 
 
 
@@ -17,11 +15,12 @@ import {faShareSquare} from '@fortawesome/free-regular-svg-icons';
 export class HomeComponent implements OnInit {
 
   videos: Video[] = [];
+  channelList: Channel[] = [];
 
 
   faHomeUser = faHomeUser;
   faBookmark = faBookmark;
-  faShareSquare = faShareSquare;
+  faShareNodes = faShareNodes;
 
 
   constructor(private upload: UploadService) { }
@@ -30,6 +29,10 @@ export class HomeComponent implements OnInit {
     this.upload.getVideos().subscribe(video => {
       this.videos = video;
 })
+
+  this.upload.getChannelsList().subscribe(channel => {
+    this.channelList = channel;
+  })
 
 
 }

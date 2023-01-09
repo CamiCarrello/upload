@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Tag } from 'src/app/services/upload.model';
 import { UploadService } from 'src/app/services/upload.service';
-import {faHomeUser} from '@fortawesome/free-solid-svg-icons';
-import {faBarsStaggered} from '@fortawesome/free-solid-svg-icons';
-import {faClapperboard} from '@fortawesome/free-solid-svg-icons';
-import {faPlay} from '@fortawesome/free-solid-svg-icons';
+import { faHomeUser, faBarsStaggered, faPlay, faClapperboard } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
@@ -25,11 +23,13 @@ export class MenuSideBarComponent implements OnInit {
   constructor(private upload: UploadService) {
     this.upload.getTags().subscribe(tag => {
       this.tags = tag;
-      console.log("PASSEI AQUI")
+
   })
    }
 
   ngOnInit(): void {
+    // TODO document why this method 'ngOnInit' is empty
+
 
   }
 

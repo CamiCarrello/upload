@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UploadService } from 'src/app/services/upload.service';
 import { Channel } from 'src/app/services/upload.model';
 import { Video } from 'src/app/services/upload.model';
@@ -10,21 +11,27 @@ import { Video } from 'src/app/services/upload.model';
 })
 export class ChannelComponent implements OnInit {
 
-    channels: Channel[] = [];
+  channels: Channel[] = [];
+  channel: Channel = {} as Channel;
 
-    videos: Video[] = [];
-    @Input() field_media_image!: string;
-    @Input() author = '';
+  videos: Video[] = [];
+  video: Video = {} as Video;
 
-
-  constructor(private upload: UploadService) { }
+  constructor(private upload: UploadService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-     this.upload.getChannels().subscribe(channel => {
-        this.channels = channel;
+    let id_channel = this.route.snapshot.params['id_channel']
+    this.upload.getChannels(id_channel).subscribe(channel => {
+      this.channels = <Channel[]>channel;
+      this.channel = this.channels[0];
+      console.log(id_channel)
+
+      this.upload.getChannelVideos(id_channel).subscribe(channel => {
+        this.channels = <Channel[]>channel;
+        console.log(channel);
+        // this.video = this.videos[0];
+      })
     })
-    this.upload.getVideos().subscribe(video => {
-        this.videos = video;
-  })
-}
+    //  let id_channelVideo = this.route.snapshot.params['id_channelVideo']
+  }
 }

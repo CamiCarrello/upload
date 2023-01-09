@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UploadService } from 'src/app/services/upload.service';
+import { Themes } from 'src/app/services/upload.model';
 @Component({
   selector: 'app-themes',
   templateUrl: './themes.component.html',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThemesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private upload: UploadService) { }
+
+  themes: Themes[] = [];
 
   ngOnInit(): void {
+    this.upload.getThemes().subscribe(theme => {
+      this.themes = theme;
+  })
   }
 
 }
+

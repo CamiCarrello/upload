@@ -1,0 +1,17 @@
+<h2>Canais</h2>
+<div class="line">
+  <div *ngFor="let channel of channelList">
+    <div class="card">
+      <p class="cardName">{{ channel.channel_name }}</p>
+      <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}" class="card__image">      
+      <p class="cardAutor">Por: {{ channel.author }}</p>
+        <div class="videoInformations">
+          156 Vídeos
+        </div>      
+        <div class="commentInformations">
+          1012 Comentários
+        </div> 
+      <button class="btn draw-border" [routerLink]="['/channel/', channel.id]">IR PARA O CANAL</button>
+    </div>
+  </div>
+</div> 

@@ -1,20 +1,19 @@
 <div class="container">
   <div class="channels">
     <p class="title">Canais Sugeridos</p>
-    <div class="banner" *ngFor="let channel of channels">
+    <div class="banner" *ngFor="let channel of channelList">
       <div class="logoChannel">
         <img
           src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
-            channel.field_media_image
+            channel.user_photo
           }}"
+          alt="logo image"
         />
       </div>
-      <div class="informationBanner">
-        <p>{{ channel.author }}</p>
-      </div>
+      <p>{{ channel.author }}</p>
     </div>
     <div class="more">
-      <a routerLink="/channel" routerLinkActive="active" class="showMore">
+      <a routerLink="/channelList" routerLinkActive="active" class="showMore">
         <p><b>MOSTRAR MAIS</b></p>
       </a>
     </div>
@@ -23,24 +22,30 @@
   <div class="themes">
     <div class="title">
       <p>Temáticas Sugeridas</p>
-      <div class="titleSeeAll">
-        <a routerLink="/themes" routerLinkActive="active" class="seeAll">
-          <p><b>VER TODAS</b></p>
-        </a>
-      </div>
+      <a routerLink="/themes" routerLinkActive="active" class="seeAll">
+        <p><b>VER TODAS</b></p>
+      </a>
     </div>
-
-    <div class="banner" *ngFor="let channel of channels">
+    <div class="banner">
       <div class="logoChannel">
         <img
           src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
-            channel.field_media_image
+            suggested_theme.user
           }}"
+          alt="user image"
+        />
+        <p class="titleTheme">{{ suggested_theme.title }}</p>
+      </div>
+      <div class="headerChannel">
+
+        <img
+          src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
+            suggested_theme.header
+          }}"
+          alt="header image"
         />
       </div>
-      <div class="informationBanner">
-        <p>{{ channel.author }}</p>
-      </div>
+      <a routerLink="/themes" routerLinkActive="active" > </a>
     </div>
   </div>
 </div>

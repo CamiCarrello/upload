@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ChannelComponent } from './pages/channel/channel.component';
+import { ChannelListComponent } from './pages/channel-list/channel-list.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { MenuSideBarComponent } from './components/menu-side-bar/menu-side-bar.component';
 import { CommentsComponent } from './components/comments/comments.component';
@@ -21,6 +22,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppComponent,
     HomeComponent,
     ChannelComponent,
+    ChannelListComponent,
     MenuSideBarComponent,
     CardsComponent,
     CommentsComponent,

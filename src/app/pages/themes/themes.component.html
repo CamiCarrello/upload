@@ -1,1 +1,28 @@
-<p>themes works!</p>
+<div class="container">
+  <div class="themes">
+    <div class="title">
+      <h2>Temáticas</h2>
+    </div>
+    <div class="theme" *ngFor="let theme of themes">
+
+      <div class="header_photo">
+        <p>{{ theme.title }}</p>
+        <img
+          src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
+            theme.header
+          }}"
+          alt="header image"
+        />
+      </div>
+      <div class="user_photo">
+        <img
+          src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
+            theme.user
+          }}"
+          alt="logo image"
+        />
+      </div>
+
+    </div>
+  </div>
+</div>

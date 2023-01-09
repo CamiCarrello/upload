@@ -1,0 +1,45 @@
+.container {
+  .themes {
+    align-items: center;
+    margin-bottom: 60px;
+    padding: 0 5%;
+    justify-content: center;
+
+    .title {
+      font-size: 24px;
+    }
+
+    .theme {
+      position: relative;
+      width: 86%;
+
+      .header_photo {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        height: auto;
+        width: 80%;
+        border-radius: 50px;
+
+        img {
+          border-radius: 5%;
+        }
+      }
+
+      .user_photo img {
+        position: absolute;
+        bottom: 15px;
+        right: 220px;
+        padding: 15px;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      }
+
+    }
+  }
+}
