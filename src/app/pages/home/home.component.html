@@ -2,7 +2,7 @@
   <div class="titlePage">
     <h2>Últimos videos</h2>
   </div>
-  <div class="cards" *ngFor="let video of videos">
+  <div class="cards" *ngFor="let video of videos" [routerLink]="['video/'+ video.id]">
     <div class="informations">
       <img
         src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
@@ -17,7 +17,7 @@
       </a>
       <p>{{ video.title }}</p>
     </div>
-  
+
   </div>
 
   <app-cards></app-cards>

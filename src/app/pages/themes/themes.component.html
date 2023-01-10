@@ -4,7 +4,6 @@
       <h2>Temáticas</h2>
     </div>
     <div class="theme" *ngFor="let theme of themes">
-
       <div class="header_photo">
         <p>{{ theme.title }}</p>
         <img
@@ -13,16 +12,15 @@
           }}"
           alt="header image"
         />
+        <div class="user_photo">
+          <img
+            src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
+              theme.user
+            }}"
+            alt="logo image"
+          />
+        </div>
       </div>
-      <div class="user_photo">
-        <img
-          src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
-            theme.user
-          }}"
-          alt="logo image"
-        />
-      </div>
-
     </div>
   </div>
 </div>

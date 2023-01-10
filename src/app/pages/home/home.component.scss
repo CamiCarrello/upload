@@ -1,18 +1,18 @@
-.titlePage {
-  width: 70%;
-  color: rgb(198, 198, 200);
-  font-size: 12px;
-  padding-left: 20px;
-  margin-bottom: 50px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .cardPage {
   color: rgb(198, 198, 200);
   font-size: 12px;
   width: 86%;
   margin: auto;
+
+  .titlePage {
+    width: 70%;
+    color: rgb(198, 198, 200);
+    font-size: 12px;
+    padding-left: 20px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+  }
 
   .cards {
     display: inline-flex;

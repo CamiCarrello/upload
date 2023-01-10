@@ -73,7 +73,7 @@ export class VideoComponent implements OnInit {
         /*Para obter dados de date e converter*/
         let current_data: Date = new Date();
         let date2 = new Date(vid.created)
-        var Difference_In_Time = current_data.getTime() - date2.getTime();
+        let Difference_In_Time = current_data.getTime() - date2.getTime();
         let Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
         this.video.created = Difference_In_Days.toString();
         console.log(Difference_In_Days);

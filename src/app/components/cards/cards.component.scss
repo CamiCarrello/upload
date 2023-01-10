@@ -1,3 +1,10 @@
+/* :host {
+  width: 250px;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+} */
+
 .container {
   display: flex;
   flex-direction: column;
@@ -57,7 +64,7 @@
 
       .logoChannel img {
         border-radius: 50%;
-        height: auto;
+        height: 40px;
         width: 40px;
         margin-right: 10px;
         margin-left: 10px;
@@ -66,15 +73,7 @@
 
       }
 
-      .logoChannel {
-        display: flex;
-        align-items: center;
 
-
-
-
-
-      }
 
       .headerChannel img {
         width: 90%;

@@ -49,6 +49,7 @@ export interface Playlist {
     category: string;
     url_video: string;
     thumbnail: string;
+    id_video: string;
 }
 
 export interface TagsResponse {
