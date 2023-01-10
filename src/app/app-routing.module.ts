@@ -13,8 +13,9 @@ const routes: Routes = [
   { path: 'video/:id_video', component: VideoComponent },
   { path: 'channelList', component: ChannelListComponent },
   { path: 'channel/:id_channel', component: ChannelComponent },
+  { path: 'suggested_themes/:id_theme', component: ThemesComponent },
   { path: 'playlist', component: PlaylistComponent },
-  { path: 'thematic', component: ThemesComponent }
+  { path: 'themes', component: ThemesComponent }
 ];
 
 @NgModule({

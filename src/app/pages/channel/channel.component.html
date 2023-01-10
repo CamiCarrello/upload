@@ -1,22 +1,23 @@
-<div class="channelPage">
-  <div class="banner">
-    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{channel.banner}}">
-    <div class="informationBanner">
-      <p>{{ channel.author }}</p>
-      <p>Aqui entra uma descrição sobre o canal de fulano de tal.</p>
-    </div>
-  </div>
+<div class="banner">
+  <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.banner }}">
   <div class="logoChannel">
     <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}">
   </div>
 </div>
 
+<div class="informationBanner">
+  <h2><b>{{ channel.author }}</b></h2>
+  <p>Aqui entra uma descrição sobre o canal de fulano de tal.</p>
+</div>
+
+<h3>Vídeos</h3>
 <div class="cardPage">
-  <h2>Vídeos</h2>
-  <div class="cards" *ngFor="let video of videos">
+  <div class="cards" *ngFor="let channel of channels">
+    <!-- <pre>{{ channel | json}}</pre> -->
     <div class="informations">
-      <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}">
-      <p>{{ video.title }}</p>
+      <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.thumbnail }}">
+      <p>{{ channel.title }}</p>
+      <p>{{ channel.created }}</p>
     </div>
   </div>
 </div>

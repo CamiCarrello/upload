@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Video } from 'src/app/services/upload.model';
 import { UploadService } from 'src/app/services/upload.service';
-import { faHomeUser } from '@fortawesome/free-solid-svg-icons';
+import { faHomeUser, faShareNodes } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-import { faShareSquare } from '@fortawesome/free-regular-svg-icons';
-
 
 @Component({
   selector: 'app-home',
@@ -15,11 +13,9 @@ export class HomeComponent implements OnInit {
 
   videos: Video[] = [];
 
-
   faHomeUser = faHomeUser;
   faBookmark = faBookmark;
-  faShareSquare = faShareSquare;
-
+  faShareNodes = faShareNodes;
 
   constructor(private upload: UploadService) { }
 

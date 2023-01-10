@@ -1,13 +1,10 @@
-import { VideosResponse } from './../../services/upload.model';
-
 import { DomSanitizer } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UploadService } from 'src/app/services/upload.service';
-import { Channel } from 'src/app/services/upload.model';
-import { Video } from 'src/app/services/upload.model';
-
-
+import { Channel, Video, Comment } from 'src/app/services/upload.model';
+import { platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+import { ParseSourceFile } from '@angular/compiler';
 
 @Component({
   selector: 'app-video',
@@ -17,10 +14,15 @@ import { Video } from 'src/app/services/upload.model';
 export class VideoComponent implements OnInit {
 
   videos: Video[] = [];
-
   video: Video = {} as Video;
 
   channels: Channel[] = [];
+  channel: Channel = {} as Channel;
+
+  comments: Comment[] = [];
+
+  /* comment: Comment = {} as Comment; */
+  /* comment: Comment[] = []; */
 
   video_ready: boolean = false;
 
@@ -32,7 +34,6 @@ export class VideoComponent implements OnInit {
 
   ngOnInit(): void {
 
-
     this.upload.getVideos().subscribe(video => {
       this.videos = video;
       console.log(video)
@@ -42,41 +43,48 @@ export class VideoComponent implements OnInit {
     this.upload.getVideoPlayer(id_video).subscribe(video => {
       this.videos = <Video[]>video;
       this.video = this.videos[0];
-
       //mudei essa parte do código para poder mostra que "video" só tem uma posição pois o video recebe um video por vez!
-      /* this.video = video[0]; */
-      /* this.videos = this.videos[0]; */
       console.log(video);
-      /* console.log(id_video + ' estou aqui ****'); */
 
+      this.upload.getChannels(parseInt(this.video.channel)).subscribe(channel => {
+        this.channels = <Channel[]>channel;
+        this.channel = this.channels[0];
+      })
 
+      this.upload.getVideoComment(parseInt(id_video)).subscribe(comment => {
+        this.comments = <Comment[]>comment;
+        this.comments.forEach(comment => {
+          comment.name = comment.name.replaceAll('', "Anonymous")
+          console.log(comment.name);
+        })
+        /*  this.video.comment.toString= this.comments;; */
+        /* this.comment = this.comments; */
+        console.log(comment);
+        console.log('estou comentando aqui');
+      })
 
-      //************ Substitui a propriedade url_video *********** */
+      //************ Substitui a propriedade url_video, Tags *********** */
       this.videos.forEach(vid => {
         vid.url_video = vid.url_video.replace("watch?v=", "embed/");
+        vid.tags = vid.tags.replaceAll(",", " #");
+        console.log(vid.tags)
         console.log(vid.url_video)
 
-
-        /*Para obter dados de date*/
+        /*Para obter dados de date e converter*/
         let current_data: Date = new Date();
         let date2 = new Date(vid.created)
         var Difference_In_Time = current_data.getTime() - date2.getTime();
         let Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
         this.video.created = Difference_In_Days.toString();
         console.log(Difference_In_Days);
-
       });
 
       //************ transforma minha url em URLSAFE  ************* */
       this.videos.forEach(v => {
-        /* v.url = this.sanitizer.bypassSecurityTrustResourceUrl(v.url_video); */
-
-        //com a mudanção de mostra que video tem uma só posição, precisei refazer o sanitizer:
+        //com a mudanção de videos para video o novo array tem só uma posição, precisei refazer o sanitizer:
         this.video.url = this.sanitizer.bypassSecurityTrustResourceUrl(v.url_video);
-        /* console.log(v.url) */
-
-
-      })
+      });
+      
       this.video_ready = true;
     })
   }

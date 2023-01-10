@@ -1,38 +1,33 @@
+.titlePage {
+  width: 90%;
+  color: rgb(198, 198, 200);
+  font-size: 12px;
+  padding-left: 10px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .cardPage {
   color: rgb(198, 198, 200);
   font-size: 12px;
-  padding: 5px 0 0 180px;
   margin-bottom: 50px;
-  flex-grow: 2;
   width: 80%;
-  justify-content: center;
   display: flex;
+  flex: 1;
   flex-wrap: wrap;
-
-  .titlePage {
-    width: 90%;
-    color: rgb(198, 198, 200);
-    font-size: 12px;
-    padding: 5px 0 0 80px;
-    margin-bottom: 50px;
-    flex-grow: 2;
-    display: flex;
-    flex-wrap: wrap;
-  }
 
   .cards {
     display: inline-flex;
     position: relative;
-    flex-direction: row;
     flex-grow: 2;
-    height: 320px;
-    margin: 3px 5px 20px 75px;
+    margin: 3px 2px 10px 0;
     width: 33.33%;
     padding: 10px 10px;
 
     .informations {
       background-color: rgb(28, 28, 36);
-      width: 100%;
+      max-width: 100%;
       font-size: 12px;
       border-radius: 10px;
 
@@ -42,11 +37,10 @@
 
       img {
         /* border-radius: 10px;
-      width: 100%;
-       */
+      width: 100%; */
         width: 100%;
         border-radius: 12px;
-        height: 260px;
+        height: auto;
       }
     }
 
@@ -75,5 +69,19 @@
       color: #606068;
       font-size: 1.5em;
     }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .cardPage {
+    grid-template-columns: 1fr;
+
+    p {
+      margin: 5%;
+    }
+  }
+
+  app-cards {
+    display: none;
   }
 }

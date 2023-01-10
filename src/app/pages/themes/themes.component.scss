@@ -1,0 +1,43 @@
+h2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: rgb(198, 198, 200);
+}
+
+.themes {
+    color: rgb(198, 198, 200);
+    font-size: 12px;
+    align-items: center;
+    margin-bottom: 60px;
+    padding: 0 5%;
+    justify-content: center;
+
+    .header_photo {
+        width: 50%;
+        position: relative;
+
+        img {
+            width: 100%;
+            max-width: 300px;
+            top: -30px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 8px 0 #0000008a;
+        }
+
+        .user_photo img {
+            position: relative;
+            bottom: -15px;
+            right: -15px;
+            padding: 15px;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 0px 5px 8px 0 #0000008a;
+            width: 10%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+    }
+}

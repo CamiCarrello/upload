@@ -4,20 +4,15 @@
   </div>
   <div class="cards" *ngFor="let video of videos" [routerLink]="['video/'+ video.id]">
     <div class="informations">
-      <img
-        src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
-          video.thumbnail
-        }}"
-      />
+      <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}" alt="video image" />
       <a class="bookmark" href="">
         <fa-icon [icon]="faBookmark" class="faIcon"> </fa-icon>
       </a>
       <a class="share" href="">
-        <fa-icon [icon]="faShareSquare" class="faIcon"> </fa-icon>
+        <fa-icon [icon]="faShareNodes" class="faIcon"> </fa-icon>
       </a>
       <p>{{ video.title }}</p>
     </div>
   </div>
-
   <app-cards></app-cards>
 </div>

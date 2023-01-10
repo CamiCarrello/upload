@@ -1,5 +1,6 @@
 .container {
   /* display: flex;
+  flex-grow: 1;
   flex-direction: row;
   align-items: center; */
   position: relative;
@@ -8,6 +9,7 @@
 
   .menuSideBar {
     height: 100%;
+    // width: 14%;
     width: 250px; /*mudou*/
     position: fixed;
     z-index: 1;
@@ -16,6 +18,37 @@
     background-color: #1c1c24;
     overflow-x: hidden;
     padding-top: 20px;
+
+    img {
+      width: fit-content;
+      height: auto;
+      width: 100%;
+      padding: 6px 8px 6px 16px;
+    }
+
+    .logo {
+      border-bottom: 1px solid #272730;
+      padding-bottom: 10px;
+    }
+
+    .menuLine {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+
+      p {
+        font-size: 12px;
+        margin: 0;
+        color: #606068;
+      }
+
+      .faIcon {
+        width: 10%;
+        margin: 0;
+        color: #606068;
+      }
+    }
   }
 
   .menuSideBar a,
@@ -23,13 +56,26 @@
   .tags {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 10px;
     color: #606068;
     display: block;
+    display: flex;
   }
 
   .menuSideBar a:hover {
-    color: #c0c0c2;
+    color: #fafaf8;
+    border-left-style: solid;
+
+    p {
+      font-size: 12px;
+      margin: 0;
+      color: #fafaf8;
+    }
+    .faIcon {
+      width: 10%;
+      margin: 0;
+      color: #fafaf8;
+    }
   }
 
   .box {
@@ -43,13 +89,7 @@
       border: solid #606068 1px;
       padding: 4px;
       color: #c0c0c2;
-      margin: 4px;
+      margin: 6px;
     }
-  }
-
-  img {
-    width: fit-content;
-    height: 50px;
-    padding: 6px 8px 6px 16px;
   }
 }

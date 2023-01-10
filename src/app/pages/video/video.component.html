@@ -1,25 +1,33 @@
 <div class="container" *ngIf="video_ready">
     <div class="player">
-        <h1> {{ video.title }} </h1>
+        <h1 class="title"> {{ video.title }} </h1>
+        <span class="tags"> # {{video.tags}} </span>
         <div class="video">
             <iframe [src]="video.url " title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
         </div>
-        <div class="informations">
-            <div class="user">
-                <div class="user-photo">
-                    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.user_photo }}">
-                </div>
-                <div class="userInfo">
-                    <span class="user_name"> <strong>{{ video.user_name }} </strong></span>
-                    <span class="created"> Há {{ video.created }} dias. </span>
-                </div>
-            </div>
 
+        <div class="user">
+            <div class="user-photo">
+                <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}">
+            </div>
+            <div class="userInfo">
+                <span class="user_name"> <strong>{{ channel.author }} </strong></span>
+                <span class="created"> Há {{ video.created }} dias. </span>
+            </div>
+        </div>
+        <div class="description">
             <p> {{ video.description }} </p>
         </div>
-
+        <div class="comments" *ngFor="let c of comments">
+            <div class="comment-date">
+                <p> {{ c.name }} </p>
+                <!-- <p> {{ c.email }} </p> -->
+                <p> {{ c.comment }} </p>
+            </div>
+        </div>
     </div>
+
     <app-cards></app-cards>
 </div>

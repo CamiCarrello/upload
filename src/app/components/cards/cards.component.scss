@@ -1,11 +1,11 @@
 .container {
    display: flex;
    flex-direction: column;
-   top: 15px;
-   right: 15px;
-   width: 14%; //mudei essa linha para testes. by myca
+   margin-right: 25px;
+   top: 0;
+   right: 0;
+   width: 15%;
    padding-bottom: 10%;
-   margin-right: 1%; //acrecentei essa linha para testes. by myca
    position: absolute;
 
    .channels,
@@ -22,9 +22,15 @@
       border-bottom: white;
 
       .title {
-         border-bottom: 1px solid rgb(39, 39, 48);
+         //border-bottom: 1px solid rgb(39, 39, 48);
          padding-bottom: 10px;
          margin-left: 10px;
+         display: inline-flex;
+         text-decoration: none;
+
+         .seeMore {
+            text-decoration: none;
+         }
       }
 
       .banner {
@@ -42,6 +48,12 @@
             margin-left: 10px;
             border: 1px solid black;
          }
+            .header {
+               img {
+                  width: 190px;
+                  height: 40px;
+               }
+            }
       }
 
       .more {
@@ -57,38 +69,6 @@
          .showMore {
             text-decoration: none;
             color: rgb(245, 245, 247);
-         }
-      }
-   }
-
-   .themes {
-      background-color: rgb(28, 28, 36);
-      margin-top: 20px;
-      height: 60%;
-      color: rgb(245, 245, 247);
-      font-size: 12px;
-      border: 1px;
-      display: inline-block;
-      border-radius: 10px;
-      position: relative;
-      border-bottom: white;
-
-      .title {
-         border-bottom: 1px solid rgb(39, 39, 48);
-         padding-bottom: 8px;
-         margin-left: 10px;
-         display: flex;
-         flex-direction: row;
-         align-items: baseline;
-
-         .titleSeeAll {
-            font-size: 8px;
-            padding-left: 50px;
-
-            .seeAll {
-               text-decoration: none;
-               color: rgb(245, 245, 247);
-            }
          }
       }
    }

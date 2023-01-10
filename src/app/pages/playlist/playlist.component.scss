@@ -1,32 +1,31 @@
 h2 {
     color: #f1f1f1;
     font-size: 30px;
+    padding: 1%;
+    margin-bottom: -10px;
 }
 
 .cardPage {
-    padding-left: 150px;
     display: grid;
-    grid-template-columns: 300px 300px 300px;
-    grid-gap: 60px;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    /* Testando scss para colocar cards lado a lado
-  
-  display: inline-block;
-  flex-wrap: wrap; */
-
+    grid-template-columns: 1fr;
+    overflow: auto;
+    padding-left: 1%;
+    width: 85%;
+    /* Testando scss para colocar cards lado a lado  
+    display: inline-block;
+    flex-wrap: wrap; */
     /* Float four columns side by side */
-    color: white;
-    float: left;
-    width: auto;
-    padding: 20px 0 0 180px;
+    /* color: white;
+    float: left;    
+    padding: 20px 0 0 180px; */
     /* padding: 0 10px; */
+
     .playTitle {
         .title {
-            font-size: 2em;
+            font-size: 1.5em;
         }
     }
+
     .column {
         float: left;
         width: 25%;
