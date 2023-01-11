@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadService } from 'src/app/services/upload.service';
 import { Channel } from 'src/app/services/upload.model';
-import { ActivatedRoute } from '@angular/router';
-// import { Video } from 'src/app/services/upload.model';
 
 @Component({
   selector: 'app-channel-list',
@@ -11,16 +9,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ChannelListComponent implements OnInit {
 
-  channelList: Channel [] = [];
+  channelList: Channel[] = [];
 
-  // videos: Video [] = [];  
-
-  constructor(private upload: UploadService, private route: ActivatedRoute) { }
+  constructor(private upload: UploadService) { }
 
   ngOnInit(): void {
     this.upload.getChannelsList().subscribe(channel => {
       this.channelList = channel;
-      console.log(channel)
     })
   }
 }

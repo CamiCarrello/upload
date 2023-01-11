@@ -8,9 +8,11 @@ export interface Channel {
     id: string;
     channel_name: string;
     author: string;
-    category:string;
-    field_media_image: string;
-    field_media_image_1: string;
+    category: string;
+    user_photo: string;
+    banner: string;
+    title: string;
+    thumbnail: string;
 }
 
 
@@ -34,8 +36,8 @@ export interface Video {
     comment_count: string;
     url: SafeResourceUrl;
     created: string;
-    user_name: string;
-    user_photo: string;
+    //user_name: string; //vai sair
+    //user_photo: string; //vai sair
 }
 export interface PlaylistResponse {
     data: Playlist[];
@@ -59,9 +61,7 @@ export interface TagsResponse {
 }
 
 export interface ThemesResponse {
-    data: Themes[];
-
-    
+    data: Themes[];   
 }
 export interface Themes {
     id: string;
@@ -69,4 +69,16 @@ export interface Themes {
     tags: string;
     user: string;
     header: string;
+}
+
+export interface CommentsResponse {
+    data: Comment[];
+}
+export interface Comment {
+    name: string;
+    email: string;
+    comment: string;
+    user_name: string;
+    user_photo: string;
+    created: string;
 }

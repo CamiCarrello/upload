@@ -1,51 +1,95 @@
-.container{
-    /* display: flex;
-    flex-direction: row;
-    align-items: center; */
-    position: relative;
-    background-color: #13131a;
-    /* width: 100%; */
-    .menuSideBar {
-      height: 100%;
-      width: 250px; /*mudou*/
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      background-color:#1c1c24;
-      overflow-x: hidden;
-      padding-top: 20px;
-      }
-    .menuSideBar a, .tag, .tags {
-      padding: 6px 8px 6px 16px;
-      text-decoration: none;
-      font-size: 20px;
-      color: #606068;
-      display: block;
-      }
-    .menuSideBar a:hover {
-      color: #c0c0c2;
-      }
-    .box {
-      display: flex;
-      flex-wrap: wrap;
-      .tags{
-        display: flex;
-        flex-wrap: wrap;
-        border-radius: 5px;
-        border: solid #606068 1px;
-        padding: 4px;
-        color: #c0c0c2;
-        margin: 4px;
+.container {
+  /* display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  align-items: center; */
+  position: relative;
+  background-color: #13131a;
+  /* width: 100%; */
 
-
-      }
-
-    }
+  .menuSideBar {
+    height: 100%;
+    // width: 14%;
+    width: 250px; /*mudou*/
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1c1c24;
+    overflow-x: hidden;
+    padding-top: 20px;
 
     img {
       width: fit-content;
-      height: 50px;
+      height: auto;
+      width: 100%;
       padding: 6px 8px 6px 16px;
     }
+
+    .logo {
+      border-bottom: 1px solid #272730;
+      padding-bottom: 10px;
     }
+
+    .menuLine {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+
+      p {
+        font-size: 12px;
+        margin: 0;
+        color: #606068;
+      }
+
+      .faIcon {
+        width: 10%;
+        margin: 0;
+        color: #606068;
+      }
+    }
+  }
+
+  .menuSideBar a,
+  .tag,
+  .tags {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 10px;
+    color: #606068;
+    display: block;
+    display: flex;
+  }
+
+  .menuSideBar a:hover {
+    color: #fafaf8;
+    border-left-style: solid;
+
+    p {
+      font-size: 12px;
+      margin: 0;
+      color: #fafaf8;
+    }
+    .faIcon {
+      width: 10%;
+      margin: 0;
+      color: #fafaf8;
+    }
+  }
+
+  .box {
+    display: flex;
+    flex-wrap: wrap;
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 5px;
+      border: solid #606068 1px;
+      padding: 4px;
+      color: #c0c0c2;
+      margin: 6px;
+    }
+  }
+}

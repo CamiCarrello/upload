@@ -1,21 +1,26 @@
 <div class="container">
   <div class="menuSideBar">
-    <img src="./../../../assets/imgs/upload_logo.png" alt="logoUpLoad" />
-    <a href="">Início</a>
-    <a routerLink="/channelList" routerLinkActive="active">Canais</a>
-    <a routerLink="/thematic" routerLinkActive="active">Temáticas</a>
-    <a routerLink="/playlist" routerLinkActive="active">Playlists</a>
+    <img src="./../../../assets/imgs/logo.png" alt="logoUpLoad" class="logo" />
+
+    <a class="menuLine" href="">
+      <fa-icon [icon]="faHomeUser" class="faIcon"> </fa-icon>
+      <p>Início</p>
+    </a>
+    <a class="menuLine" routerLink="/channelList" routerLinkActive="active">
+      <fa-icon [icon]="faBarsStaggered" class="faIcon"> </fa-icon>
+      <p>Canais</p>
+    </a>
+    <a class="menuLine" routerLink="/themes" routerLinkActive="active">
+      <fa-icon [icon]="faClapperboard" class="faIcon"> </fa-icon>
+      <p>Temáticas</p>
+    </a>
+    <a class="menuLine" routerLink="/playlist" routerLinkActive="active">
+      <fa-icon [icon]="faPlay" class="faIcon"> </fa-icon>
+      <p>Playlists</p>
+    </a>
     <p class="tag">TAGS</p>
     <div class="box">
-    <p class="tags">gamers</p>
-    <p class="tags">freefire</p>
-    <p class="tags">live</p>
-    <p class="tags">games</p>
-    <p class="tags">playstation</p>
-    <p class="tags">delicius</p>
+      <p class="tags" *ngFor="let tag of tags">{{ tag.name }}</p>
     </div>
-
-
-
   </div>
 </div>

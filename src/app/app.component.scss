@@ -1,21 +1,20 @@
+
 .container{
   display: grid;
-  grid-template-columns: 1fr 9fr;
+  grid-template-columns: 1fr 6fr; //com 9fr o conteúdo das paginas estavam vazando
   
   .sidebar{ // coluna 1
     height: 100vh;
     width: 250px;
     color: white;
     grid-area: 1/1/1/2;
-
   }
 
   .outlet{ // coluna 2
     flex: 1;
     height: 100vh;
-    background-color: yellow; //backgroud para testes
-    color: black;
-    
+    background-color: #13131a;
+    color: #fafafb;
     overflow: auto;
     grid-area: 1/2/1/3;
     

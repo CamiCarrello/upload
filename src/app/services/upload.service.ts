@@ -19,16 +19,27 @@ export class UploadService {
   }
   getVideoPlayer(id_video: number) {
 
-    return this.http.get(BASE_URL + "video/" + id_video);
+    return this.http.get<Video[]>(BASE_URL + "video/" + id_video);
+  }
+  getVideoComment(id_video: number){
+
+    /* console.log(BASE_URL + "comment/video/" + id_comment); */
+    return this.http.get(BASE_URL + "comment/video/" + id_video);
+    
   }
 
   getChannelsList() {
-    return this.http.get<Channel[]>(BASE_URL + "channel");
+    return this.http.get<Channel[]>(BASE_URL + "channels");
   }
 
-  getChannels(id_channel: string) {
+  getChannels(id_channel: number) {
     return this.http.get<Channel[]>(BASE_URL + "channel/" + id_channel);
   }
+
+  getChannelVideos(id_channel: number) {
+    return this.http.get<Video[]>(BASE_URL + "channel/videos/" + id_channel);
+  }
+
   getPlaylist() {
     return this.http.get<Playlist[]>(BASE_URL + "playlist");
   }
@@ -40,7 +51,11 @@ export class UploadService {
   getTags() {
     return this.http.get<Tag[]>(BASE_URL + "tags");
   }
-  getThematic() {
+  getThemes() {
     return this.http.get<Themes[]>(BASE_URL + "thematic-article");
+  }
+
+  getSuggestedThemes(id_theme: number) {
+    return this.http.get(BASE_URL + "thematic-article/" + id_theme);
   }
 }

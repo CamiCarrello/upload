@@ -1,17 +1,11 @@
-<div class="container">
+<div class="container" [ngClass]="'type-'+type">
   <div class="channels">
     <p class="title">Canais Sugeridos</p>
-    <div class="banner" *ngFor="let channel of channels">
+    <div class="banner" *ngFor="let channel of channelList">
       <div class="logoChannel">
-        <img
-          src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
-            channel.field_media_image
-          }}"
-        />
+        <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{  channel.user_photo }}" alt="logo image" />
       </div>
-      <div class="informationBanner">
-        <p>{{ channel.author }}</p>
-      </div>
+      <p>{{ channel.author }}</p>
     </div>
     <div class="more">
       <a routerLink="/channel" routerLinkActive="active" class="showMore">
@@ -23,24 +17,19 @@
   <div class="themes">
     <div class="title">
       <p>Temáticas Sugeridas</p>
-      <div class="titleSeeAll">
-        <a routerLink="/themes" routerLinkActive="active" class="seeAll">
-          <p><b>VER TODAS</b></p>
-        </a>
-      </div>
+      <a routerLink="/themes" routerLinkActive="active" class="seeMore"></a>
+        <p><b>VER TODAS</b></p>
     </div>
-
-    <div class="banner" *ngFor="let channel of channels">
+    <div class="banner">
       <div class="logoChannel">
-        <img
-          src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
-            channel.field_media_image
-          }}"
-        />
+        <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ suggested_theme.user }}" alt="user image" />
       </div>
-      <div class="informationBanner">
-        <p>{{ channel.author }}</p>
+      <div class="header">
+        <p class="title">{{ suggested_theme.title }}</p>
+        <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ suggested_theme.header }}"
+          alt="header image" />
       </div>
+      <a routerLink="/themes" routerLinkActive="active" class="seeAll"> </a>
     </div>
   </div>
 </div>

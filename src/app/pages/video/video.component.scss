@@ -1,9 +1,8 @@
-.container{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    background-color: pink;
+.container {
+    display: flex;
     overflow: auto;
-    .player{
+
+    .player {
         display: flex;
         flex: 1;
         flex-direction: column;
@@ -11,71 +10,175 @@
         height: 100vh;
         width: 100%;
 
-        .video{
+        .title {
+            margin: 3% 10% 0 10%;
+        }
+
+        .tags {
+            margin: 1% 10%;
+            color: blue;
+            font-weight: bold;
+        }
+
+        .video {
             display: flex;
             justify-content: center;
-            iframe{
-            width: 700px;
-            height: 500px;
-            border-radius: 15px;
-            } 
+            align-content: center;
+            width: 100%;
+            margin: auto;
+            padding-top: 56.25%;
+            position: relative;
+            /* border: 1px solid green; */
+
+            /* Different Aspect Ratio's
+                padding-top: 56.25%; 16:9 Aspect Ratio
+                padding-top: 75%; 4:3 Aspect Ratio
+                padding-top: 62.5%; 8:5 Aspect Ratio
+                padding-top: 100%; 1:1 Aspect Ratio
+            */
+
+            iframe {
+             /* border-radius: 15px;
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0; 
+                height: 80%;
+                width: 90%;
+                padding: 20px;*/
+
+                border-radius: 15px;
+                position: absolute;
+                top: 3%;
+                left: 5%;
+                height: 80%;
+                width: 90%;
+            }
         }
-        p, h1{
-            margin: 3% 10%;
-        }
-        .informations{
-            font-size: 1.1em;
-            .user{
+
+        .user {
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            justify-items: center;
+            padding: 0 5%;
+
+            font-family: poppins;
+            font-weight: 300;
+            line-height: 25px;
+            letter-spacing: 0.2px;
+            color: #FAFAFB;
+
+            .user-photo {
+                img {
+                    border-radius: 50%;
+                    height: 70px;
+                    width: 70px;
+                    border: 1px solid black;
+                }
+
+            }
+
+            .userInfo {
+                padding: 2% 1%;
                 display: flex;
-                justify-items: center;
-                align-items: center;
-                padding: 1% 5%;
-                .user-photo{
-                    img{
+                flex-direction: column;
+
+                .user_name {
+                    margin-bottom: 13%;
+                }
+
+            }
+        }
+
+        .description {
+            display: flex;
+            justify-items: center;
+            width: 100%;
+            align-items: center;
+            justify-items: center;
+            padding: 0 5%;
+            
+            .desc {
+                
+                padding: 0 5%;
+                border: 1px;
+                border-radius: 13px;
+                background-color: #1c1c24;
+                font-family: poppins;
+                font-weight: 300;
+                line-height: 25px;
+                letter-spacing: 0.2px;
+                text-align: justify;
+                color: #FAFAFB;
+            }
+
+        }
+
+        .comments {
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            padding: 1% 5%;
+
+            .com-img {
+                
+                img {
+                    margin: 3% 3%;
                     border-radius: 50%;
                     height: 60px;
                     width: 60px;
-                    
                     border: 1px solid black;
                 }
-                    
+
+            }
+
+            .com-info {
+                font-family: poppins;
+                font-weight: 300;
+                line-height: 25px;
+                letter-spacing: 0.1px;
+                text-align: justify;
+                padding: 1% 3%;
+                color: #FAFAFB;
+                .cread-comm{
+                   color: #92929D; 
+                }
+                .commen-p{
+                    letter-spacing: 0.2px;
                 }
                 
-                .userInfo{
-                    padding: 3% 3%;
-                    display: flex;
-                    flex-direction: column;
-                    .user_name{
-                        margin-bottom: 13%;
-                    }
+                
 
-                }
+                
             }
-            
+
         }
-       
+
     }
 
-    /* .cards{
-        width: 120px;
-        background-color: aqua;
+    /* .cards {
+        width: 250px;
     } */
-    
+
 }
 
 @media only screen and (max-width: 1200px) {
-    .container{
+    .container {
         grid-template-columns: 1fr;
-        p{
+
+        p {
             margin: 5%;
         }
     }
-    
-    app-cards{
+
+    app-cards {
         display: none;
     }
-    
-    
+
+
 
 }
-

@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'channelList', component: ChannelListComponent},
   {path: 'channel/:id_channel', component: ChannelComponent},  
   {path: 'playlist', component: PlaylistComponent},
-  {path: 'thematic', component: ThemesComponent}
+  {path: 'themes', component: ThemesComponent}
 
 ];
 
