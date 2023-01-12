@@ -14,6 +14,8 @@ export interface Channel {
     title: string;
     thumbnail: string;
     created: string;
+    title_video: string;
+    id_video: string;
 }
 
 export interface VideosResponse {
@@ -36,6 +38,8 @@ export interface Video {
     comment_count: string;
     url: SafeResourceUrl;
     created: string;
+    field_time_video: string;
+    channel_name: string;
     user_name: string; //vai sair
     user_photo: string; //vai sair
 }
@@ -69,6 +73,7 @@ export interface Themes {
     tags: string;
     user: string;
     header: string;
+    text_teaser: string;
 }
 
 export interface CommentsResponse {
@@ -76,6 +81,11 @@ export interface CommentsResponse {
 }
 export interface Comment {
     name: string;
+    nome: string;
     email: string;
     comment: string;
+    comment_body: string;
+    user_name: string;
+    user_photo: string;
+    created: string;
 }

@@ -12,14 +12,27 @@
 
 <h3>Vídeos</h3>
 <div class="cardPage">
-  <div class="cards" *ngFor="let channel of channels">
+  <div class="cards" *ngFor="let channel of channels" [routerLink]="['/video/' + channel.id_video]">
     <!-- <pre>{{ channel | json}}</pre> -->
     <div class="informations">
       <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.thumbnail }}">
-      <p>{{ channel.title }}</p>
-      <p>{{ channel.created }}</p>
+      <p>{{ video.field_time_video }}</p>
+      <div class="textInformation">
+        <span class="tags"> # {{video.tags}} </span>
+        <p id="title">{{ channel.title_video }}</p>
+        <p id="createdDate">Há {{ channel.created | diasPassados }} dias</p>
+      </div>
     </div>
   </div>
 </div>
 
-<div><app-comments></app-comments></div>
+<div class="comments" *ngFor="let c of comments">
+  <div class="com-img">
+    <img src="{{ c.user_photo }}">
+  </div>
+  <div class="com-info">
+    <span> <strong> {{ c.nome }} </strong></span>
+    <span class="cread-comm"> Há {{ c.created | diasPassados }} dias. </span>
+    <p class="commen-p"> {{ c.comment_body }} </p>
+  </div>
+</div>

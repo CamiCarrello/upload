@@ -24,9 +24,12 @@ export class UploadService {
     return this.http.get(BASE_URL + "video/" + id_video);
   }
 
-  getVideoComment(id_video: number){
-    /* console.log(BASE_URL + "comment/video/" + id_comment); */
-    return this.http.get(BASE_URL + "comment/video/" + id_video);    
+  getVideoComment(id_video: number) {
+    return this.http.get(BASE_URL + "comment/video/" + id_video);
+  }
+
+  getCommentChannel(id_channel: number) {
+    return this.http.get(BASE_URL + "comment/channel/" + id_channel);
   }
 
   getChannelsList() {

@@ -4,11 +4,10 @@
 
     .player {
         display: flex;
-        flex: 1;
         flex-direction: column;
         align-content: center;
         height: 100vh;
-        width: 100%;
+        width: 80%;
 
         .title {
             margin: 3% 10% 0 10%;

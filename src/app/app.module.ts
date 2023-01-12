@@ -14,6 +14,7 @@ import { ThemesComponent } from './pages/themes/themes.component';
 import { ChannelListComponent } from './pages/channel-list/channel-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VideoComponent } from './pages/video/video.component';
+import { DiasPassadosPipe } from './dias-passados.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { VideoComponent } from './pages/video/video.component';
     PlaylistComponent,
     ChannelListComponent,
     VideoComponent,
+    DiasPassadosPipe,
   ],
 
   imports: [

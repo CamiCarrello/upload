@@ -1,16 +1,11 @@
 .container {
-  /* display: flex;
-  flex-grow: 1;
-  flex-direction: row;
-  align-items: center; */
   position: relative;
   background-color: #13131a;
-  /* width: 100%; */
+  width: 100%;
 
   .menuSideBar {
     height: 100%;
-    // width: 14%;
-    width: 250px; /*mudou*/
+    width: 250px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -20,22 +15,22 @@
     padding-top: 20px;
 
     img {
-      width: fit-content;
+      width: 80%;
       height: auto;
-      width: 100%;
-      padding: 6px 8px 6px 16px;
+      margin: 6px 30px 10px 25px;
+      
     }
 
-    .logo {
+    .line {
       border-bottom: 1px solid #272730;
-      padding-bottom: 10px;
     }
 
-    .menuLine {
+    .menuLine {      
       width: 100%;
       display: flex;
       flex-direction: row;
       align-items: baseline;
+      margin-top: 10px;
 
       p {
         font-size: 12px;

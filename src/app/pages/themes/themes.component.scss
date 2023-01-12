@@ -1,43 +1,41 @@
-h2 {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    color: rgb(198, 198, 200);
-}
+.container {
+    .themes {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 60px;
+        padding: 0 5%;
 
-.themes {
-    color: rgb(198, 198, 200);
-    font-size: 12px;
-    align-items: center;
-    margin-bottom: 60px;
-    padding: 0 5%;
-    justify-content: center;
-
-    .header_photo {
-        width: 50%;
-        position: relative;
-
-        img {
-            width: 100%;
-            max-width: 300px;
-            top: -30px;
-            border-radius: 12px;
-            box-shadow: 0px 5px 8px 0 #0000008a;
+        .title {
+            font-size: 24px;
         }
 
-        .user_photo img {
-            position: relative;
-            bottom: -15px;
-            right: -15px;
-            padding: 15px;
-            border-radius: 50%;
-            background-color: white;
-            box-shadow: 0px 5px 8px 0 #0000008a;
-            width: 10%;
-            height: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+        .theme {
+            width: 100%;
+
+            .header_photo {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                border-radius: 50px;
+
+                img {
+                    border-radius: 5%;
+                }
+            }
+
+            .user_photo img {
+                position: absolute;
+                bottom: 15px;
+                right: 30px;
+                padding: 15px;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
         }
     }
 }

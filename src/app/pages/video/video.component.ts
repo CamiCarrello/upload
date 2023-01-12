@@ -53,9 +53,9 @@ export class VideoComponent implements OnInit {
 
       this.upload.getVideoComment(parseInt(id_video)).subscribe(comment => {
         this.comments = <Comment[]>comment;
-        this.comments.forEach(comment => {
-          comment.name = comment.name.replaceAll('', "Anonymous")
-          console.log(comment.name);
+        this.comments.forEach(c => {
+          c.name = c.name.replaceAll('', "Anonymous")
+          console.log(c.name);
         })
         /*  this.video.comment.toString= this.comments;; */
         /* this.comment = this.comments; */
@@ -73,7 +73,7 @@ export class VideoComponent implements OnInit {
         /*Para obter dados de date e converter*/
         let current_data: Date = new Date();
         let date2 = new Date(vid.created)
-        var Difference_In_Time = current_data.getTime() - date2.getTime();
+        let Difference_In_Time = current_data.getTime() - date2.getTime();
         let Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
         this.video.created = Difference_In_Days.toString();
         console.log(Difference_In_Days);
@@ -83,8 +83,8 @@ export class VideoComponent implements OnInit {
       this.videos.forEach(v => {
         //com a mudanção de videos para video o novo array tem só uma posição, precisei refazer o sanitizer:
         this.video.url = this.sanitizer.bypassSecurityTrustResourceUrl(v.url_video);
-      });
-      
+      })
+
       this.video_ready = true;
     })
   }
