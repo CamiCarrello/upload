@@ -1,20 +1,12 @@
-:host {
+/* :host {
    width: 250px;
    background-color: yellow;
    overflow: auto;
    display: flex;
    justify-content: center;
- }
-
+ } */
 .container {
-   /* display: flex;
-   flex-direction: column;
-   margin-right: 25px;
-   top: 15px;
-   right: 15px;
-   width: 15%;
-   padding-bottom: 10%;
-   position: absolute; */
+   
       display: flex;
       flex-direction: column;
       width: 230px;
@@ -22,9 +14,9 @@
       align-items: center;
       background-color: palevioletred;
 
-   &.type-video {
+  /*  &.type-video {
       background-color: aquamarine;
-   }
+   } */
 
    .channels,
    .themes {

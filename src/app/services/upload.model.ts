@@ -36,8 +36,8 @@ export interface Video {
     comment_count: string;
     url: SafeResourceUrl;
     created: string;
-    //user_name: string; //vai sair
-    //user_photo: string; //vai sair
+    channel_name: string;
+    
 }
 export interface PlaylistResponse {
     data: Playlist[];
@@ -81,4 +81,14 @@ export interface Comment {
     user_name: string;
     user_photo: string;
     created: string;
+}
+
+export interface PostComment {
+    entity_id: [{[key: string]: number}]
+    entity_type:[{[key: string]: string}]
+    comment_type:[{[key: string]: string}]
+    field_name:[{[key: string]: string}]
+    field_email_video:[{[key: string]: string}]
+    field_nome_comment_video:[{[key: string]: string}]
+    comment_body:[{[key: string]: string}]
 }

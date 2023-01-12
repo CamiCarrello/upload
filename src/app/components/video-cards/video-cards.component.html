@@ -1,5 +1,13 @@
 <div class="container">
     <div class="videos" *ngFor="let video of videos">
-        {{video.title}}
+        <div class="thumbnail">
+            <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{  video.thumbnail }}" alt="" />
+        </div>
+        <div class="info-video">
+            <p> {{  video.channel_name }}</p>
+            <p> {{ video.title }} </p>
+            <span> Há {{ video.created | diasPassados }} dias. </span>
+        </div>
+        
     </div>
 </div>

@@ -1,0 +1,28 @@
+:host {
+    width: 250px;
+    background-color: yellow;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    position: absolute;
+    align-items: center;
+    background-color: palevioletred;
+    .videos{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        .thumbnail{
+        
+        
+            img{
+                width: 100%;
+
+            }    
+        }    
+    }
+}

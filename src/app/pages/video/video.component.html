@@ -23,6 +23,12 @@
             </div>
             
         </div>
+        <div class="post-comment">
+            <input type="text" [(ngModel)]="autor_comentario">
+            <input type="text" [(ngModel)]="autor_email">
+            <textarea type="text" [(ngModel)]="post_comment_body"></textarea>
+            <button (click)="enviarComentario()">Enviar Comentário</button>
+        </div>
         <div class="comments" *ngFor="let c of comments">
             <div class="com-img">
                 <img src="{{ c.user_photo }}">

@@ -12,9 +12,20 @@ import { Channel, Video, Comment } from 'src/app/services/upload.model';
 export class VideoComponent implements OnInit {
   video?: Video;
 
+  id_video! : number
+
   channel?: Channel = undefined;
 
   comments: Comment[] = [];
+
+  autor_comentario : string = ""
+  autor_email : string = ""
+  post_comment_body : string = ""
+
+  public enviarComentario() {
+    console.log(this.autor_comentario, this.autor_email, this.post_comment_body);
+    this.upload.postComment(this.id_video, this.autor_comentario, this.autor_email, this.post_comment_body);
+  }
 
   constructor(
     private upload: UploadService,
@@ -23,17 +34,16 @@ export class VideoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let id_video = this.route.snapshot.params['id_video'];
-    this.upload.getVideoPlayer(id_video).subscribe(videos => {
+    this.id_video = parseInt(this.route.snapshot.params['id_video']);
+    this.upload.getVideoPlayer(this.id_video).subscribe(videos => {
       let video = videos[0];
-      //mudei essa parte do código para poder mostra que "video" só tem uma posição pois o video recebe um video por vez!
       console.log(this.video);
 
       this.upload.getChannels(parseInt(video.channel)).subscribe(channel => {
         this.channel = channel[0];
       })
 
-      this.upload.getVideoComment(parseInt(id_video)).subscribe(comment => {
+      this.upload.getVideoComment(this.id_video).subscribe(comment => {
         this.comments = <Comment[]>comment;
         this.comments.forEach(c => {
           if (c.name === "") {
@@ -43,14 +53,7 @@ export class VideoComponent implements OnInit {
             c.user_photo = "https://dev-project-upskill-grupo02.pantheonsite.io" + c.user_photo;
           }
           console.log(c.name);
-
-          /*Para obter dados de date e converter*/
-          /* let current_data_comment: Date = new Date();
-          let date_comment = new Date(c.created)
-          let Difference_In_Time_comment = current_data_comment.getTime() - date_comment.getTime();
-          let Difference_In_Days_comment = Math.round(Difference_In_Time_comment / (1000 * 3600 * 24));
-          c.created = Difference_In_Days_comment.toString();
-          console.log(Difference_In_Days_comment); */
+          
         })
         console.log(comment);
         console.log('estou comentando aqui');
@@ -63,19 +66,11 @@ export class VideoComponent implements OnInit {
       console.log(video.tags)
       console.log(video.url_video)
 
-      /*Para obter dados de date e converter*/
-      /* let current_data: Date = new Date();
-      let date2 = new Date(video.created)
-      let Difference_In_Time = current_data.getTime() - date2.getTime();
-      let Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
-      video.created = Difference_In_Days.toString();
-      console.log(Difference_In_Days); */
-
       //************ transforma minha url em URLSAFE  ************* */
 
       video.url = this.sanitizer.bypassSecurityTrustResourceUrl(video.url_video);
 
-      this.video= video;
+      this.video = video;
     })
   }
 }
