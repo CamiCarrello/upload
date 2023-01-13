@@ -81,11 +81,9 @@ export interface CommentsResponse {
 }
 export interface Comment {
     name: string;
-    nome: string;
     email: string;
     comment: string;
-    comment_body: string;
+    created: string;
     user_name: string;
     user_photo: string;
-    created: string;
 }

@@ -23,47 +23,40 @@ export class ChannelComponent implements OnInit {
 
   ngOnInit(): void {
     let id_channel = this.route.snapshot.params['id_channel']
-    let id_video = this.route.snapshot.params['id_video'];
     this.upload.getChannels(parseInt(id_channel)).subscribe(channel => {
       this.channels = <Channel[]>channel;
       this.channel = this.channels[0];
-      // console.log(id_channel)
 
       this.upload.getChannelVideos(parseInt(id_channel)).subscribe(channel => {
         this.channels = <Channel[]>channel;
-        // console.log(channel);
-      })
-
-      this.upload.getVideos().subscribe(video => {
-        this.videos = video;
-      })
+      });
 
       this.upload.getCommentChannel(parseInt(id_channel)).subscribe(comment => {
         this.comments = <Comment[]>comment;
-        this.comments.forEach(c => {
-          if (c.nome === "") {
-            c.nome = c.nome.replaceAll('', "Anonymous")
-            c.user_photo = "../../../assets/imgs/anonymous.jpg";
+        this.comments.forEach(comment => {
+          if (comment.name === "") {
+            comment.name = comment.name.replaceAll('', "Anonymous")
+            comment.user_photo = "../../../assets/imgs/anonymous.jpg";
           } else {
-            c.user_photo = "https://dev-project-upskill-grupo02.pantheonsite.io" + c.user_photo;
+            comment.user_photo = "https://dev-project-upskill-grupo02.pantheonsite.io" + comment.user_photo;
           }
-          console.log(c.nome);
+          console.log(comment.name);
         })
         console.log(comment);
         console.log('estou comentando aqui');
       })
 
-       //************ Substitui a propriedade url_video, Tags *********** */
-       this.videos.forEach(video => {
+      //  Substitui a propriedade url_video, tags.
+      this.videos.forEach(video => {
         video.url_video = video.url_video.replace("watch?v=", "embed/");
         video.tags = video.tags.replaceAll(",", " #");
         console.log(video.tags)
         console.log(video.url_video)
       });
 
-      //************ transforma minha url em URLSAFE  ************* */
+      // Transforma a url em URLSAFE
       this.videos.forEach(v => {
-        //com a mudanção de videos para video o novo array tem só uma posição, precisei refazer o sanitizer:
+        //Com a mudança de videos para video, o novo array tem só uma posição,foi preciso refazer o sanitizer.
         this.video.url = this.sanitizer.bypassSecurityTrustResourceUrl(v.url_video);
       })
     })
