@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Channel, Themes, Video, Playlist, PostComment } from './upload.model';
+import { Channel, Themes, Video, Playlist, PostComment, VideoCard } from './upload.model';
 import { Tag } from 'src/app/services/upload.model';
 
 const BASE_URL_RAW = "https://dev-project-upskill-grupo02.pantheonsite.io/";
@@ -19,13 +19,16 @@ export class UploadService {
   }
   getVideoPlayer(id_video: number) {
 
-    return this.http.get<Video[]>(BASE_URL + "video/" + id_video);
+    return this.http.get(BASE_URL + "video/" + id_video);
   }
   getVideoComment(id_video: number){
-
     /* console.log(BASE_URL + "comment/video/" + id_comment); */
     return this.http.get(BASE_URL + "comment/video/" + id_video);
     
+  }
+
+  getVideoCards(id_channel: number) {
+    return this.http.get<VideoCard[]>(BASE_URL + "channel/videos/" + id_channel);
   }
 
   getChannelsList() {
@@ -33,11 +36,11 @@ export class UploadService {
   }
 
   getChannels(id_channel: number) {
-    return this.http.get<Channel[]>(BASE_URL + "channel/" + id_channel);
+    return this.http.get(BASE_URL + "channel/" + id_channel);
   }
 
   getChannelVideos(id_channel: number) {
-    return this.http.get<Video[]>(BASE_URL + "channel/videos/" + id_channel);
+    return this.http.get<Channel[]>(BASE_URL + "channel/videos/" + id_channel);
   }
 
   getPlaylist() {

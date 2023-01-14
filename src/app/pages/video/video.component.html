@@ -1,4 +1,4 @@
-<div class="container" *ngIf="video">
+<div class="container" *ngIf="video_ready">
     <div class="player">
         <h1 class="title"> {{ video.title }} </h1>
         <span class="tags"> # {{video.tags}} </span>
@@ -41,6 +41,8 @@
         </div>
     </div>
 
-    <!-- <app-cards type="video"></app-cards> -->
-    <app-video-cards *ngIf="channel" [id_channel]="channel.id"></app-video-cards>
+   
+    <app-video-cards ></app-video-cards>
 </div>
+
+<!-- *ngIf="channel" [id_channel]="channel.id" -->

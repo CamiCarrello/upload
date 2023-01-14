@@ -11,13 +11,24 @@
         width: 100%;
 
         .title {
-            margin: 3% 10% 0 10%;
+            margin: 32px 0 0 20px;
+            line-height: 36px;
+            font-weight: 400;
+            font-family: poppins;
+            font-size: 24px;
+            color: #FAFAFB;
+        
         }
 
         .tags {
-            margin: 1% 10%;
-            color: blue;
-            font-weight: bold;
+            
+            margin: 4px 0 0 20px;
+            line-height: 36px;
+            font-weight: 400;
+            font-family: roboto;
+            font-size: 16px;
+            color: #1E75FF;
+            letter-spacing: 0.1;
         }
 
         .video {
@@ -38,24 +49,13 @@
             */
 
             iframe {
-             /* border-radius: 15px;
-                position: absolute;
-                top: 0%;
-                left: 0%;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0; 
-                height: 80%;
-                width: 90%;
-                padding: 20px;*/
-
                 border-radius: 15px;
                 position: absolute;
                 top: 3%;
-                left: 5%;
+                left: 20px;
+                right: 20px;
                 height: 80%;
-                width: 90%;
+                width: 95%;
             }
         }
 
@@ -166,7 +166,7 @@
 
 }
 
-@media only screen and (max-width: 1200px) {
+/* @media only screen and (max-width: 1200px) {
     .container {
         grid-template-columns: 1fr;
 
@@ -175,10 +175,10 @@
         }
     }
 
-    app-cards {
+    app-video-cards {
         display: none;
     }
 
 
 
-}
+} */

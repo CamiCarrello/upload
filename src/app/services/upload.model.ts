@@ -5,7 +5,7 @@ export interface ChannelsResponse {
 }
 
 export interface Channel {
-    id: string;
+    id: string; //não sei se vai precisar mudar para ficar como o portman: id_channel
     channel_name: string;
     author: string;
     category: string;
@@ -13,6 +13,28 @@ export interface Channel {
     banner: string;
     title: string;
     thumbnail: string;
+    created: string;
+    title_video: string;
+    id_video: string;
+    
+
+}
+
+export interface VideoCardsResponse {
+    data: VideoCard[];
+}
+export interface VideoCard {
+    
+    id_channel: string;
+    title_channel: string;
+    author: string;
+    category: string;
+    created: string;
+    banner: string;
+    user: string;
+    thumbnail: string;
+    title_video: string;
+    id_video: string;
 }
 
 
@@ -37,6 +59,7 @@ export interface Video {
     url: SafeResourceUrl;
     created: string;
     channel_name: string;
+    field_time_video: string;
     
 }
 export interface PlaylistResponse {
@@ -69,6 +92,7 @@ export interface Themes {
     tags: string;
     user: string;
     header: string;
+    text_teaser: string;
 }
 
 export interface CommentsResponse {

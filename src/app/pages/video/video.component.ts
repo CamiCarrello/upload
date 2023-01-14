@@ -10,22 +10,26 @@ import { Channel, Video, Comment } from 'src/app/services/upload.model';
   styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit {
-  video?: Video;
+  /* video?: Video; */
 
-  id_video! : number
+  /* channel?: Channel = undefined; */
 
-  channel?: Channel = undefined;
+  id_video!: number
+  videos: Video[] = [];
+  video: Video = {} as Video;
+
+  channels: Channel[] = [];
+  channel: Channel = {} as Channel;
 
   comments: Comment[] = [];
 
-  autor_comentario : string = ""
-  autor_email : string = ""
-  post_comment_body : string = ""
+  video_ready: boolean = false;
 
-  public enviarComentario() {
-    console.log(this.autor_comentario, this.autor_email, this.post_comment_body);
-    this.upload.postComment(this.id_video, this.autor_comentario, this.autor_email, this.post_comment_body);
-  }
+  autor_comentario: string = ""
+  autor_email: string = ""
+  post_comment_body: string = ""
+
+  
 
   constructor(
     private upload: UploadService,
@@ -34,13 +38,17 @@ export class VideoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id_video = parseInt(this.route.snapshot.params['id_video']);
-    this.upload.getVideoPlayer(this.id_video).subscribe(videos => {
-      let video = videos[0];
-      console.log(this.video);
+    this.id_video = this.route.snapshot.params['id_video'];
+    this.upload.getVideoPlayer(this.id_video).subscribe(video => {
+      this.videos = <Video[]>video;
+      this.video = this.videos[0];
 
-      this.upload.getChannels(parseInt(video.channel)).subscribe(channel => {
-        this.channel = channel[0];
+      console.log(video);
+
+      this.upload.getChannels(parseInt(this.video.channel)).subscribe(channel => {
+        this.channels = <Channel[]>channel;
+        this.channel = this.channels[0];
+        console.log(channel)
       })
 
       this.upload.getVideoComment(this.id_video).subscribe(comment => {
@@ -52,25 +60,32 @@ export class VideoComponent implements OnInit {
           } else {
             c.user_photo = "https://dev-project-upskill-grupo02.pantheonsite.io" + c.user_photo;
           }
-          console.log(c.name);
-          
         })
+
         console.log(comment);
         console.log('estou comentando aqui');
-
       })
 
       //************ Substitui a propriedade url_video, Tags *********** */
-      video.url_video = video.url_video.replace("watch?v=", "embed/");
-      video.tags = video.tags.replaceAll(",", " #");
-      console.log(video.tags)
-      console.log(video.url_video)
+
+      this.video.url_video = this.video.url_video.replace("watch?v=", "embed/");
+      this.video.tags = this.video.tags.replaceAll(",", " #");
+      console.log(this.video.tags)
+      console.log(this.video.url_video)
+
+
 
       //************ transforma minha url em URLSAFE  ************* */
+      this.video.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.video.url_video);
 
-      video.url = this.sanitizer.bypassSecurityTrustResourceUrl(video.url_video);
+      this.video_ready = true;
 
-      this.video = video;
     })
+
+
+  }
+  public enviarComentario() {
+    console.log(this.autor_comentario, this.autor_email, this.post_comment_body);
+    this.upload.postComment(this.id_video, this.autor_comentario, this.autor_email, this.post_comment_body);
   }
 }

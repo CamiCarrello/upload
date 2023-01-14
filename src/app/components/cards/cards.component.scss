@@ -1,22 +1,11 @@
-/* :host {
-   width: 250px;
-   background-color: yellow;
-   overflow: auto;
-   display: flex;
-   justify-content: center;
- } */
 .container {
-   
-      display: flex;
-      flex-direction: column;
-      width: 230px;
-      position: absolute;
-      align-items: center;
-      background-color: palevioletred;
-
-  /*  &.type-video {
-      background-color: aquamarine;
-   } */
+   display: flex;
+   flex-direction: column;
+   top: 15px;
+   right: 35px;
+   width: 15%;
+   padding-bottom: 10%;
+   position: absolute;
 
    .channels,
    .themes {
@@ -29,18 +18,20 @@
       display: inline-block;
       border-radius: 10px;
       position: relative;
-      border-bottom: white;
-      width: 100%; //definil a largura do card
 
       .title {
-         //border-bottom: 1px solid rgb(39, 39, 48);
-         padding-bottom: 10px;
-         margin-left: 10px;
+         width: 100%;
+         margin: auto;
+         padding: 10px 10px;
          display: inline-flex;
-         text-decoration: none;
+         align-items: baseline;
+         justify-content: space-between;
+         border-bottom: 1px solid rgb(39, 39, 48);
 
-         .seeMore {
+         .seeAll {
             text-decoration: none;
+            color: rgb(245, 245, 247);
+            font-size: 10px;
          }
       }
 
@@ -51,21 +42,32 @@
          margin-bottom: 20px;
          margin-top: 10px;
 
+         .titleTheme {
+            width: 100%;
+            margin: auto;
+            padding: 10px 10px;
+            display: inline-flex;
+            font-size: 10px;
+         }
+
          .logoChannel img {
             border-radius: 50%;
             height: 40px;
             width: 40px;
             margin-right: 10px;
             margin-left: 10px;
+            margin-bottom: 10px;
             border: 1px solid black;
          }
-         //mostra para a Cami
-         .header img{
-            display: flex;
-            height: 60px;
-            width: 150px;
+
+         .headerChannel img {
+            width: 90%;
+            height: auto;
+            border: 1px solid black;
             justify-content: center;
-            
+            margin-right: 5%;
+            margin-left: 5%;
+            border-radius: 5%;
          }
       }
 
