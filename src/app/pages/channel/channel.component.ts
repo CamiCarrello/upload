@@ -11,11 +11,16 @@ import { Channel, Video, Comment } from 'src/app/services/upload.model';
 })
 export class ChannelComponent implements OnInit {
 
+  id_channel!: number
   channels: Channel[] = [];
   channel: Channel = {} as Channel;
 
   videos: Video[] = [];
   video: Video = {} as Video;
+
+  autor_comentario: string = ""
+  autor_email: string = ""
+  post_comment_body: string = ""
 
   comments: Comment[] = [];
 
@@ -40,18 +45,18 @@ export class ChannelComponent implements OnInit {
           } else {
             comment.user_photo = "https://dev-project-upskill-grupo02.pantheonsite.io" + comment.user_photo;
           }
-          console.log(comment.name);
+          // console.log(comment.name);
         })
-        console.log(comment);
-        console.log('estou comentando aqui');
+        /* console.log(comment);
+        console.log('estou comentando aqui'); */
       })
 
       //  Substitui a propriedade url_video, tags.
       this.videos.forEach(video => {
         video.url_video = video.url_video.replace("watch?v=", "embed/");
         video.tags = video.tags.replaceAll(",", " #");
-        console.log(video.tags)
-        console.log(video.url_video)
+        /* console.log(video.tags)
+        console.log(video.url_video) */
       });
 
       // Transforma a url em URLSAFE
@@ -60,5 +65,10 @@ export class ChannelComponent implements OnInit {
         this.video.url = this.sanitizer.bypassSecurityTrustResourceUrl(v.url_video);
       })
     })
+  }
+  public enviarComentario() {
+    let id_channel = this.route.snapshot.params['id_channel']
+    // console.log("function enviarComentario: "+ id_channel,this.autor_comentario, this.autor_email, this.post_comment_body);
+    this.upload.postCommentChannel(id_channel, this.autor_comentario, this.autor_email, this.post_comment_body);
   }
 }

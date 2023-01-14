@@ -18,6 +18,22 @@ export interface Channel {
     id_video: string;
 }
 
+export interface VideoCardsResponse {
+    data: VideoCard[];
+}
+export interface VideoCard {    
+    id_channel: string;
+    title_channel: string;
+    author: string;
+    category: string;
+    created: string;
+    banner: string;
+    user: string;
+    thumbnail: string;
+    title_video: string;
+    id_video: string;
+}
+
 export interface VideosResponse {
     data: Video[];
 }
@@ -40,8 +56,6 @@ export interface Video {
     created: string;
     field_time_video: string;
     channel_name: string;
-    user_name: string; //vai sair
-    user_photo: string; //vai sair
 }
 export interface PlaylistResponse {
     data: Playlist[];
@@ -83,7 +97,17 @@ export interface Comment {
     name: string;
     email: string;
     comment: string;
-    created: string;
+    post_date_comment: string;
     user_name: string;
     user_photo: string;
+}
+
+export interface PostComment {
+    entity_id: [{[key: string]: number}]
+    entity_type:[{[key: string]: string}]
+    comment_type:[{[key: string]: string}]
+    field_name:[{[key: string]: string}]
+    field_email_content_commet:[{[key: string]: string}]
+    field_nome_content_comment_:[{[key: string]: string}]
+    comment_body:[{[key: string]: string}]
 }
