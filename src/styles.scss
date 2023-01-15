@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap');
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: Poppins, Roboto, sans-serif;
   margin: 0;
-  background-color: #13131a;
+  padding: 0;
+
 }
-
-

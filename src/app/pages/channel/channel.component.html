@@ -1,24 +1,52 @@
-<div class="channelPage">
-  <div class="banner">
-    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{channel.banner}}">
-    <div class="informationBanner">
-      <p><b>{{ channel.author }}</b></p>
-      <p>Aqui entra uma descrição sobre o canal de fulano de tal.</p>
-    </div>
-  </div>
+<div class="banner">
+  <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.banner }}">
   <div class="logoChannel">
     <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}">
   </div>
 </div>
 
+<div class="informationBanner">
+  <h2><b>{{ channel.author }}</b></h2>
+  <p>Aqui entra uma descrição sobre o canal de fulano de tal.</p>
+</div>
+
+<h3>Vídeos</h3>
 <div class="cardPage">
-  <h2>Vídeos</h2>
-  <div class="cards" *ngFor="let channel of channels">
+  <div class="cards" *ngFor="let channel of channels" [routerLink]="['/video/' + channel.id_video]">
     <div class="informations">
       <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.thumbnail }}">
-      <p>{{ channel.title }}</p>
+      <p>{{ video.field_time_video }}</p>
+      <div class="textInformation">
+        <span class="tags"> # {{video.tags}} </span>
+        <p id="title">{{ channel.title_video }}</p>
+        <p id="createdDate">Há {{ channel.created | diasPassados }} dias</p>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- <div><app-comments></app-comments></div> -->
+<h3>Comentários</h3>
+<div class="post-comment">
+  <div class="firstRow">
+    <img src="../../../assets/imgs/anonymous.jpg">
+    <input type="text" placeholder="Nome" [(ngModel)]="autor_comentario">
+    <input type="text" placeholder="E-mail" [(ngModel)]="autor_email">
+  </div>
+  <textarea type="text" placeholder="Comentário" [(ngModel)]="post_comment_body"></textarea>
+  <div class="button">
+    <button (click)="enviarComentario()">Submeter Comentário</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="comments" *ngFor="let c of comments">
+    <div class="com-img">
+      <img src="{{ c.user_photo }}">
+    </div>
+    <div class="com-info">
+      <span><strong> {{ c.name }}</strong></span>
+      <span class="cread-comm"> há {{ c.post_date_comment | diasPassados }} dias </span>
+      <p class="commen-p"> {{ c.comment }} </p>
+    </div>
+  </div>
+</div>

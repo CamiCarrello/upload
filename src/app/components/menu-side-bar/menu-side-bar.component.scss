@@ -2,7 +2,7 @@
   display: flex;
   flex-grow: 1;
   flex-direction: row;
-  flex-direction: row;
+
   align-items: center;
   position: relative;
   background-color: #13131a;
@@ -68,12 +68,14 @@
   .menuSideBar a:hover {
     color: #fafaf8;
     border-left-style: solid;
+
     p {
       font-size: 12px;
       margin: 0;
       color: #fafaf8;
 
     }
+
     .faIcon {
       width: 10%;
       margin: 0;

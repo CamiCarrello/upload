@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UploadService } from 'src/app/services/upload.service';
 import { Channel, Video, Comment } from 'src/app/services/upload.model';
-import { platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
-import { ParseSourceFile } from '@angular/compiler';
 
 @Component({
   selector: 'app-video',
@@ -12,7 +10,11 @@ import { ParseSourceFile } from '@angular/compiler';
   styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit {
+  /* video?: Video; */
 
+  /* channel?: Channel = undefined; */
+
+  id_video!: number
   videos: Video[] = [];
   video: Video = {} as Video;
 
@@ -21,10 +23,13 @@ export class VideoComponent implements OnInit {
 
   comments: Comment[] = [];
 
-  /* comment: Comment = {} as Comment; */
-  /* comment: Comment[] = []; */
-
   video_ready: boolean = false;
+
+  autor_comentario: string = ""
+  autor_email: string = ""
+  post_comment_body: string = ""
+
+
 
   constructor(
     private upload: UploadService,
@@ -33,59 +38,54 @@ export class VideoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-    this.upload.getVideos().subscribe(video => {
-      this.videos = video;
-      console.log(video)
-    })
-
-    let id_video = this.route.snapshot.params['id_video'];
-    this.upload.getVideoPlayer(id_video).subscribe(video => {
+    this.id_video = this.route.snapshot.params['id_video'];
+    this.upload.getVideoPlayer(this.id_video).subscribe(video => {
       this.videos = <Video[]>video;
       this.video = this.videos[0];
-      //mudei essa parte do código para poder mostra que "video" só tem uma posição pois o video recebe um video por vez!
-      console.log(video);
+
+      /* console.log(video); */
 
       this.upload.getChannels(parseInt(this.video.channel)).subscribe(channel => {
         this.channels = <Channel[]>channel;
         this.channel = this.channels[0];
+        /* console.log(channel) */
       })
 
-      this.upload.getVideoComment(parseInt(id_video)).subscribe(comment => {
+      this.upload.getVideoComment(this.id_video).subscribe(comment => {
         this.comments = <Comment[]>comment;
         this.comments.forEach(c => {
-          c.name = c.name.replaceAll('', "Anonymous")
-          console.log(c.name);
+          if (c.name === "") {
+            c.name = c.name.replaceAll('', "Anonymous")
+            c.user_photo = "../../../assets/imgs/anonymous.jpg";
+          } else {
+            c.user_photo = "https://dev-project-upskill-grupo02.pantheonsite.io" + c.user_photo;
+          }
         })
-        /*  this.video.comment.toString= this.comments;; */
-        /* this.comment = this.comments; */
-        console.log(comment);
-        console.log('estou comentando aqui');
+
+        /* console.log(comment);
+        console.log('estou comentando aqui'); */
       })
 
       //************ Substitui a propriedade url_video, Tags *********** */
-      this.videos.forEach(vid => {
-        vid.url_video = vid.url_video.replace("watch?v=", "embed/");
-        vid.tags = vid.tags.replaceAll(",", " #");
-        console.log(vid.tags)
-        console.log(vid.url_video)
 
-        /*Para obter dados de date e converter*/
-        let current_data: Date = new Date();
-        let date2 = new Date(vid.created)
-        let Difference_In_Time = current_data.getTime() - date2.getTime();
-        let Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
-        this.video.created = Difference_In_Days.toString();
-        console.log(Difference_In_Days);
-      });
+      this.video.url_video = this.video.url_video.replace("watch?v=", "embed/");
+      this.video.tags = this.video.tags.replaceAll(",", " #");
+      /* console.log(this.video.tags)
+      console.log(this.video.url_video) */
+
+
 
       //************ transforma minha url em URLSAFE  ************* */
-      this.videos.forEach(v => {
-        //com a mudanção de videos para video o novo array tem só uma posição, precisei refazer o sanitizer:
-        this.video.url = this.sanitizer.bypassSecurityTrustResourceUrl(v.url_video);
-      })
+      this.video.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.video.url_video);
 
       this.video_ready = true;
+
     })
+
+
+  }
+  public enviarComentario() {
+    console.log(this.autor_comentario, this.autor_email, this.post_comment_body);
+    this.upload.postComment(this.id_video, this.autor_comentario, this.autor_email, this.post_comment_body);
   }
 }

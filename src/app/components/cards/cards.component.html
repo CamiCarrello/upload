@@ -1,13 +1,18 @@
 <div class="container">
   <div class="channels">
     <p class="title">Canais Sugeridos</p>
-    <div class="banner" *ngFor="let channel of channelList">
+    <div
+      class="banner"
+      *ngFor="let channel of channelList"
+      [routerLink]="['/channel/', channel.id]"
+    >
       <div class="logoChannel">
         <img
           src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
             channel.user_photo
           }}"
           alt="logo image"
+
         />
       </div>
       <p>{{ channel.author }}</p>
@@ -22,7 +27,7 @@
   <div class="themes">
     <div class="title">
       <p>Temáticas Sugeridas</p>
-      <a routerLink="/themes" routerLinkActive="active" class="seeAll">
+      <a routerLink="/themes"   routerLinkActive="active" class="seeAll">
         <p><b>VER TODAS</b></p>
       </a>
     </div>
@@ -35,9 +40,9 @@
           alt="user image"
         />
         <p class="titleTheme">{{ suggested_theme.title }}</p>
+        <p class="titleChannel">{{ channel.channel_name }}</p>
       </div>
       <div class="headerChannel">
-
         <img
           src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
             suggested_theme.header
@@ -45,7 +50,7 @@
           alt="header image"
         />
       </div>
-      <a routerLink="/themes" routerLinkActive="active" > </a>
+      <a routerLink="/themes" routerLinkActive="active"> </a>
     </div>
   </div>
 </div>

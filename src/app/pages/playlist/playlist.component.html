@@ -2,7 +2,7 @@
 <div class="cardPage" *ngIf="playlist">
     <div class="playTitle" *ngFor="let play of playlist_name">
         <p class="title">{{ play }}</p>
-        <div class="row" *ngFor="let t of getTitle(play)" (click)="navigateToVideo(t)">
+        <div class="row" *ngFor="let t of getTitle(play)" [routerLink]="['/video/'+ t.id]">
             <div class="column">
                 <div class="informations">
                     <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ t.thumbnail }}" />

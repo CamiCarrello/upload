@@ -1,24 +1,51 @@
-<div class="cardPage">
+<div class="flex">
+  <div *ngFor="let video of videos" [routerLink]="['video/' + video.id]" class="informations" >
+    <!-- <pre>{{ video | json}}</pre> -->
+    <img
+      src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
+        video.thumbnail
+      }}"
+      alt="video image"
+    />
+    <div>
+        <a class="bookmark" href="">
+          <fa-icon [icon]="faBookmark" class="faIcon"> </fa-icon>
+        </a>
+        <a class="share" href="">
+          <fa-icon [icon]="faShareNodes" class="faIcon"> </fa-icon>
+        </a>
+      <p class="details">{{ video.channel }}</p>
+      <p class="details">{{ video.title }}</p>
+      <p class="details">25M visualizações Há {{ video.created | diasPassados }} dias</p>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="cardPage">
   <div class="titlePage">
     <h2>Últimos videos</h2>
   </div>
   <div class="cards" *ngFor="let video of videos" [routerLink]="['video/'+ video.id]">
+
     <div class="informations">
       <img
         src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
           video.thumbnail
         }}" alt="video image"
       />
-      <a class="bookmark" href="">
+      <a class="bookmark" href="" >
         <fa-icon [icon]="faBookmark" class="faIcon"> </fa-icon>
       </a>
       <a class="share" href="">
         <fa-icon [icon]="faShareNodes" class="faIcon"> </fa-icon>
       </a>
+      <p>{{ video.channel }}</p>
       <p>{{ video.title }}</p>
+      <p> 25M visualizações  Há {{ video.created | diasPassados }} dias</p>
+
     </div>
 
   </div>
+      <app-cards></app-cards>
 
-  <app-cards></app-cards>
-</div>
+</div> -->
