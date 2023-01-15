@@ -5,7 +5,8 @@
         <div class="video">
             <iframe [src]="video.url " title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+                allowfullscreen>
+            </iframe>
         </div>
 
         <div class="user" *ngIf="channel">
@@ -21,22 +22,18 @@
             <div class="desc">
                 <p> {{ video.description }} </p>
             </div>
-            
+
         </div>
         <div class="post-comment">
             <div class="data-comment">
+                <img src="../../../assets/imgs/anonymous.jpg">
                 <input class="author-comment" type="text" [(ngModel)]="autor_comentario" placeholder="Name">
                 <input class="email-comment" type="text" [(ngModel)]="autor_email" placeholder="Email">
             </div>
-            
-            <div class="text-field">
-                <textarea class="text-comment" type="text"  [(ngModel)]="post_comment_body" placeholder="Comment"></textarea>
-            </div>
+            <textarea class="text-comment" type="text" [(ngModel)]="post_comment_body" placeholder="Comment"></textarea>
             <div class="send">
-                <button  (click)="enviarComentario()">Enviar Comentário</button>
+                <button (click)="enviarComentario()">Enviar Comentário</button>
             </div>
-            
-        
         </div>
         <div class="comments" *ngFor="let c of comments">
             <div class="com-img">
@@ -50,7 +47,6 @@
         </div>
     </div>
 
-   
-    <app-video-cards ></app-video-cards>
-</div>
 
+    <app-video-cards></app-video-cards>
+</div>

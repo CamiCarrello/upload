@@ -31,21 +31,6 @@ export class ChannelComponent implements OnInit {
         this.channels = <Channel[]>channel;
       });
 
-      /* this.upload.getCommentChannel(parseInt(id_channel)).subscribe(comment => {
-        this.comments = <Comment[]>comment;
-        this.comments.forEach(comment => {
-          if (comment.name === "") {
-            comment.name = comment.name.replaceAll('', "Anonymous")
-            comment.user_photo = "../../../assets/imgs/anonymous.jpg";
-          } else {
-            comment.user_photo = "https://dev-project-upskill-grupo02.pantheonsite.io" + comment.user_photo;
-          }
-          console.log(comment.name);
-        })
-        console.log(comment);
-        console.log('estou comentando aqui');
-      }) */
-
       //  Substitui a propriedade url_video, tags.
       this.videos.forEach(video => {
         video.url_video = video.url_video.replace("watch?v=", "embed/");
