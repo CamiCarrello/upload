@@ -8,12 +8,13 @@
     width: 250px;
     color: white;
     grid-area: 1/1/1/2;
+    background-color: #1C1C24;
   }
 
   .outlet{ // coluna 2
     flex: 1;
     height: 100vh;
-    background-color: #13131a;
+    background-color: #13131A;
     /* color: #fafafb; */
     overflow: auto;
     grid-area: 1/2/1/3;

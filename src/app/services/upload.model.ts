@@ -104,7 +104,9 @@ export interface Comment {
     comment: string;
     user_name: string;
     user_photo: string;
-    created: string;
+    autor_comment: string;
+    post_date: string;
+
 }
 
 export interface PostComment {
@@ -114,5 +116,15 @@ export interface PostComment {
     field_name:[{[key: string]: string}]
     field_email_video:[{[key: string]: string}]
     field_nome_comment_video:[{[key: string]: string}]
+    comment_body:[{[key: string]: string}]
+}
+
+export interface PostCommentChannel {
+    entity_id: [{[key: string]: number}]
+    entity_type:[{[key: string]: string}]
+    comment_type:[{[key: string]: string}]
+    field_name:[{[key: string]: string}]
+    field_email_content_commet:[{[key: string]: string}]
+    field_nome_content_comment_:[{[key: string]: string}]
     comment_body:[{[key: string]: string}]
 }

@@ -43,12 +43,12 @@ export class VideoComponent implements OnInit {
       this.videos = <Video[]>video;
       this.video = this.videos[0];
 
-      console.log(video);
+      /* console.log(video); */
 
       this.upload.getChannels(parseInt(this.video.channel)).subscribe(channel => {
         this.channels = <Channel[]>channel;
         this.channel = this.channels[0];
-        console.log(channel)
+        /* console.log(channel) */
       })
 
       this.upload.getVideoComment(this.id_video).subscribe(comment => {
@@ -62,16 +62,16 @@ export class VideoComponent implements OnInit {
           }
         })
 
-        console.log(comment);
-        console.log('estou comentando aqui');
+        /* console.log(comment);
+        console.log('estou comentando aqui'); */
       })
 
       //************ Substitui a propriedade url_video, Tags *********** */
 
       this.video.url_video = this.video.url_video.replace("watch?v=", "embed/");
       this.video.tags = this.video.tags.replaceAll(",", " #");
-      console.log(this.video.tags)
-      console.log(this.video.url_video)
+      /* console.log(this.video.tags)
+      console.log(this.video.url_video) */
 
 
 
