@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,10 +18,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VideoComponent } from './pages/video/video.component';
 import { VideoCardsComponent } from './components/video-cards/video-cards.component';
 import { DiasPassadosPipe } from './dias-passados.pipe';
+=======
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent} from './pages/home/home.component';
+>>>>>>> main
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
     HomeComponent,
     ChannelComponent,
     MenuSideBarComponent,
@@ -40,6 +48,13 @@ import { DiasPassadosPipe } from './dias-passados.pipe';
     HttpClientModule,
     FontAwesomeModule,
     FormsModule
+=======
+    HomeComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+>>>>>>> main
   ],
   providers: [],
   bootstrap: [AppComponent]

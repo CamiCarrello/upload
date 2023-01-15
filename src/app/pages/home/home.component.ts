@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { Video, Channel } from 'src/app/services/upload.model';
 import { UploadService } from 'src/app/services/upload.service';
 import {faBookmark as faBookmarkSolid,faHomeUser, faShareNodes } from '@fortawesome/free-solid-svg-icons';
@@ -6,6 +7,8 @@ import { faBookmark} from '@fortawesome/free-regular-svg-icons';
 
 
 
+=======
+>>>>>>> main
 
 @Component({
   selector: 'app-home',
@@ -14,6 +17,7 @@ import { faBookmark} from '@fortawesome/free-regular-svg-icons';
 })
 export class HomeComponent implements OnInit {
 
+<<<<<<< HEAD
   videos: Video[] = [];
   channelList: Channel[] = [];
 
@@ -42,3 +46,11 @@ export class HomeComponent implements OnInit {
 }
 
 
+=======
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+>>>>>>> main
