@@ -35,10 +35,7 @@ export class PlaylistComponent implements OnInit {
     return this.playlist.filter((t: any) => t.title === title);
   }
 
-
   fetchVideos(item: Playlist) {
     this.upload.getPlaylistVideo(item.id).subscribe()
   }
-
-
 }

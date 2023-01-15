@@ -97,12 +97,13 @@ export interface Comment {
     name: string;
     email: string;
     comment: string;
+    post_date: string;
     post_date_comment: string;
     user_name: string;
     user_photo: string;
 }
 
-export interface PostComment {
+export interface PostCommentChannel {
     entity_id: [{[key: string]: number}]
     entity_type:[{[key: string]: string}]
     comment_type:[{[key: string]: string}]

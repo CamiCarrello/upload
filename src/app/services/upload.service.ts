@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Channel, Themes, Video, Playlist, PostComment } from './upload.model';
+import { Channel, Themes, Video, Playlist, PostCommentChannel } from './upload.model';
 import { Tag } from 'src/app/services/upload.model';
 
 const BASE_URL_RAW = "https://dev-project-upskill-grupo02.pantheonsite.io/";
@@ -62,7 +62,7 @@ export class UploadService {
   }
 
   postCommentChannel(id_channel : number, name : string, email : string, comment : string) {
-    let post_comment : PostComment = {
+    let post_comment_channel : PostCommentChannel = {
       "entity_id":[{"target_id":id_channel}],
       "entity_type":[{"value":"node"}],
       "comment_type":[{"target_id":"content_comment"}],
@@ -73,6 +73,6 @@ export class UploadService {
       {"value":comment,"format":"plain_text"}
       ]
      }
-    this.http.post(BASE_URL_RAW + "comment", post_comment).subscribe(()=>{});
+    this.http.post(BASE_URL_RAW + "comment", post_comment_channel).subscribe(()=>{});
   }
 }
