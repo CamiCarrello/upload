@@ -31,6 +31,8 @@ export class ChannelComponent implements OnInit {
     this.upload.getChannels(parseInt(id_channel)).subscribe(channel => {
       this.channels = <Channel[]>channel;
       this.channel = this.channels[0];
+      // console.log("Testando a descricao do canal" + channel_description)
+
 
       this.upload.getChannelVideos(parseInt(id_channel)).subscribe(channel => {
         this.channels = <Channel[]>channel;
@@ -45,10 +47,8 @@ export class ChannelComponent implements OnInit {
           } else {
             comment.user_photo = "https://dev-project-upskill-grupo02.pantheonsite.io" + comment.user_photo;
           }
-          // console.log(comment.name);
+          console.log(comment.user_photo);
         })
-        /* console.log(comment);
-        console.log('estou comentando aqui'); */
       })
 
       //  Substitui a propriedade url_video, tags.
@@ -68,7 +68,16 @@ export class ChannelComponent implements OnInit {
   }
   public enviarComentario() {
     let id_channel = this.route.snapshot.params['id_channel']
-    // console.log("function enviarComentario: "+ id_channel,this.autor_comentario, this.autor_email, this.post_comment_body);
+    const xhttp = new XMLHttpRequest();
+    // console.log("function enviarComentario: " + id_channel, this.autor_comentario, this.autor_email, this.post_comment_body);
     this.upload.postCommentChannel(id_channel, this.autor_comentario, this.autor_email, this.post_comment_body);
+    // window.location.reload();
+
+
+   /*  xhttp.onload = function () {
+      document.getElementById("comment").innerHTML = this.responseText;
+    }
+    xhttp.open("GET", "BASE_URL");
+    xhttp.send(); */
   }
 }

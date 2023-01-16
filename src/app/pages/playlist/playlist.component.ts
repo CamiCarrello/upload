@@ -1,4 +1,4 @@
-import { Playlist } from 'src/app/services/upload.model';
+import { Playlist, Video } from 'src/app/services/upload.model';
 import { Component, OnInit } from '@angular/core';
 import { UploadService } from 'src/app/services/upload.service';
 import { ActivatedRoute } from '@angular/router';
@@ -11,6 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PlaylistComponent implements OnInit {
 
+  id_video!: number;
+  video: Video[] = [];
 
   playlist: Playlist[] = [];
   playlist_name: string[] = [];
@@ -19,6 +21,7 @@ export class PlaylistComponent implements OnInit {
   constructor(private upload: UploadService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
     this.upload.getPlaylist().subscribe(playlist => {
       this.playlist = playlist
       this.playlist.forEach((play: any) => {
@@ -28,11 +31,14 @@ export class PlaylistComponent implements OnInit {
         }
       });
 
-      console.log(this.playlist_name)
+      this.upload.getVideos().subscribe((video) => {
+        this.video = video;
+      });
     })
   }
+
   getTitle(title: string) {
-    return this.playlist.filter((t: any) => t.title === title);
+    return this.playlist.filter((t: any) => t.id === title);
   }
 
   fetchVideos(item: Playlist) {

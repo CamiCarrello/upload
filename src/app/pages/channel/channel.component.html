@@ -7,7 +7,7 @@
 
 <div class="informationBanner">
   <h2><b>{{ channel.author }}</b></h2>
-  <p>Aqui entra uma descrição sobre o canal de fulano de tal.</p>
+  <p id="description">{{ channel.channel_description }}</p> 
 </div>
 
 <h3>Vídeos</h3>
@@ -27,7 +27,7 @@
 
 <h3>Comentários</h3>
 <div class="post-comment">
-  <div class="firstRow">
+  <div id="comment" class="firstRow">
     <img src="../../../assets/imgs/anonymous.jpg">
     <input type="text" placeholder="Nome" [(ngModel)]="autor_comentario">
     <input type="text" placeholder="E-mail" [(ngModel)]="autor_email">

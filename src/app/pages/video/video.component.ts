@@ -21,9 +21,6 @@ export class VideoComponent implements OnInit {
 
   comments: Comment[] = [];
 
-  /* comment: Comment = {} as Comment; */
-  /* comment: Comment[] = []; */
-
   video_ready: boolean = false;
 
   constructor(

@@ -1,52 +1,33 @@
-.titlePage {
-  width: 90%;
-  color: rgb(198, 198, 200);
-  font-size: 12px;
-  padding-left: 10px;
-  margin-bottom: 50px;
-  display: flex;
-  flex-wrap: wrap;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-.cardPage {
-  color: rgb(198, 198, 200);
-  font-size: 12px;
-  margin-bottom: 50px;
-  width: 80%;
+h2 {
+  color: #f1f1f1;
+  font-size: 30px;
+  padding: 1%;
+  margin-bottom: -10px;
+}
+
+.flex {
   display: flex;
-  flex: 1;
   flex-wrap: wrap;
+  max-width: 800px;
+  margin-left: 50px;
 
-  .cards {
-    display: inline-flex;
+  .informations {
+    background-color: rgb(28, 28, 36);
+    max-width: 100%;
+    font-size: 12px;
+    border-radius: 10px;
     position: relative;
-    flex-grow: 2;
-    margin: 3px 2px 10px 0;
-    width: 33.33%;
-    padding: 10px 10px;
-
-    .informations {
-      background-color: rgb(28, 28, 36);
-      max-width: 100%;
-      font-size: 12px;
-      border-radius: 10px;
-
-      p {
-        margin-left: 10px;
-      }
-
-      img {
-        /* border-radius: 10px;
-      width: 100%; */
-        width: 100%;
-        border-radius: 12px;
-        height: auto;
-      }
-    }
+    margin-right: 50px;
+    color: #f1f1f1;
 
     .bookmark {
       position: absolute;
-      bottom: -5px;
+      bottom: -15px;
       right: -5px;
       padding: 15px;
       width: 80px;
@@ -59,7 +40,7 @@
 
     .share {
       position: absolute;
-      bottom: -5px;
+      bottom: -15px;
       right: -8px;
       padding: 15px;
       width: 60px;
@@ -69,19 +50,15 @@
       color: #606068;
       font-size: 1.5em;
     }
+
+    .details {
+      margin-left: 10px;
+      font-family: Roboto;
+    }
   }
 }
 
-@media only screen and (max-width: 1200px) {
-  .cardPage {
-    grid-template-columns: 1fr;
-
-    p {
-      margin: 5%;
-    }
-  }
-
-  app-cards {
-    display: none;
-  }
+.flex > div {
+  flex: 1 1 300px;
+  margin: 10px;
 }

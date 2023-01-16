@@ -7,6 +7,7 @@ export interface ChannelsResponse {
 export interface Channel {
     id: string;
     channel_name: string;
+    channel_description: string;
     author: string;
     category: string;
     user_photo: string;
@@ -56,6 +57,8 @@ export interface Video {
     created: string;
     field_time_video: string;
     channel_name: string;
+    field_video_visualization: string;
+    name: string;
 }
 export interface PlaylistResponse {
     data: Playlist[];
@@ -68,6 +71,7 @@ export interface Playlist {
     category: string;
     url_video: string;
     thumbnail: string;
+    id_video: string;
 }
 
 export interface TagsResponse {

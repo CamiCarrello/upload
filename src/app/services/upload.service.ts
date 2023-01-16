@@ -14,6 +14,8 @@ export class UploadService {
 
   constructor(private http: HttpClient) { }
 
+  favorites: number[] = JSON.parse(localStorage.getItem("favorite") || "[]");
+
   getVideos() {
     return this.http.get<Video[]>(BASE_URL + "videos");
   }
@@ -61,18 +63,35 @@ export class UploadService {
     return this.http.get(BASE_URL + "thematic-article/" + id_theme);
   }
 
-  postCommentChannel(id_channel : number, name : string, email : string, comment : string) {
-    let post_comment_channel : PostCommentChannel = {
-      "entity_id":[{"target_id":id_channel}],
-      "entity_type":[{"value":"node"}],
-      "comment_type":[{"target_id":"content_comment"}],
-      "field_name":[{"value":"field_comment"}],
-      "field_email_content_commet":[{"value":email}],
-      "field_nome_content_comment_":[{"value":name}],
-      "comment_body":[
-      {"value":comment,"format":"plain_text"}
+  postCommentChannel(id_channel: number, name: string, email: string, comment: string) {
+    let post_comment_channel: PostCommentChannel = {
+      "entity_id": [{ "target_id": id_channel }],
+      "entity_type": [{ "value": "node" }],
+      "comment_type": [{ "target_id": "content_comment" }],
+      "field_name": [{ "value": "field_comment" }],
+      "field_email_content_commet": [{ "value": email }],
+      "field_nome_content_comment_": [{ "value": name }],
+      "comment_body": [
+        { "value": comment, "format": "plain_text" }
       ]
-     }
-    this.http.post(BASE_URL_RAW + "comment", post_comment_channel).subscribe(()=>{});
+    }
+    this.http.post(BASE_URL_RAW + "comment", post_comment_channel).subscribe(() => { });
+  }
+
+  toggleFavorite(id_video: number) {
+    if (!this.itsFavorite(id_video)) {
+      //adicionar
+      this.favorites.push(id_video);
+    }
+    else {
+      // remover
+      let indice = this.favorites.indexOf(id_video);
+      this.favorites.splice(indice, 1);
+    }
+    localStorage.setItem("favorite", JSON.stringify(this.favorites));
+  }
+
+  itsFavorite(id_video: number) {
+    return this.favorites.includes(id_video);
   }
 }

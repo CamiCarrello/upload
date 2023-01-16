@@ -2,7 +2,8 @@
   margin: 20px;
   position: relative;
   width: 98%;
-  height: 40%;
+  // height: 40%;
+  height: 300px;
 
   img {
     width: 99.3%;
@@ -26,16 +27,22 @@
 
 .informationBanner {
   color: rgb(198, 198, 200);
-  margin: 0 20px 80px 30px;
-  font-size: 12px;
+  margin: 0 20px 80px 40px;
+  font-size: 15px;
   border-bottom: 1px solid rgb(39, 39, 48);
   padding-bottom: 20px;
+
+  #description {
+    font-size: 13px;
+    width: 50%;
+    text-align: justify;
+  }
 }
 
 h3 {
   color: rgb(198, 198, 200);
   margin-top: -50px;
-  padding-left: 30px;
+  padding-left: 40px;
 }
 
 .cardPage {
@@ -45,16 +52,17 @@ h3 {
   color: rgb(198, 198, 200);
   font-size: 12px;
   margin-bottom: 60px;
-  padding-left: 30px;
+  padding-left: 40px;
+  width: 100%;
 
   .cards {
     background-color: rgb(28, 28, 36);
-    margin: 0 16px 15px 0;
-    width: 32%;
-    height: 320px;
+    margin: 0 33px 35px 0;
+    width: 369px;
+    height: 350px;
     border-radius: 15px;
 
-    .informations {
+    .informations {      
       font-size: 12px;
       width: 100%;
       font-weight: bold;
@@ -66,11 +74,11 @@ h3 {
         border-top-right-radius: 15px;
         width: 100%;
         height: 220px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
       }
 
       .textInformation {
-        line-height: 0.8;
+        line-height: 1.2;
         margin: 0 70px 20px 20px;
       }
 
@@ -100,7 +108,7 @@ h3 {
   display: flex;
   flex-direction: column;
   width: 75%;
-  margin: 30px 0 0 30px;
+  margin: 30px 0 0 40px;
 
   .firstRow {
     display: flex;
@@ -127,7 +135,7 @@ h3 {
   }
 
   textarea {
-    width: 90%;
+    width: 94%;
     height: 30px;
     background-color: #13131a;
     border: none;
@@ -139,19 +147,57 @@ h3 {
   .button {
     display: flex;
     justify-content: flex-end;
-    margin: -10px 15px 0 0;
-  }
+    margin: -10px 10px 0 0;
 
-  button {
-    justify-content: center;
-    width: 20%;
-    height: 28px;
-    right: 0;
-    background-color: #13131a;
-    margin-top: 30px;
-    border: 1px solid rgb(198, 198, 200);
-    border-radius: 10px;
-    color: rgb(198, 198, 200);
+    button {
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      width: 23%;
+      height: 28px;
+      right: 0;
+      background-color: #13131a;
+      margin-top: 30px;
+      border: 1px solid rgb(198, 198, 200);
+      border-radius: 10px;
+      color: rgb(198, 198, 200);
+      cursor: pointer;
+      transition-duration: 0.4s;
+      -webkit-transition-duration: 0.4s;
+    }
+
+    button:hover {
+      transition-duration: 0.1s;
+      background-color: #3a3a3a;
+    }
+
+    button:after {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: 4em;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: all 0.5s;
+      box-shadow: 0 0 10px 20px white;
+    }
+
+    button:active:after {
+      box-shadow: 0 0 0 0 white;
+      position: absolute;
+      border-radius: 4em;
+      left: 0;
+      top: 0;
+      opacity: 1;
+      transition: 0s;
+    }
+
+    button:active {
+      top: 1px;
+    }
   }
 }
 
@@ -161,9 +207,10 @@ h3 {
   .comments {
     display: flex;
     align-items: center;
-    margin: 0 0 10px 30px;
+    margin: 0 0 10px 40px;
     width: 75%;
     color: rgba(255, 255, 255, 0.825);
+    text-align: justify;
 
     .com-img {
       img {
