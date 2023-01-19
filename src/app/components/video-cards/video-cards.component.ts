@@ -17,24 +17,35 @@ export class VideoCardsComponent implements OnInit {
 
   channel_name: string[] = [];
 
+  @Input() id_video! : number;
+
 
   constructor(private upload: UploadService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    let id_video = this.route.snapshot.params['id_video'];
+
+    this.route.params.subscribe(p => {
+      let id_video = this.id_video;
+      //this upload get video player subscribe etc etc
+      //this.route.snapshot.params['id_video'];
     this.upload.getVideoPlayer(id_video).subscribe(video => {
       this.videos = <Video[]>video;
       let vid = this.videos[0];
-      console.log('O QUE ELE MOSTRA');
-      console.log(vid.id);
+      /* console.log('O QUE ELE MOSTRA');
+      console.log(vid.id); */
 
       this.upload.getVideoCards(parseInt(vid.channel)).subscribe(videos => {
         this.video_card = videos;
-        /* console.log(this.video_card);
-        console.log('testando o console log de channel'); */
+        /* console.log('testando o console log de video_card:');
+        console.log(this.video_card); */
+        /* 
+         */
 
       });
     })
+  });
+    
+    
   }
   /* navigateToVideoChannel(item: VideoCard ) {
 

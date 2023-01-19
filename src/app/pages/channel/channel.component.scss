@@ -2,7 +2,8 @@
   margin: 20px;
   position: relative;
   width: 98%;
-  height: 40%;
+  // height: 40%;
+  height: 300px;
 
   img {
     width: 99.3%;
@@ -26,16 +27,22 @@
 
 .informationBanner {
   color: rgb(198, 198, 200);
-  margin: 0 20px 80px 30px;
-  font-size: 12px;
+  margin: 0 20px 80px 40px;
+  font-size: 15px;
   border-bottom: 1px solid rgb(39, 39, 48);
   padding-bottom: 20px;
+
+  #description {
+    font-size: 13px;
+    width: 50%;
+    text-align: justify;
+  }
 }
 
 h3 {
   color: rgb(198, 198, 200);
   margin-top: -50px;
-  padding-left: 30px;
+  padding-left: 40px;
 }
 
 .cardPage {
@@ -44,14 +51,15 @@ h3 {
   flex-wrap: wrap;
   color: rgb(198, 198, 200);
   font-size: 12px;
-  margin-bottom: 50px;
-  padding-left: 30px;
+  margin-bottom: 60px;
+  padding-left: 40px;
+  width: 100%;
 
   .cards {
     background-color: rgb(28, 28, 36);
-    margin: 0 16px 15px 0;
-    width: 32%;
-    height: 320px;
+    margin: 0 33px 35px 0;
+    width: 369px;
+    height: 350px;
     border-radius: 15px;
 
     .informations {
@@ -59,6 +67,26 @@ h3 {
       width: 100%;
       font-weight: bold;
       text-transform: uppercase;
+      position: relative;
+
+
+      .details_time {
+        margin-left: 10px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        color: #FFFFFF;
+        position: absolute;
+        width: 55px;
+        height: 18px;
+        //left: 5px;
+        top: 175px;
+        background-color: #171725;
+        border-radius: 5px;
+      }
 
       img {
         object-fit: cover;
@@ -66,11 +94,12 @@ h3 {
         border-top-right-radius: 15px;
         width: 100%;
         height: 220px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
       }
 
       .textInformation {
-        line-height: 0.8;
+        line-height: 1.2;
         margin: 0 70px 20px 20px;
       }
 
@@ -96,15 +125,117 @@ h3 {
   }
 }
 
+.post-comment {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: 30px 0 0 40px;
+
+  .firstRow {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 1px solid black;
+      margin-right: 20px;
+    }
+
+    input {
+      width: 50%;
+      height: 30px;
+      background-color: #13131a;
+      margin: 0 15px 10px 0;
+      border: none;
+      border-bottom: 1px solid #606068;
+      color: rgb(198, 198, 200);
+      font-family: Roboto;
+    }
+  }
+
+  textarea {
+    width: 91%;
+    height: 25px;
+    background-color: #13131a;
+    border: none;
+    border-bottom: 1px solid #606068;
+    color: rgb(198, 198, 200);
+    margin: -20px 0 0 80px;
+    font-family: Roboto;
+  }
+
+  .button {
+    display: flex;
+    justify-content: flex-end;
+    margin: -10px 10px 0 0;
+
+    button {
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      width: 23%;
+      height: 28px;
+      right: 0;
+      background-color: #13131a;
+      margin-top: 30px;
+      border: 1px solid rgb(198, 198, 200);
+      border-radius: 10px;
+      color: rgb(198, 198, 200);
+      cursor: pointer;
+      transition-duration: 0.4s;
+      -webkit-transition-duration: 0.4s;
+    }
+
+    button:hover {
+      transition-duration: 0.1s;
+      background-color: #3a3a3a;
+    }
+
+    button:after {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: 4em;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: all 0.5s;
+      box-shadow: 0 0 10px 20px white;
+    }
+
+    button:active:after {
+      box-shadow: 0 0 0 0 white;
+      position: absolute;
+      border-radius: 4em;
+      left: 0;
+      top: 0;
+      opacity: 1;
+      transition: 0s;
+    }
+
+    button:active {
+      top: 1px;
+    }
+  }
+}
+
 .container {
   margin: 0 0 50px 0;
 
   .comments {
     display: flex;
     align-items: center;
-    margin: 0 0 10px 30px;
+    margin: 0 0 10px 40px;
     width: 75%;
     color: rgba(255, 255, 255, 0.825);
+    text-align: justify;
+    font-family: poppins;
+    font-size: 14px;
 
     .com-img {
       img {
@@ -116,7 +247,7 @@ h3 {
     }
 
     .com-info {
-      margin: 25px 0 0 20px;
+      margin: 15px 0 0 20px;
 
       .cread-comm {
         color: #606068;

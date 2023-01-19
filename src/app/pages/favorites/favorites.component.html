@@ -1,0 +1,30 @@
+<h2>FAVORITOS</h2>
+<span>Adicione alguns favoritos à sua lista!</span>
+<div class="container">
+  <div class="flex">
+    <div *ngFor="let f of favs" class="informations">
+      <img
+        src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
+          f.thumbnail
+        }}"
+        alt="video image"
+        [routerLink]="['video/' + f.id]"
+      />
+      <div>
+        <fa-icon
+          [icon]="itsFavorite(f.id) ? faBookmarkSolid : faBookmark"
+          class="bookmark faIcon"
+          (click)="toggleFavorite(f.id)"
+        ></fa-icon>
+        <fa-icon [icon]="faShareNodes" class="faIcon share"> </fa-icon>
+        <p class="details">{{ f.channel }}</p>
+        <p class="details">{{ f.title }}</p>
+        <p class="details">
+          {{ f.field_video_visualization }} visualizações | há
+          {{ f.created | diasPassados }} dias
+        </p>
+      </div>
+    </div>
+  </div>
+  <app-cards></app-cards>
+</div>

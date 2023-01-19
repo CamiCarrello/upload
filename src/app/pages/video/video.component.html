@@ -10,19 +10,26 @@
         </div>
 
         <div class="user" *ngIf="channel">
-            <div class="user-photo">
-                <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}">
-            </div>
-            <div class="userInfo">
-                <span class="user_name"> <strong>{{ channel.author }} </strong></span>
-                <span class="created"> Há {{ video.created | diasPassados }} dias. </span>
+                <div class="user-photo">
+                    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}">
+                </div>
+             <div class="organize-data">     
+                <div class="userInfo">
+                    <span class="user_name"> <strong>{{ channel.author }} </strong></span>
+                    <span class="created"> há {{ video.created | diasPassados }} dias. </span>
+                </div>
+                <div class="icon">
+                    <span> {{ l.count_like }} </span>
+                    <fa-icon class="like" [icon]="faThumbsUp " (click)="like()"> </fa-icon>
+                   <!--  <span> {{ dl.count_like }} </span> -->
+                    <fa-icon class="dislike" [icon]="faThumbsDown "></fa-icon>
+                </div>
             </div>
         </div>
         <div class="description">
             <div class="desc">
                 <p> {{ video.description }} </p>
             </div>
-
         </div>
         <div class="post-comment">
             <div class="data-comment">
@@ -34,6 +41,9 @@
             <div class="send">
                 <button (click)="enviarComentario()">Enviar Comentário</button>
             </div>
+
+            <!-- <fa-icon [icon]="faThumbsUp " style="background-color: white;" (click)="like()"></fa-icon> -->
+
         </div>
         <div class="comments" *ngFor="let c of comments">
             <div class="com-img">
@@ -47,6 +57,7 @@
         </div>
     </div>
 
+   
 
-    <app-video-cards></app-video-cards>
+    <app-video-cards [id_video]="id_video"></app-video-cards>
 </div>

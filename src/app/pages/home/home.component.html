@@ -1,18 +1,25 @@
-<div class="cardPage">
-  <div class="titlePage">
-    <h2>Últimos videos</h2>
-  </div>
-  <div class="cards" *ngFor="let video of videos" [routerLink]="['video/'+ video.id]">
-    <div class="informations">
-      <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}" alt="video image" />
-      <a class="bookmark" href="">
-        <fa-icon [icon]="faBookmark" class="faIcon"> </fa-icon>
-      </a>
-      <a class="share" href="">
-        <fa-icon [icon]="faShareNodes" class="faIcon"> </fa-icon>
-      </a>
-      <p>{{ video.title }}</p>
+<h2>Últimos Vídeos</h2>
+<div class="container">
+  <div class="flex">
+    <div *ngFor="let video of videos" class="informations">
+      <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
+          video.thumbnail
+        }}" alt="video image" [routerLink]="['video/' + video.id]" />
+      <div>
+        <fa-icon [icon]="itsFavorite(video.id) ? faBookmarkSolid : faBookmark" class="bookmark faIcon"
+          (click)="toggleFavorite(video.id)"></fa-icon>
+        <fa-icon [icon]="faShareNodes" (click)="toggleModal()" class="faIcon share">
+        </fa-icon>
+        <p class="details_channel">{{ video.channel }}</p>
+        <p class="details_title">{{ video.title }}</p>
+        <p class="details_visualization">
+          {{ video.field_video_visualization }} visualizações | há
+          {{ video.created | diasPassados }} dias
+        </p>
+        <p class="details_time">{{ video.field_time_video }}</p>
+      </div>
     </div>
   </div>
+  <app-modal-to-share [showModal]="showModal"></app-modal-to-share>
   <app-cards></app-cards>
 </div>

@@ -13,7 +13,7 @@
 
   .outlet{ // coluna 2
     flex: 1;
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #13131A;
     /* color: #fafafb; */
     overflow: auto;
@@ -21,4 +21,11 @@
     
 
   }
+}
+
+@media (mim-width: 480px) {
+  .sidebar {
+    display: none;
+  }
+
 }

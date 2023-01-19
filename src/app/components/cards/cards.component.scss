@@ -1,90 +1,165 @@
 .container {
-   display: flex;
-   flex-direction: column;
-   top: 15px;
-   right: 35px;
-   width: 15%;
-   padding-bottom: 10%;
-   position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 15px;
+  right: 15px;
+  width: 330px;
+  height: 100%;
+  padding-bottom: 10%;
+  position: absolute;
 
-   .channels,
-   .themes {
-      background-color: rgb(28, 28, 36);
-      margin-top: 20px;
-      height: 60%;
-      color: rgb(245, 245, 247);
-      font-size: 12px;
-      border: 1px;
-      display: inline-block;
-      border-radius: 10px;
+
+  .channels,
+  .themes {
+    background-color: rgb(28, 28, 36);
+    margin-top: 20px;
+    color: rgb(245, 245, 247);
+    font-size: 12px;
+    border: 1px;
+    display: inline-block;
+    border-radius: 10px;
+    position: relative;
+
+
+
+    .title {
+      width: 100%;
+      margin: auto;
+      padding: 10px 10px;
+      display: inline-flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid rgb(39, 39, 48);
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: 0.1px;
+      color: #FAFAFB;
+
+      .seeAll {
+        text-decoration: none;
+        font-size: 12px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+      }
+    }
+
+
+
+    .banner {
+      display: flex;
+      flex-wrap: wrap;
       position: relative;
+      margin-bottom: 20px;
+      margin-top: 10px;
 
-      .title {
-         width: 100%;
-         margin: auto;
-         padding: 10px 10px;
-         display: inline-flex;
-         align-items: baseline;
-         justify-content: space-between;
-         border-bottom: 1px solid rgb(39, 39, 48);
+      .titleChannel {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 2px;
+        color: #92929D;
+        height: 10px;
+        left: 1319px;
+        top: 559px;
+        margin-left: 60px;
 
-         .seeAll {
-            text-decoration: none;
-            color: rgb(245, 245, 247);
-            font-size: 10px;
-         }
       }
 
-      .banner {
-         display: flex;
-         flex-wrap: wrap;
-         position: relative;
-         margin-bottom: 20px;
-         margin-top: 10px;
+      .titleTheme {
+        width: 100%;
+        display: inline-flex;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 10px;
+        line-height: 10px;
+        letter-spacing: 0.1px;
+        color: #FAFAFB;
 
-         .titleTheme {
-            width: 100%;
-            margin: auto;
-            padding: 10px 10px;
-            display: inline-flex;
-            font-size: 10px;
-         }
-
-         .logoChannel img {
-            border-radius: 50%;
-            height: 40px;
-            width: 40px;
-            margin-right: 10px;
-            margin-left: 10px;
-            margin-bottom: 10px;
-            border: 1px solid black;
-         }
-
-         .headerChannel img {
-            width: 90%;
-            height: auto;
-            border: 1px solid black;
-            justify-content: center;
-            margin-right: 5%;
-            margin-left: 5%;
-            border-radius: 5%;
-         }
       }
 
-      .more {
-         align-items: center;
-         display: flex;
-         justify-content: center;
-         border-top: 1px solid rgb(40, 40, 48);
-         background-color: rgb(40, 40, 48);
-         border-bottom-left-radius: 10px;
-         border-bottom-right-radius: 10%;
-         font-size: 10px;
+      .logoChannel{
+        display: inline-flex;
+        padding-bottom: 10px;
+        margin-bottom: -25px;
 
-         .showMore {
-            text-decoration: none;
-            color: rgb(245, 245, 247);
-         }
       }
-   }
+
+      .logoChannel img {
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        margin-right: 10px;
+        margin-left: 10px;
+        //margin-bottom: 10px;
+        border: 1px solid black;
+        cursor: pointer;
+        background: #1C1C24;
+
+      }
+
+      .headerChannel img {
+        width: 90%;
+        height: auto;
+        border: 1px solid black;
+        justify-content: center;
+        margin-right: 5%;
+        margin-left: 5%;
+        border-radius: 15px;
+        cursor: pointer;
+      }
+
+    }
+
+    .more {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid rgb(40, 40, 48);
+      background-color: #282830;
+      font-size: 10px;
+      mix-blend-mode: normal;
+      border-radius: 0px 0px 15px 15px;
+
+      .showMore {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        text-transform: uppercase;
+
+
+      }
+
+
+    }
+
+
+
+  }
+
+}
+
+/* Responsive columns */
+@media screen and (max-width: 1299px) {
+  .container {
+
+    display: none;
+    ;
+
+  }
 }

@@ -7,7 +7,7 @@
 
 <div class="informationBanner">
   <h2><b>{{ channel.author }}</b></h2>
-  <p>Aqui entra uma descrição sobre o canal de fulano de tal.</p>
+  <p id="description">{{ channel.channel_description }}</p> 
 </div>
 
 <h3>Vídeos</h3>
@@ -15,13 +15,26 @@
   <div class="cards" *ngFor="let channel of channels" [routerLink]="['/video/' + channel.id_video]">
     <div class="informations">
       <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.thumbnail }}">
-      <p>{{ video.field_time_video }}</p>
+      <p class="details_time">{{ channel.field_time_video }}</p>
       <div class="textInformation">
-        <span class="tags"> # {{video.tags}} </span>
+        <span class="tags"> # {{ channel.tags }} </span>
         <p id="title">{{ channel.title_video }}</p>
         <p id="createdDate">Há {{ channel.created | diasPassados }} dias</p>
       </div>
     </div>
+  </div>
+</div>
+
+<h3>Comentários</h3>
+<div class="post-comment">
+  <div id="comment" class="firstRow">
+    <img src="../../../assets/imgs/anonymous.jpg">
+    <input type="text" placeholder="Nome" [(ngModel)]="autor_comentario">
+    <input type="text" placeholder="E-mail" [(ngModel)]="autor_email">
+  </div>
+  <textarea type="text" placeholder="Comentário" [(ngModel)]="post_comment_body"></textarea>
+  <div class="button">
+    <button (click)="enviarComentario()">Submeter Comentário</button>
   </div>
 </div>
 
@@ -32,7 +45,7 @@
     </div>
     <div class="com-info">
       <span><strong> {{ c.name }}</strong></span>
-      <!-- <span class="cread-comm"> há {{ c.created | diasPassados }} dias </span> -->
+      <span class="cread-comm"> há {{ c.post_date | diasPassados }} dias </span>
       <p class="commen-p"> {{ c.comment }} </p>
     </div>
   </div>

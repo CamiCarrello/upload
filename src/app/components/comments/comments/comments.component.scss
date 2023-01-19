@@ -1,0 +1,10 @@
+.container {  
+    position: relative;
+    padding-left: 160px;  /*Same as the width of the sidenav */
+  
+    .insertComments, .comments {  
+        color: white; 
+        background-color: rgb(70, 70, 70);
+        padding-left: 20px;
+    }
+}

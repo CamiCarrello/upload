@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Video, Channel } from 'src/app/services/upload.model';
 import { UploadService } from 'src/app/services/upload.service';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Video } from 'src/app/services/upload.model';
 import {
   faBookmark as faBookmarkSolid,
   faHomeUser,
@@ -10,25 +10,20 @@ import {
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-favorites',
+  templateUrl: './favorites.component.html',
+  styleUrls: ['./favorites.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class FavoritesComponent implements OnInit {
   videos: Video[] = [];
-  channelList: Channel[] = [];
+  list_favorites: any[] = [];
+  favs: any[] = [];
   faHomeUser = faHomeUser;
   faBookmark = faBookmark;
   faBookmarkSolid = faBookmarkSolid;
   faShareNodes = faShareNodes;
 
-  showModal: Boolean = false;
-
-  toggleModal() {
-    this.showModal = !this.showModal;
-  }
-
-  constructor(private route: ActivatedRoute, private upload: UploadService) {}
+  constructor(private upload: UploadService, private route: ActivatedRoute) {}
 
   toggleFavorite(id_video: string) {
     this.upload.toggleFavorite(id_video);
@@ -37,12 +32,15 @@ export class HomeComponent implements OnInit {
   itsFavorite(id_video: string) {
     return this.upload.itsFavorite(id_video);
   }
-
+  
   ngOnInit(): void {
     this.upload.getVideos().subscribe((video) => {
       this.videos = video;
-    });
+      this.list_favorites = this.upload.getFavorites();
+      this.favs = this.videos.filter(video => this.list_favorites.includes(video.id));
+      console.log(this.favs);
 
-  
+      //pego e favorito e guardo na lista de favoritos.
+    });
   }
 }

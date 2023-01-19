@@ -2,10 +2,10 @@ import { SafeResourceUrl } from "@angular/platform-browser";
 
 export interface ChannelsResponse {
     data: Channel[];
-}
-
-export interface Channel {
-    id: string; //não sei se vai precisar mudar para ficar como o portman: id_channel
+  }
+  
+  export interface Channel {
+    id: string;
     channel_name: string;
     author: string;
     category: string;
@@ -16,9 +16,10 @@ export interface Channel {
     created: string;
     title_video: string;
     id_video: string;
-    
-
-}
+    channel_description: string;
+    tags: string;
+    field_time_video: string;
+  }
 
 export interface VideoCardsResponse {
     data: VideoCard[];
@@ -31,10 +32,12 @@ export interface VideoCard {
     category: string;
     created: string;
     banner: string;
-    user: string;
+    //user: string;
+    user_photo:string;
     thumbnail: string;
     title_video: string;
     id_video: string;
+    field_time_video: string;
 }
 
 
@@ -60,7 +63,9 @@ export interface Video {
     created: string;
     channel_name: string;
     field_time_video: string;
+    field_video_visualization:string;
     
+
 }
 export interface PlaylistResponse {
     data: Playlist[];
@@ -73,6 +78,8 @@ export interface Playlist {
     category:string;
     url_video: string;
     thumbnail: string;
+    id_video: string;
+    field_time_video: string;
 }
 
 export interface TagsResponse {
@@ -102,11 +109,11 @@ export interface Comment {
     name: string;
     email: string;
     comment: string;
-    user_name: string;
-    user_photo: string;
-    autor_comment: string;
+    user_photo?: string;
     post_date: string;
-
+    //user_name?: string;
+    //post_date_comment: string;
+    //autor_comment: string;
 }
 
 export interface PostComment {
@@ -115,6 +122,7 @@ export interface PostComment {
     comment_type:[{[key: string]: string}]
     field_name:[{[key: string]: string}]
     field_email_video:[{[key: string]: string}]
+    /* field_user_photo_comment:[{[key: string]: string}] */
     field_nome_comment_video:[{[key: string]: string}]
     comment_body:[{[key: string]: string}]
 }
@@ -128,3 +136,29 @@ export interface PostCommentChannel {
     field_nome_content_comment_:[{[key: string]: string}]
     comment_body:[{[key: string]: string}]
 }
+
+export interface LikesResponse {
+    data: Like[];
+}
+export interface Like {
+    count_like: string,
+    id_video: string;
+}
+
+export interface DislikesResponse {
+    data: Dislike[];
+}
+export interface Dislike {
+    count_like: string,
+    id_video: string;
+}
+
+export interface PostLike {
+    //entity_id: [{[key: string]: number}]
+    entity_id: [string]
+    entity_type:[{[key: string]: string}]
+    //entity_type: [string]
+    flag_id:[{[key: string]: string},{[key: string]: string}]
+    uid: [string]
+}
+

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UploadService } from 'src/app/services/upload.service';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -17,6 +17,10 @@ export class ChannelComponent implements OnInit {
   videos: Video[] = [];
   video: Video = {} as Video;
 
+  autor_comentario: string = ""
+  autor_email: string = ""
+  post_comment_body: string = ""
+
   comments: Comment[] = [];
 
   constructor(private upload: UploadService, private route: ActivatedRoute, private router: Router, public sanitizer: DomSanitizer) { }
@@ -27,16 +31,29 @@ export class ChannelComponent implements OnInit {
       this.channels = <Channel[]>channel;
       this.channel = this.channels[0];
 
+
+      /* UTILIZADO SOMENTE PARA CHAMAR AS TAGS! */
       this.upload.getChannelVideos(parseInt(id_channel)).subscribe(channel => {
         this.channels = <Channel[]>channel;
       });
+
+      this.upload.getCommentChannel(parseInt(id_channel)).subscribe(comment => {
+        this.comments = <Comment[]>comment;
+        this.comments.forEach(comment => {
+          if (comment.name === "") {
+            comment.name = comment.name.replaceAll('', "Anonymous")
+            comment.user_photo = "../../../assets/imgs/anonymous.jpg";
+          } else {
+            comment.user_photo = "https://dev-project-upskill-grupo02.pantheonsite.io" + comment.user_photo;
+          }
+          // console.log(comment.user_photo);
+        })
+      })
 
       //  Substitui a propriedade url_video, tags.
       this.videos.forEach(video => {
         video.url_video = video.url_video.replace("watch?v=", "embed/");
         video.tags = video.tags.replaceAll(",", " #");
-        console.log(video.tags)
-        console.log(video.url_video)
       });
 
       // Transforma a url em URLSAFE
@@ -45,5 +62,10 @@ export class ChannelComponent implements OnInit {
         this.video.url = this.sanitizer.bypassSecurityTrustResourceUrl(v.url_video);
       })
     })
+  }
+  public enviarComentario() {
+    let id_channel = this.route.snapshot.params['id_channel']
+    this.upload.postCommentChannel(id_channel, this.autor_comentario, this.autor_email, this.post_comment_body);
+    console.log("TESTE", this.comments)
   }
 }

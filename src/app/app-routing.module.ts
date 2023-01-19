@@ -1,5 +1,6 @@
+import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { ThemesComponent } from './pages/themes/themes.component';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ChannelListComponent } from './pages/channel-list/channel-list.component';
@@ -12,8 +13,9 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'video/:id_video', component: VideoComponent},
   {path: 'channelList', component: ChannelListComponent},
-  {path: 'channel/:id_channel', component: ChannelComponent},  
+  {path: 'channel/:id_channel', component: ChannelComponent},
   {path: 'playlist', component: PlaylistComponent},
+  {path: 'favorites', component: FavoritesComponent},
   {path: 'themes', component: ThemesComponent}
 
 ];
