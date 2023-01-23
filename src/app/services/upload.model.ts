@@ -122,7 +122,6 @@ export interface PostComment {
     comment_type:[{[key: string]: string}]
     field_name:[{[key: string]: string}]
     field_email_video:[{[key: string]: string}]
-    /* field_user_photo_comment:[{[key: string]: string}] */
     field_nome_comment_video:[{[key: string]: string}]
     comment_body:[{[key: string]: string}]
 }

@@ -157,9 +157,26 @@
 /* Responsive columns */
 @media screen and (max-width: 1299px) {
   .container {
-
+    
     display: none;
-    ;
-
   }
+
 }
+//sugestões //
+@media only screen and (min-width: 1920px) {
+  .container {
+    margin-right: 1%;
+    
+  }
+
+}
+
+@media only screen and (min-width: 1485px) {
+  .container {
+    margin-right: 1%;
+    width: 290px;
+  }
+
+}
+
+

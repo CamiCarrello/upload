@@ -77,14 +77,13 @@ export class UploadService {
     return this, this.http.get(BASE_URL + "" + id_do_video);
   }
 
-  postComment(video_id: number, name: string, email: string/* , user_photo: string */, comment: string, callback?: any) {
+  postComment(video_id: number, name: string, email: string, comment: string, callback?: any) {
     let post_comment: PostComment = {
       entity_id: [{ target_id: video_id }],
       entity_type: [{ value: 'media' }],
       comment_type: [{ target_id: 'video_comment' }],
       field_name: [{ value: 'field_comment' }],
       field_email_video: [{ value: email }],
-      /* field_user_photo_comment: [{ value: user_photo }], */
       field_nome_comment_video: [{ value: name }],
       comment_body: [
         { value: comment, format: 'plain_text' }

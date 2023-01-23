@@ -112,7 +112,9 @@ export class VideoComponent implements OnInit {
         name: this.autor_comentario,
         email: this.autor_email,
         comment: this.post_comment_body,
-        post_date: new Date().toISOString().split("T")[0]
+        post_date: new Date().toISOString().split("T")[0],
+        user_photo: "../../../assets/imgs/anonymous.jpg"
+
       })
     });
   }

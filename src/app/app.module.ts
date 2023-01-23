@@ -8,7 +8,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { ChannelComponent } from './pages/channel/channel.component';
 import { MenuSideBarComponent } from './components/menu-side-bar/menu-side-bar.component';
 import { CardsComponent } from './components/cards/cards.component';
-import { CommentsComponent } from './components/comments/comments.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlaylistComponent } from './pages/playlist/playlist.component';
 import { ThemesComponent } from './pages/themes/themes.component';
@@ -29,7 +28,6 @@ import { ModalToShareComponent } from './components/modal-to-share/modal-to-shar
     MenuSideBarComponent,
     ThemesComponent,
     CardsComponent,
-    CommentsComponent,
     PlaylistComponent,
     ChannelListComponent,
     VideoComponent,
