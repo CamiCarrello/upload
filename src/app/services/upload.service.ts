@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Channel, Themes, Video, Playlist, VideoCard, PostComment, PostCommentChannel, PostLike } from './upload.model';
+import { Channel, Themes, Video, Playlist, VideoCard, PostComment, PostCommentChannel, PostLike, PostDislike } from './upload.model';
 import { Tag } from 'src/app/services/upload.model';
 
 
@@ -74,7 +74,7 @@ export class UploadService {
   }
 
   getDislikes(id_do_video: number) {
-    return this, this.http.get(BASE_URL + "" + id_do_video);
+    return this, this.http.get(BASE_URL_RAW + "entity/flagging/dislike/" + id_do_video);
   }
 
   postComment(video_id: number, name: string, email: string, comment: string, callback?: any) {
@@ -105,14 +105,24 @@ export class UploadService {
     this.http.post(BASE_URL_RAW + "comment", post_comment_channel).subscribe(() => { });
   }
 
-  postLike(id_video: string) {
+  postLike(id_video: string, callback?: any) {
     let postLike: PostLike = {
       entity_id: [id_video],
       entity_type: [{ value: 'media' }],
       flag_id: [{ target_id: 'like' }, { target_type: 'flag' }],
       uid: ['0']
     }
-    this.http.post(BASE_URL_RAW + "entity/flagging", postLike).subscribe(() => { });
+    this.http.post(BASE_URL_RAW + "entity/flagging", postLike).subscribe((callback));
+  }
+
+  postDislike(id_video: string, callback?: any) {
+    let postDislike: PostDislike = {
+    entity_id: [id_video],
+    entity_type: [{ value: 'media' }],
+    flag_id: [{ target_id: 'dislike' }, { target_type: 'flag' }],
+    uid: ['0']
+    }
+    this.http.post(BASE_URL_RAW + "entity/flagging", postDislike).subscribe((callback));
   }
 
   getFavorites() {

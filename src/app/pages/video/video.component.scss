@@ -52,6 +52,18 @@
                 padding-top: 100%; 1:1 Aspect Ratio
             */
 
+            .favorite{
+                position: absolute;
+                top: 1%;
+                width: 12%;
+               .bookmark{
+                background-color: pink;
+                width: 150px;
+                height: 150px;
+            } 
+            }
+            
+
             iframe {
                 /* border-radius: 15px;
                 position: absolute;

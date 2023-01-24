@@ -148,7 +148,7 @@ export interface DislikesResponse {
     data: Dislike[];
 }
 export interface Dislike {
-    count_like: string,
+    count_dislike: string,
     id_video: string;
 }
 
@@ -157,6 +157,13 @@ export interface PostLike {
     entity_id: [string]
     entity_type:[{[key: string]: string}]
     //entity_type: [string]
+    flag_id:[{[key: string]: string},{[key: string]: string}]
+    uid: [string]
+}
+
+export interface PostDislike {
+    entity_id: [string]
+    entity_type:[{[key: string]: string}]
     flag_id:[{[key: string]: string},{[key: string]: string}]
     uid: [string]
 }

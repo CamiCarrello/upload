@@ -42,7 +42,5 @@ export class HomeComponent implements OnInit {
     this.upload.getVideos().subscribe((video) => {
       this.videos = video;
     });
-
-  
   }
 }

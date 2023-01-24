@@ -3,6 +3,11 @@
         <h1 class="title"> {{ video.title }} </h1>
         <span class="tags"> # {{video.tags}} </span>
         <div class="video">
+            <div class="favorite">
+                <fa-icon class="bookmark" [icon]="itsFavorite(video.id) ? faBookmarkSolid : faBookmark"
+                    (click)="toggleFavorite(video.id)"></fa-icon>
+            </div>
+
             <iframe [src]="video.url " title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
@@ -10,19 +15,21 @@
         </div>
 
         <div class="user" *ngIf="channel">
-                <div class="user-photo">
-                    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}">
-                </div>
-             <div class="organize-data">     
+            <div class="user-photo">
+                <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}">
+            </div>
+            <div class="organize-data">
                 <div class="userInfo">
                     <span class="user_name"> <strong>{{ channel.author }} </strong></span>
                     <span class="created"> há {{ video.created | diasPassados }} dias. </span>
                 </div>
                 <div class="icon">
-                    <span> {{ l.count_like }} </span>
+                    <span *ngIf="like_ready"> {{ count_print_like }} </span>
+                    <span *ngIf="!like_ready"> {{ l.count_like }} </span>
                     <fa-icon class="like" [icon]="faThumbsUp " (click)="like()"> </fa-icon>
-                   <!--  <span> {{ dl.count_like }} </span> -->
-                    <fa-icon class="dislike" [icon]="faThumbsDown "></fa-icon>
+                    <span *ngIf="dislike_ready"> {{ count_print_dislike }} </span>
+                    <span *ngIf="!dislike_ready"> {{ dl.count_dislike }} </span>
+                    <fa-icon class="dislike" [icon]="faThumbsDown " (click)="dislike()"></fa-icon>
                 </div>
             </div>
         </div>
@@ -57,7 +64,7 @@
         </div>
     </div>
 
-   
+
 
     <app-video-cards [id_video]="id_video"></app-video-cards>
 </div>
