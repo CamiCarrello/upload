@@ -1,41 +1,4 @@
-.container {
-    .themes {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 60px;
-        padding: 0 5%;
-
-        .title {
-            font-size: 24px;
-        }
-
-        .theme {
-            width: 100%;
-
-            .header_photo {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                width: 50%;
-                border-radius: 50px;
-
-                img {
-                    border-radius: 5%;
-                }
-            }
-
-            .user_photo img {
-                position: absolute;
-                bottom: 15px;
-                right: 30px;
-                padding: 15px;
-                border-radius: 50%;
-                width: 60px;
-                height: 60px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
-    }
+* {
+  color: #f1f1f1;
+  margin-left: 30px;
 }

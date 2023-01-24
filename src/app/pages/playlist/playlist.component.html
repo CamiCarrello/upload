@@ -1,32 +1,15 @@
-<!-- <h2>Playlists</h2>
+<h2>Playlists</h2>
 <div class="cardPage" *ngIf="playlist">
     <div class="playTitle" *ngFor="let play of playlist_name">
         <p class="title">{{ play }}</p>
-        <div class="row" *ngFor="let v of getTitle(play)" [routerLink]="['/video/'+ v.id]">
+        <div class="row" *ngFor="let video of getTitle(play)" (click)="navigateToVideo(video)">
             <div class="column">
                 <div class="informations">
-                    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ v.thumbnail }}" />
-                    <p> {{ v.name }} </p>
+                    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}" />
+                    <p id="title"> {{ video.name }} </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <app-cards></app-cards>
- -->
-
- <h2>Playlists</h2>
- <div class="cardPage" *ngIf="playlist">
-     <div class="playTitle" *ngFor="let play of playlist_name">
-         <p class="title">{{ play }}</p>
-         <div class="row" *ngFor="let v of video" [routerLink]="['/video/'+ v.id]">
-             <div class="column">
-                 <div class="informations">
-                     <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ v.thumbnail }}" />
-                     <p id="title"> {{ v.title }} </p>
-                 </div>
-             </div>
-         </div>        
-     </div>
- </div>
- <app-cards></app-cards>

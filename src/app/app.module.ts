@@ -8,14 +8,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { ChannelComponent } from './pages/channel/channel.component';
 import { MenuSideBarComponent } from './components/menu-side-bar/menu-side-bar.component';
 import { CardsComponent } from './components/cards/cards.component';
-import { CommentsComponent } from './components/comments/comments.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlaylistComponent } from './pages/playlist/playlist.component';
 import { ThemesComponent } from './pages/themes/themes.component';
 import { ChannelListComponent } from './pages/channel-list/channel-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VideoComponent } from './pages/video/video.component';
-import { DiasPassadosPipe } from './dias-passados.pipe';
+import { DiasPassadosPipe } from './dias-passados.pipe'
 
 @NgModule({
   declarations: [
@@ -25,11 +24,10 @@ import { DiasPassadosPipe } from './dias-passados.pipe';
     MenuSideBarComponent,
     ThemesComponent,
     CardsComponent,
-    CommentsComponent,
     PlaylistComponent,
     ChannelListComponent,
     VideoComponent,
-    DiasPassadosPipe,
+    DiasPassadosPipe
   ],
 
   imports: [
@@ -40,6 +38,6 @@ import { DiasPassadosPipe } from './dias-passados.pipe';
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

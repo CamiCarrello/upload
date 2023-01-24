@@ -6,8 +6,8 @@
       <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}" alt="video image"
         [routerLink]="['video/' + video.id]" />
       <div>
-        <fa-icon [icon]="itsFavorite(video.id) ? faBookmarkSolid : faBookmark" class="bookmark faIcon"
-          (click)="toggleFavorite(video.id)"></fa-icon>
+        <!-- <fa-icon [icon]="itsFavorite(video.id) ? faBookmarkSolid : faBookmark" class="bookmark faIcon"
+          (click)="toggleFavorite(video.id)"></fa-icon> -->
         <fa-icon [icon]="faShareNodes" class="faIcon share"> </fa-icon>
         <p class="details">{{ video.channel }}</p>
         <p class="details">{{ video.title }}</p>

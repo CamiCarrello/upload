@@ -23,12 +23,15 @@ export class VideoComponent implements OnInit {
 
   video_ready: boolean = false;
 
+  avatarArray = [];
+
   constructor(
     private upload: UploadService,
     private route: ActivatedRoute,
     public sanitizer: DomSanitizer
   ) { }
 
+  
   ngOnInit(): void {
 
     this.upload.getVideos().subscribe(video => {
@@ -41,7 +44,7 @@ export class VideoComponent implements OnInit {
       this.videos = <Video[]>video;
       this.video = this.videos[0];
       //mudei essa parte do código para poder mostra que "video" só tem uma posição pois o video recebe um video por vez!
-      console.log(video);
+      // console.log(video);
 
       this.upload.getChannels(parseInt(this.video.channel)).subscribe(channel => {
         this.channels = <Channel[]>channel;
@@ -52,20 +55,23 @@ export class VideoComponent implements OnInit {
         this.comments = <Comment[]>comment;
         this.comments.forEach(c => {
           c.name = c.name.replaceAll('', "Anonymous")
-          console.log(c.name);
+          // console.log(c.name);
         })
         /*  this.video.comment.toString= this.comments;; */
         /* this.comment = this.comments; */
-        console.log(comment);
-        console.log('estou comentando aqui');
+       /*  console.log(comment);
+        console.log('estou comentando aqui'); */
       })
+
+      let newAvatarArray = this.avatarArray.sort(() => 0.5 - Math.random());
+      // console.log('AVATAR: ' + newAvatarArray);
 
       //************ Substitui a propriedade url_video, Tags *********** */
       this.videos.forEach(vid => {
         vid.url_video = vid.url_video.replace("watch?v=", "embed/");
+        // vid.url_video += "?autoplay=1"
         vid.tags = vid.tags.replaceAll(",", " #");
-        console.log(vid.tags)
-        console.log(vid.url_video)
+        console.log("OI:" + vid.url_video)
 
         /*Para obter dados de date e converter*/
         let current_data: Date = new Date();

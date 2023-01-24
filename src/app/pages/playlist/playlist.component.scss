@@ -27,26 +27,17 @@ h2 {
 
             .column {
                 width: 100%;
-                float: left;
 
                 .informations {
                     width: 100%;
                     height: 310px;
                     border-radius: 14px;
-                    background-color: rgb(28, 28, 36);                    
+                    background-color: rgb(28, 28, 36);
                     line-height: 2em;
                     color: #f1f1f1;
 
-                    #title {
-                        margin-top: 20px;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        font-size: 15px;
-                    }
-
                     img {
-                        object-fit: cover;
+                        // object-fit: cover;
                         border-top-left-radius: 15px;
                         border-top-right-radius: 15px;
                         width: 100%;
@@ -54,8 +45,12 @@ h2 {
                         margin-bottom: -8px;
                     }
 
-                    p {
-                        margin: 10px;
+                    #title {
+                        margin: 20px 10px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        font-size: 15px;
                     }
                 }
             }

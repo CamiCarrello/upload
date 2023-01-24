@@ -2,8 +2,9 @@
     <div class="player">
         <h1 class="title"> {{ video.title }} </h1>
         <span class="tags"> # {{video.tags}} </span>
+        <!-- <pre>{{ video | json }}</pre> -->
         <div class="video">
-            <iframe [src]="video.url " title="YouTube video player" frameborder="0"
+            <iframe [src]="video.url" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
         </div>
@@ -28,6 +29,5 @@
             </div>
         </div>
     </div>
-
     <app-cards></app-cards>
 </div>

@@ -17,6 +17,9 @@ export interface Channel {
     created: string;
     title_video: string;
     id_video: string;
+    tags: string;
+    field_time_video: string;
+    comment_count: string;
 }
 
 export interface VideoCardsResponse {
@@ -56,7 +59,6 @@ export interface Video {
     url: SafeResourceUrl;
     created: string;
     field_time_video: string;
-    channel_name: string;
     field_video_visualization: string;
     name: string;
 }
@@ -91,7 +93,7 @@ export interface Themes {
     tags: string;
     user: string;
     header: string;
-    text_teaser: string;
+    text_teaser: string;    
 }
 
 export interface CommentsResponse {
@@ -102,8 +104,6 @@ export interface Comment {
     email: string;
     comment: string;
     post_date: string;
-    post_date_comment: string;
-    user_name: string;
     user_photo: string;
 }
 
