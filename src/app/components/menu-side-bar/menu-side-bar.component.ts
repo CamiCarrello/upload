@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tag } from 'src/app/services/upload.model';
 import { UploadService } from 'src/app/services/upload.service';
-import { faHomeUser, faBarsStaggered, faPlay, faClapperboard } from '@fortawesome/free-solid-svg-icons';
+import { faHomeUser, faBarsStaggered, faPlay, faClapperboard, faBookmark } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -18,6 +18,7 @@ export class MenuSideBarComponent implements OnInit {
   faBarsStaggered = faBarsStaggered;
   faClapperboard = faClapperboard;
   faPlay = faPlay;
+  faBookmark = faBookmark;
 
 
   constructor(private upload: UploadService) {

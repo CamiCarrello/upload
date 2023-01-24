@@ -17,6 +17,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VideoComponent } from './pages/video/video.component';
 import { VideoCardsComponent } from './components/video-cards/video-cards.component';
 import { DiasPassadosPipe } from './dias-passados.pipe';
+import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { ModalToShareComponent } from './components/modal-to-share/modal-to-share.component';
+import { TagComponent } from './pages/tag/tag.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { DiasPassadosPipe } from './dias-passados.pipe';
     VideoComponent,
     VideoCardsComponent,
     DiasPassadosPipe,
+    FavoritesComponent,
+    ModalToShareComponent,
+    TagComponent,
   ],
 
   imports: [
@@ -39,9 +45,9 @@ import { DiasPassadosPipe } from './dias-passados.pipe';
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

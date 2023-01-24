@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="menuSideBar">
     <img src="./../../../assets/imgs/logo.png" alt="logoUpLoad" class="logo" />
 
@@ -18,6 +18,10 @@
       <fa-icon [icon]="faPlay" class="faIcon"> </fa-icon>
       <p>Playlists</p>
     </a>
+    <a class="menuLine" routerLink="/favorites" routerLinkActive="active">
+      <fa-icon [icon]="faBookmark" class="faIcon"> </fa-icon>
+      <p>Favorites</p>
+    </a>
 
     <p class="tag">TAGS</p>
 
@@ -27,5 +31,36 @@
     </div>
 
 
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="menuSideBar">
+    <img src="./../../../assets/imgs/logo.png" alt="logoUpLoad" />
+    <div class="line"></div>
+    <a class="menuLine" href="">
+      <fa-icon [icon]="faHomeUser" class="faIcon"> </fa-icon>
+      <p>Início</p>
+    </a>
+    <a class="menuLine" routerLink="/channelList" routerLinkActive="active">
+      <fa-icon [icon]="faBarsStaggered" class="faIcon"> </fa-icon>
+      <p>Canais</p>
+    </a>
+    <a class="menuLine" routerLink="/themes" routerLinkActive="active">
+      <fa-icon [icon]="faClapperboard" class="faIcon"> </fa-icon>
+      <p>Temáticas</p>
+    </a>
+    <a class="menuLine" routerLink="/playlist" routerLinkActive="active">
+      <fa-icon [icon]="faPlay" class="faIcon"> </fa-icon>
+      <p>Playlists</p>
+    </a>
+    <a class="menuLine" routerLink="/favorites" routerLinkActive="active">
+      <fa-icon [icon]="faBookmark" class="faIcon"> </fa-icon>
+      <p>Favoritos</p>
+    </a>
+    <p class="tag">TAGS</p>
+    <div class="box">
+      <p class="tags" *ngFor="let tag of tags">{{ tag.name }}</p>
+    </div>
   </div>
 </div>

@@ -1,8 +1,7 @@
-.container {
+/* .container {
   display: flex;
   flex-grow: 1;
   flex-direction: row;
-
   align-items: center;
   position: relative;
   background-color: #13131a;
@@ -104,4 +103,123 @@
   }
 
 
+}
+ */
+.container {
+  position: relative;
+  background-color: #13131a;
+  width: 100%;
+
+  .menuSideBar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1c1c24;
+    overflow-x: hidden;
+    padding-top: 20px;
+
+    .tag {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 0.87px;
+      text-transform: uppercase;
+      color: #92929D;
+    }
+
+    img {
+      width: 80%;
+      height: auto;
+      margin: 6px 30px 10px 25px;
+
+
+    }
+
+    .line {
+      border-bottom: 1px solid #272730;
+    }
+
+    .menuLine {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      margin-top: 10px;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: 0.1px;
+      color: #B5B5BE;
+
+      p {
+        font-size: 12px;
+        margin: 0;
+        color: #606068;
+      }
+
+      .faIcon {
+        width: 10%;
+        margin: 0;
+        color: #606068;
+      }
+    }
+  }
+
+  .menuSideBar a,
+  .tag,
+  .tags {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 10px;
+    color: #606068;
+    display: block;
+    display: flex;
+  }
+
+  .menuSideBar a:hover {
+    color: #fafaf8;
+    border-left-style: solid;
+
+    p {
+      font-size: 12px;
+      margin: 0;
+      color: #fafaf8;
+    }
+
+    .faIcon {
+      width: 10%;
+      margin: 0;
+      color: #fafaf8;
+    }
+  }
+
+  .box {
+    display: flex;
+    flex-wrap: wrap;
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 5px;
+      border: solid #606068 1px;
+      padding: 4px;
+      color: #c0c0c2;
+      margin: 6px;
+      cursor: pointer;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 10px;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.2px;
+    }
+  }
 }

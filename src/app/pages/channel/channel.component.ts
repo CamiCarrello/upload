@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UploadService } from 'src/app/services/upload.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Channel, Video, Comment } from 'src/app/services/upload.model';
-
 @Component({
   selector: 'app-channel',
   templateUrl: './channel.component.html',
@@ -11,7 +10,6 @@ import { Channel, Video, Comment } from 'src/app/services/upload.model';
 })
 export class ChannelComponent implements OnInit {
 
-  id_channel!: number
   channels: Channel[] = [];
   channel: Channel = {} as Channel;
 
@@ -32,8 +30,13 @@ export class ChannelComponent implements OnInit {
       this.channels = <Channel[]>channel;
       this.channel = this.channels[0];
 
+      /* UTILIZADO SOMENTE PARA CHAMAR AS TAGS E inserir as "#"! */
       this.upload.getChannelVideos(parseInt(id_channel)).subscribe(channel => {
         this.channels = <Channel[]>channel;
+
+        this.channels.forEach(video => {
+          video.tags = video.tags.replaceAll(",", " #");
+        });
       });
 
       this.upload.getCommentChannel(parseInt(id_channel)).subscribe(comment => {
@@ -45,19 +48,8 @@ export class ChannelComponent implements OnInit {
           } else {
             comment.user_photo = "https://dev-project-upskill-grupo02.pantheonsite.io" + comment.user_photo;
           }
-          // console.log(comment.name);
         })
-        /* console.log(comment);
-        console.log('estou comentando aqui'); */
       })
-
-      //  Substitui a propriedade url_video, tags.
-      this.videos.forEach(video => {
-        video.url_video = video.url_video.replace("watch?v=", "embed/");
-        video.tags = video.tags.replaceAll(",", " #");
-        /* console.log(video.tags)
-        console.log(video.url_video) */
-      });
 
       // Transforma a url em URLSAFE
       this.videos.forEach(v => {
@@ -66,9 +58,10 @@ export class ChannelComponent implements OnInit {
       })
     })
   }
+
   public enviarComentario() {
     let id_channel = this.route.snapshot.params['id_channel']
-    // console.log("function enviarComentario: "+ id_channel,this.autor_comentario, this.autor_email, this.post_comment_body);
     this.upload.postCommentChannel(id_channel, this.autor_comentario, this.autor_email, this.post_comment_body);
+    console.log("TESTE", this.comments)
   }
 }

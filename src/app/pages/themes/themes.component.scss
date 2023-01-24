@@ -1,10 +1,19 @@
+h2 {
+  color: #f1f1f1;
+  font-size: 30px;
+  padding: 1%;
+  margin-bottom: -10px;
+}
 .container {
   .themes {
     display: flex;
     flex-wrap: wrap;
+    width: 800px;
 
     margin-bottom: 60px;
-    padding: 0 5%;
+    padding: 0 5%;~
+
+
 
 
     .title {
@@ -13,7 +22,11 @@
 
     .theme {
       width: 100%;
-      
+
+      p {
+        color:  #f1f1f1;
+      }
+
       .header_photo {
         position: relative;
         display: flex;
@@ -22,7 +35,8 @@
         border-radius: 50px;
 
         img {
-          border-radius: 5%;
+
+          border-radius: 20px 20px 0px 0px;
         }
       }
 
