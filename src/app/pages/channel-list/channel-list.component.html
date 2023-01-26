@@ -5,10 +5,6 @@
       <p class="cardName">{{ channel.channel_name }}</p>
       <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}" class="card__image">
       <p class="cardAutor">Por: {{ channel.author }}</p>
-      <div class="videos">
-        <fa-icon [icon]="faCamera"></fa-icon>
-        <p>{{ channel.id_video }}</p>
-      </div>
       <div class="comments">
         <fa-icon [icon]="faCommentAlt "></fa-icon>
         <p>{{ channel.comment_count }}</p>
