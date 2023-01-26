@@ -10,6 +10,7 @@ import { Channel, Video, Comment } from 'src/app/services/upload.model';
 })
 export class ChannelComponent implements OnInit {
 
+  id_channel!: number;
   channels: Channel[] = [];
   channel: Channel = {} as Channel;
 
@@ -22,46 +23,60 @@ export class ChannelComponent implements OnInit {
 
   comments: Comment[] = [];
 
+  anonymous: string = "[0]"
+
   constructor(private upload: UploadService, private route: ActivatedRoute, private router: Router, public sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    let id_channel = this.route.snapshot.params['id_channel']
-    this.upload.getChannels(parseInt(id_channel)).subscribe(channel => {
-      this.channels = <Channel[]>channel;
-      this.channel = this.channels[0];
+    this.route.params.subscribe((params) => {
+      this.id_channel = params['id_channel'];
 
-      /* UTILIZADO SOMENTE PARA CHAMAR AS TAGS E inserir as "#"! */
-      this.upload.getChannelVideos(parseInt(id_channel)).subscribe(channel => {
+      this.upload.getChannels(this.id_channel).subscribe(channel => {
         this.channels = <Channel[]>channel;
+        this.channel = this.channels[0];
 
-        this.channels.forEach(video => {
-          video.tags = video.tags.replaceAll(",", " #");
+        /* UTILIZADO SOMENTE PARA CHAMAR AS TAGS E inserir as "#"! */
+        this.upload.getChannelVideos(this.id_channel).subscribe(channel => {
+          this.channels = <Channel[]>channel;
+
+          this.channels.forEach(video => {
+            video.tags = video.tags.replaceAll(",", " #").slice(-34);
+            /* console.log(video.tags.indexOf("#")) 
+            - Para descobrir até onde poderia retirar caracteres sem "sumir" tags ao meio */
+          })
         });
-      });
 
-      this.upload.getCommentChannel(parseInt(id_channel)).subscribe(comment => {
-        this.comments = <Comment[]>comment;
-        this.comments.forEach(comment => {
-          if (comment.name === "") {
-            comment.name = comment.name.replaceAll('', "Anonymous")
-            comment.user_photo = "../../../assets/imgs/anonymous.jpg";
-          } else {
-            comment.user_photo = "https://dev-project-upskill-grupo02.pantheonsite.io" + comment.user_photo;
-          }
+        this.upload.getCommentChannel(this.id_channel).subscribe(comment => {
+          this.comments = <Comment[]>comment;
+          this.comments.forEach(comment => {
+            if (comment.name === "") {
+              comment.name = comment.name.replaceAll('', "Anonymous")
+              comment.user_photo = "../../../assets/imgs/anonymous.jpg";
+            } else {
+              comment.user_photo = "https://dev-project-upskill-grupo02.pantheonsite.io" + comment.user_photo;
+            }
+          })
         })
-      })
 
-      // Transforma a url em URLSAFE
-      this.videos.forEach(v => {
-        //Com a mudança de videos para video, o novo array tem só uma posição,foi preciso refazer o sanitizer.
-        this.video.url = this.sanitizer.bypassSecurityTrustResourceUrl(v.url_video);
+        // Transforma a url em URLSAFE
+        this.videos.forEach(v => {
+          //Com a mudança de videos para video, o novo array tem só uma posição,foi preciso refazer o sanitizer.
+          this.video.url = this.sanitizer.bypassSecurityTrustResourceUrl(v.url_video);
+        })
       })
     })
   }
-
   public enviarComentario() {
-    let id_channel = this.route.snapshot.params['id_channel']
-    this.upload.postCommentChannel(id_channel, this.autor_comentario, this.autor_email, this.post_comment_body);
-    console.log("TESTE", this.comments)
+    this.upload.postCommentChannel(this.id_channel, this.autor_comentario, this.autor_email, this.post_comment_body, () => {
+      /* console.log('teste para ver o que vem nos dados: ' + this.id_channel, this.autor_comentario, this.autor_email, this.post_comment_body); */
+
+      this.comments.splice(0, 0, {
+        name: this.autor_comentario,
+        email: this.autor_email,
+        comment: this.post_comment_body,
+        post_date: new Date().toISOString().split("T")[0],
+        user_photo: "../../../assets/imgs/anonymous.jpg"
+      })
+    })
   }
 }

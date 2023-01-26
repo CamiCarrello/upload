@@ -2,32 +2,54 @@
     <div class="player">
         <h1 class="title"> {{ video.title }} </h1>
         <span class="tags"> # {{video.tags}} </span>
-        <!-- <pre>{{ video | json }}</pre> -->
         <div class="video">
-            <iframe [src]="video.url" title="YouTube video player" frameborder="0"
+            <iframe [src]="video.url " title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-        </div>
-
-        <div class="user">
-            <div class="user-photo">
-                <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}">
-            </div>
-            <div class="userInfo">
-                <span class="user_name"> <strong>{{ channel.author }} </strong></span>
-                <span class="created"> Há {{ video.created }} dias. </span>
+                allowfullscreen>
+            </iframe>
+        </div>  
+        <div class="user" *ngIf="channel">
+                <div class="user-photo">
+                    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}">
+                </div>
+             <div class="organize-data">
+                <div class="userInfo">
+                    <span class="user_name"> <strong>{{ channel.author }} </strong></span>
+                    <span class="created"> há {{ video.created | diasPassados }} dias. </span>
+                </div>
+                <div class="icon">
+                    <span> {{ l.count_like }} </span>
+                    <fa-icon class="like" [icon]="faThumbsUp " (click)="like()"> </fa-icon>
+                    <fa-icon class="dislike" [icon]="faThumbsDown "></fa-icon>
+                </div>
             </div>
         </div>
         <div class="description">
-            <p> {{ video.description }} </p>
-        </div>
-        <div class="comments" *ngFor="let c of comments">
-            <div class="comment-date">
-                <p> {{ c.name }} </p>
-                <p> {{ c.email }} </p>
-                <p> {{ c.comment }} </p>
+            <div class="desc">
+                <p> {{ video.description }} </p>
             </div>
         </div>
-    </div>
-    <app-cards></app-cards>
-</div>
+        <div class="post-comment">
+            <div class="data-comment">
+                <img src="../../../assets/imgs/anonymous.jpg">
+                <input class="author-comment" type="text" [(ngModel)]="autor_comentario" placeholder="Name">
+                <input class="email-comment" type="text" [(ngModel)]="autor_email" placeholder="Email">
+            </div>
+            <textarea class="text-comment" type="text" [(ngModel)]="post_comment_body" placeholder="Comment"></textarea>
+            <div class="send">
+                <button (click)="enviarComentario()">Enviar Comentário</button>
+            </div>
+        </div>
+        <div class="comments" *ngFor="let c of comments">
+            <div class="com-img">
+                <img src="{{ c.user_photo }}">
+            </div>
+            <div class="com-info">
+                <span> <strong> {{ c.name }} </strong></span>
+                <span class="cread-comm"> Há {{ c.post_date | diasPassados }} dias. </span>
+                <p class="commen-p"> {{ c.comment }} </p>
+            </div>
+        </div>
+    </div>  
+    <app-video-cards [id_video]="id_video"></app-video-cards>
+  </div>

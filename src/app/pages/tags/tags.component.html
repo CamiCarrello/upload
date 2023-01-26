@@ -1,0 +1,8 @@
+<h2>Vídeos Relacionados</h2>
+<div class="container" *ngIf="isReady">
+    <div *ngFor="let video of videos" class="informations">
+        <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}" alt="video image"
+            [routerLink]=" ['/video/' + video.id]" />
+        <p>{{ video.video_title }}</p>
+    </div>
+</div>

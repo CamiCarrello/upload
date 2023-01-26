@@ -1,64 +1,140 @@
 img {
   width: 100%;
   display: block;
+  cursor: pointer;
+  border-radius: 20px 20px 0px 0px;
 }
 
 h2 {
-  color: #f1f1f1;
+  margin-left: 54px;
+  left: 287px;
+  top: 32px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
   font-size: 30px;
-  padding: 1%;
-  margin-bottom: -10px;
+  line-height: 36px;
+  letter-spacing: 0.1px;
+  color: #fafafb;
 }
 
-.flex {
+.container {
   display: flex;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-left: 50px;
+  margin-bottom: 50px;
 
-  .informations {
-    background-color: rgb(28, 28, 36);
-    width: 100%;
-    font-size: 12px;
-    border-radius: 10px;
-    position: relative;
-    margin-right: 50px;
-    color: #f1f1f1;
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 68%;
+    margin-left: 40px;
+    flex: 1;
 
-    .bookmark {
-      position: absolute;
-      bottom: -15px;
-      right: -5px;
-      padding: 15px;
-      width: 80px;
-      height: 60px;
-      display: flex;
-      cursor: pointer;
-      color: #606068;
-      font-size: 1.5em;
+    .informations {
+      background-color: rgb(28, 28, 36);
+      width: 443px;
+      font-size: 12px;
+      border-radius: 20px;
+      position: relative;
+      margin-right: 50px;
+      color: #f1f1f1;
+
+      .user {
+        position: absolute;
+        right: 15px;
+        top: 55%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        border-radius: 50%;
+        border: 2px solid #ffffff;
+        object-fit: cover;
+      }
+
+      .bookmark {
+        position: absolute;
+        bottom: -15px;
+        right: -5px;
+        padding: 15px;
+        width: 80px;
+        height: 60px;
+        display: flex;
+        cursor: pointer;
+        color: #606068;
+        font-size: 1.5em;
+      }
+
+      .share {
+        position: absolute;
+        bottom: -15px;
+        right: -8px;
+        padding: 15px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        cursor: pointer;
+        color: #606068;
+        font-size: 1.5em;
+      }
+
+      .details_channel {
+        margin-left: 10px;
+        font-family: Roboto;
+        font-weight: 400px;
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: 0.1 px;
+        color: #1e75ff;
+      }
+
+      .details_title {
+        margin-left: 10px;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 27px;
+      }
+
+      .details_visualization {
+        margin-left: 10px;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.1px;
+        color: #92929d;
+      }
+
+      .details_time {
+        margin-left: 10px;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        color: #ffffff;
+        position: absolute;
+        width: 55px;
+        height: 18px;
+        top: 195px;
+        background-color: #171725;
+        border-radius: 5px;
+      }
     }
+  }
 
-    .share {
-      position: absolute;
-      bottom: -15px;
-      right: -8px;
-      padding: 15px;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      cursor: pointer;
-      color: #606068;
-      font-size: 1.5em;
-    }
-
-    .details {
-      margin-left: 10px;
-      font-family: Roboto;
-    }
+  .flex > div {
+    flex: 1 1 300px;
+    margin: 10px;
   }
 }
 
-.flex > div {
-  flex: 1 1 300px;
-  margin: 10px;
+@media only screen and (min-width: 1870px) {
+  .container {
+    .flex {
+      max-width: 75%;
+    }
+  }
 }

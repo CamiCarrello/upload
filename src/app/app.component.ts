@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +7,10 @@ import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 })
 export class AppComponent {
   title = 'upload-app';
+
+  showModal: Boolean = false;
+
+  toggleModal() {
+    this.showModal = !this.showModal;
+  }
 }

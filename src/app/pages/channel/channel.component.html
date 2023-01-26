@@ -13,7 +13,7 @@
 <h3>Vídeos</h3>
 <div class="cardPage">
   <div class="cards" *ngFor="let channel of channels">
-    <div class="informations">
+    <div class="informations">      
       <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.thumbnail }}" [routerLink]="['/video/' + channel.id_video]">
       <p class="details_time">{{ channel.field_time_video }}</p>
       <div class="textInformation">

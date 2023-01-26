@@ -6,11 +6,13 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.scss']
+  styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent implements OnInit {
 
   channelList: Channel[] = [];
+  channel: Channel = {} as Channel;
+
   videos: Video[] = [];
 
   suggested_theme: Themes = {} as Themes;
@@ -19,18 +21,13 @@ export class CardsComponent implements OnInit {
   constructor(private upload: UploadService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
-    this.upload.getThemes().subscribe(theme => {
+    this.upload.getThemes().subscribe((theme) => {
       this.suggested_themes = <Themes[]>theme;
       this.suggested_theme = this.suggested_themes[0];
-    })
+    });
 
-    this.upload.getChannelsList().subscribe(channel => {
-      this.channelList = channel;
-    })
-
-    this.upload.getVideos().subscribe(video => {
-      this.videos = video;
+    this.upload.getChannelsList().subscribe((channel) => {
+      this.channelList = <Channel[]>channel.slice(-4); // devolve os 4 ultimos canais inseridos.
     })
   }
 }
