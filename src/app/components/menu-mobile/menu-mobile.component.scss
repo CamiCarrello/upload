@@ -1,0 +1,114 @@
+.popup-wrapper {     
+    // background-color: #13131a;
+    background-color: yellow;
+    width: 250px;
+
+    .container {
+        
+        .menuSideBar {
+            position: fixed; 
+            height: 100%;
+            width: 250px;
+            z-index: 1;
+            background-color: #1c1c24;
+            overflow-x: hidden;
+            padding-top: 20px;
+            margin-top: -10px;
+
+            .tag {
+                font-family: "Poppins";
+                font-style: normal;
+                font-weight: 600;
+                font-size: 13px;
+                line-height: 20px;
+                letter-spacing: 0.87px;
+                text-transform: uppercase;
+                color: #92929d;
+            }
+
+            img {
+                width: 80%;
+                height: auto;
+                margin: 6px 30px 10px 25px;
+            }
+
+            .menuLine {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
+                margin-top: 10px;
+                font-family: "Poppins";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 21px;
+                letter-spacing: 0.1px;
+                color: #b5b5be;
+
+                p {
+                    font-size: 12px;
+                    margin: 0;
+                    color: #606068;
+                }
+
+                .faIcon {
+                    width: 10%;
+                    margin: 0;
+                    color: #606068;
+                }
+            }
+        }
+
+        .menuSideBar a,
+        .tag,
+        .tags {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 10px;
+            color: #606068;
+            display: block;
+            display: flex;
+        }
+
+        .menuSideBar a:hover {
+            color: #fafaf8;
+            border-left-style: solid;
+
+            p {
+                font-size: 12px;
+                margin: 0;
+                color: #fafaf8;
+            }
+
+            .faIcon {
+                width: 10%;
+                margin: 0;
+                color: #fafaf8;
+            }
+        }
+
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+
+            .tags {
+                display: flex;
+                flex-wrap: wrap;
+                border-radius: 5px;
+                border: solid #606068 1px;
+                padding: 4px;
+                color: #c0c0c2;
+                margin: 6px;
+                cursor: pointer;
+                font-family: "Poppins";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 10px;
+                align-items: center;
+                text-align: center;
+                letter-spacing: 0.2px;
+            }
+        }
+    }
+}

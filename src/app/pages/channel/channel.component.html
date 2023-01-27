@@ -1,0 +1,54 @@
+<div class="banner">
+  <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.banner }}">
+  <div class="logoChannel">
+    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}">
+  </div>
+</div>
+
+<div class="informationBanner">
+  <h2><b>{{ channel.author }}</b></h2>
+  <p id="description">{{ channel.channel_description }}</p>
+</div>
+
+<h3>Vídeos</h3>
+<div class="cardPage">
+  <div class="cards" *ngFor="let channel of channels">
+    <div class="informations">
+      <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.thumbnail }}"
+      (click)="navigateToVideo(channel)">
+      <p class="details_time">{{ channel.field_time_video }}</p>
+      <div class="textInformation">
+        <span class="tags"> # {{ channel.tags }} </span>
+        <p id="title">{{ channel.title_video }}</p>
+        <p id="createdDate">Há {{ channel.created | diasPassados }} dias</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Comentários</h3>
+<div class="post-comment">
+  <div class="firstRow">
+    <img src="../../../assets/imgs/anonymous.jpg" />
+    <input type="text" placeholder="Nome" [formControl]="autor_comentario" />
+    <input type="email" placeholder="E-mail" [formControl]="autor_email" />
+  </div>
+  <textarea type="text" placeholder="Comentário" [formControl]="post_comment_body"></textarea>
+  <div class="button">
+    <button (click)="enviarComentario()">Submeter</button>
+  </div>
+  <div class="error">{{ formError }}</div>
+</div>
+
+<div class="container">
+  <div class="comments" *ngFor="let c of comments">
+    <div class="com-img">
+      <img src="{{ c.user_photo }}">
+    </div>
+    <div class="com-info">
+      <span><strong> {{ c.name }}</strong></span>
+      <span class="cread-comm"> há {{ c.post_date | diasPassados }} dias </span>
+      <p class="commen-p"> {{ c.comment }} </p>
+    </div>
+  </div>
+</div>

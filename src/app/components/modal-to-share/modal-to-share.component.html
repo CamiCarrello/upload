@@ -1,0 +1,19 @@
+<div class="popup-wrapper" [ngClass]="showModal ? 'show':'hide'">
+    <div class="popup">
+        <header>
+            <span>Sharing is caring!</span>
+            <div class="close" (click)="toggleModal()">
+                <i class="uil uil-times"></i>
+            </div>
+        </header>
+        <div class="content">
+            <p>Compartilhe via:</p>
+            <ul class="icons">
+                <a (click)="facebook()" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a (click)="twitter()" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a (click)="pinterest()" title="Pinterest" target="_blank"><i class="fab fa-pinterest-square"></i></a>
+                <a (click)="whatsApp()" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'upload-app';
+
+  showModal: Boolean = false;
+
+  toggleModal() {
+    this.showModal = !this.showModal;
+  }
 }

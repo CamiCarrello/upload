@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="channels">
+    <p class="title">Canais Sugeridos</p>
+    <div class="banner" *ngFor="let channel of channelList" [routerLink]="['/channel/', channel.id]">
+      <div class="logoChannel">
+        <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}" alt="logo image" />
+      </div>
+      <p id="author">{{ channel.author }}</p>
+    </div>
+    <div class="more">
+      <a routerLink="/channelList" routerLinkActive="active" class="showMore">
+        <p><b>mostrar mais</b></p>
+      </a>
+    </div>
+    <div class="themes">
+      <div class="title">
+        <p>Temáticas Sugeridas</p>
+        <a routerLink="/themes" routerLinkActive="active" class="seeAll">
+          <p>ver todas</p>
+        </a>
+      </div>
+      <div *ngFor="let video of videos" class="headerChannel"
+        [routerLink]="['/video/' + video.path.split('/').reverse()[0]]">
+        <div class="banner">
+          <div class="logoChannel">
+            <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ suggested_theme.user }}"
+              alt="user image" />
+            <p class="titleTheme">{{ video.title }}</p>
+          </div>
+          <div>
+            <p class="titleChannel">{{ video.channel }}</p>
+          </div>
+          <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}" alt="header image"
+            class="headerVideo" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

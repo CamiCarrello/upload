@@ -1,22 +1,26 @@
-<div class="container">
-  <div class="sidenav1">
-    <img src="./../../../assets/imgs/logo.png" alt="">
-    <a href="#">Início</a>
-    <a href="#">Canais</a>
-    <a href="#">Temáticas</a>
-    <a href="#">Playlists</a>
-    <p class="tags">TAGS</p>
+<h2>Últimos Vídeos</h2>
+<div class="container" *ngIf="isReady">
+  <div class="flex">
+    <div *ngFor="let video of videos" class="informations">
+      <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}" alt="video image"
+      [routerLink]="['/video/' + video.path.split('/').reverse()[0]]" />
+      <img alt="user photo" class="user"
+        [src]="'https://dev-project-upskill-grupo02.pantheonsite.io/' + getUser(video)" />
+      <div id="fontSize">
+        <fa-icon [icon]="itsFavorite(video.id) ? faBookmarkSolid : faBookmark" class="bookmark faIcon"
+          (click)="toggleFavorite(video.id)"></fa-icon>
+        <fa-icon [icon]="faShareNodes" (click)="toggleModal(video.url_video)" class="faIcon share">
+        </fa-icon>
+        <p class="details_channel">{{ video.channel }}</p>
+        <p class="details_title">{{ video.title }}</p>
+        <p class="details_visualization"> {{ video.field_video_visualization }} visualizações | há {{ video.created |
+          diasPassados }} dias
+        </p>
+        <p class="details_time">{{ video.field_time_video }}</p>
+      </div>
+    </div>
   </div>
-
-  <div class="main">
-    <h2>Últimos vídeos</h2>
-  </div>
-
-  <div class="sidenav2">
-    <a href="#">CANAIS SUGERIDOS</a>
-    <a href="#">Temáticas Sugeridas</a>
-
-  </div>
+  <app-modal-to-share [url]="modalUrl" [showModal]="showModal">
+  </app-modal-to-share>
+  <app-cards></app-cards>
 </div>
-
-
