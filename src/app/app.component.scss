@@ -8,7 +8,7 @@
     z-index: 1;
   }
 
-@media only screen and (max-width: 599px) {
+@media only screen and (max-width: 480px) { /* (O certo é 480) */
   .sidebar {
     visibility: collapse;
   }
@@ -23,7 +23,7 @@
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 481px) {
   .sidebar {
     visibility: visible;      
   }
