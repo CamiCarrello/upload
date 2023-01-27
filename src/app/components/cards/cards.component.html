@@ -5,34 +5,35 @@
       <div class="logoChannel">
         <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.user_photo }}" alt="logo image" />
       </div>
-      <p>{{ channel.author }}</p>
+      <p id="author">{{ channel.author }}</p>
     </div>
     <div class="more">
       <a routerLink="/channelList" routerLinkActive="active" class="showMore">
         <p><b>mostrar mais</b></p>
       </a>
     </div>
-  </div>
-  <div class="themes">
-    <div class="title">
-      <p>Temáticas Sugeridas</p>
-      <a routerLink="/themes" routerLinkActive="active" class="seeAll">
-        <p>ver todas</p>
-      </a>
-    </div>
-    <div class="banner">
-      <div class="logoChannel">
-        <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ suggested_theme.user }}" alt="user image" />
-        <p class="titleTheme">{{ suggested_theme.title }}</p>
+    <div class="themes">
+      <div class="title">
+        <p>Temáticas Sugeridas</p>
+        <a routerLink="/themes" routerLinkActive="active" class="seeAll">
+          <p>ver todas</p>
+        </a>
       </div>
-      <div>
-        <p class="titleChannel">{{ channel.channel_name }}</p>
+      <div *ngFor="let video of videos" class="headerChannel"
+        [routerLink]="['/video/' + video.path.split('/').reverse()[0]]">
+        <div class="banner">
+          <div class="logoChannel">
+            <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ suggested_theme.user }}"
+              alt="user image" />
+            <p class="titleTheme">{{ video.title }}</p>
+          </div>
+          <div>
+            <p class="titleChannel">{{ video.channel }}</p>
+          </div>
+          <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}" alt="header image"
+            class="headerVideo" />
+        </div>
       </div>
-      <div class="headerChannel">
-        <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ suggested_theme.header }}"
-          alt="header image" />
-      </div>
-      <a routerLink="/themes" routerLinkActive="active"> </a>
     </div>
   </div>
 </div>

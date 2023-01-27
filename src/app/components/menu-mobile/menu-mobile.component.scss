@@ -1,12 +1,19 @@
-.popup-wrapper {  
-    .container {        
+.popup-wrapper {     
+    // background-color: #13131a;
+    background-color: yellow;
+    width: 250px;
+
+    .container {
+        
         .menuSideBar {
-            position: fixed;
+            position: fixed; 
             height: 100%;
             width: 250px;
             z-index: 1;
             background-color: #1c1c24;
+            overflow-x: hidden;
             padding-top: 20px;
+            margin-top: -10px;
 
             .tag {
                 font-family: "Poppins";
@@ -21,11 +28,8 @@
 
             img {
                 width: 80%;
+                height: auto;
                 margin: 6px 30px 10px 25px;
-            }
-
-            .line {
-                border-bottom: 1px solid #272730;
             }
 
             .menuLine {
@@ -37,13 +41,13 @@
                 font-family: "Poppins";
                 font-style: normal;
                 font-weight: 500;
-                font-size: 13px;
+                font-size: 14px;
                 line-height: 21px;
                 letter-spacing: 0.1px;
                 color: #b5b5be;
 
                 p {
-                    font-size: 14px;
+                    font-size: 12px;
                     margin: 0;
                     color: #606068;
                 }
@@ -61,7 +65,7 @@
         .tags {
             padding: 6px 8px 6px 16px;
             text-decoration: none;
-            font-size: 11px;
+            font-size: 10px;
             color: #606068;
             display: block;
             display: flex;

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UploadService } from 'src/app/services/upload.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Channel, Video, Comment } from 'src/app/services/upload.model';
+import { FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-channel',
   templateUrl: './channel.component.html',
@@ -17,9 +18,11 @@ export class ChannelComponent implements OnInit {
   videos: Video[] = [];
   video: Video = {} as Video;
 
-  autor_comentario: string = ""
-  autor_email: string = ""
-  post_comment_body: string = ""
+  autor_comentario = new FormControl('', [Validators.required]);
+  autor_email = new FormControl('', [Validators.required, Validators.email]);
+  post_comment_body = new FormControl('', [Validators.required]);
+
+  formError = '';
 
   comments: Comment[] = [];
 
@@ -66,17 +69,57 @@ export class ChannelComponent implements OnInit {
       })
     })
   }
-  public enviarComentario() {
-    this.upload.postCommentChannel(this.id_channel, this.autor_comentario, this.autor_email, this.post_comment_body, () => {
-      /* console.log('teste para ver o que vem nos dados: ' + this.id_channel, this.autor_comentario, this.autor_email, this.post_comment_body); */
 
-      this.comments.splice(0, 0, {
-        name: this.autor_comentario,
-        email: this.autor_email,
-        comment: this.post_comment_body,
-        post_date: new Date().toISOString().split("T")[0],
-        user_photo: "../../../assets/imgs/anonymous.jpg"
-      })
+  private validateForm() {
+    this.formError = '';
+    if (this.autor_email.invalid) {
+      if (this.autor_email.hasError('email')) {
+        this.formError = 'Email inválido!';
+      } else if (this.autor_email.hasError('required')) {
+        this.formError = 'Por favor, escreva o seu email!';
+      }
+      return false;
+    }
+    if (this.autor_comentario.invalid) {
+      this.formError = 'Escreva o seu nome!';
+      return false;
+    }
+
+    if (this.post_comment_body.invalid) {
+      this.formError = 'Comentário vazio! Escreva algo!';
+      return false;
+    }
+    return true;
+  }
+  public enviarComentario() {
+    if (!this.validateForm()) {
+      return;
+    }
+
+    const email = this.autor_email.value ?? '';
+    const comment = this.post_comment_body.value ?? '';
+    const name = this.autor_comentario.value ?? '';
+
+    this.upload.postCommentChannel(
+      this.id_channel, name, email, comment,
+      () => {
+        console.log('teste para ver o que vem nos dados: ' + this.id_channel, name, email, comment);
+
+        this.comments.splice(0, 0, {
+          name, email, comment,
+          post_date: new Date().toISOString().split('T')[0],
+          user_photo: '../../../assets/imgs/anonymous.jpg',
+        });
+        this.autor_comentario.setValue('');
+        this.autor_email.setValue('');
+        this.post_comment_body.setValue('');
+      }
+    )
+  }
+  public navigateToVideo(channel: Channel) {
+    this.upload.getVideoPlayer(parseInt(channel.id_video)).subscribe((video) => {
+      this.router.navigateByUrl('/video/' + video[0].path.split('/').reverse()[0]
+      )
     })
   }
 }

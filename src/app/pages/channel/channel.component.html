@@ -7,14 +7,15 @@
 
 <div class="informationBanner">
   <h2><b>{{ channel.author }}</b></h2>
-  <p id="description">{{ channel.channel_description }}</p> 
+  <p id="description">{{ channel.channel_description }}</p>
 </div>
 
 <h3>Vídeos</h3>
 <div class="cardPage">
   <div class="cards" *ngFor="let channel of channels">
-    <div class="informations">      
-      <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.thumbnail }}" [routerLink]="['/video/' + channel.id_video]">
+    <div class="informations">
+      <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ channel.thumbnail }}"
+      (click)="navigateToVideo(channel)">
       <p class="details_time">{{ channel.field_time_video }}</p>
       <div class="textInformation">
         <span class="tags"> # {{ channel.tags }} </span>
@@ -28,14 +29,15 @@
 <h3>Comentários</h3>
 <div class="post-comment">
   <div class="firstRow">
-    <img src="../../../assets/imgs/anonymous.jpg">
-    <input type="text" placeholder="Nome" [(ngModel)]="autor_comentario">
-    <input type="text" placeholder="E-mail" [(ngModel)]="autor_email" required>
+    <img src="../../../assets/imgs/anonymous.jpg" />
+    <input type="text" placeholder="Nome" [formControl]="autor_comentario" />
+    <input type="email" placeholder="E-mail" [formControl]="autor_email" />
   </div>
-  <textarea type="text" placeholder="Comentário" [(ngModel)]="post_comment_body"></textarea>
+  <textarea type="text" placeholder="Comentário" [formControl]="post_comment_body"></textarea>
   <div class="button">
-    <button (click)="enviarComentario()">Submeter Comentário</button>
+    <button (click)="enviarComentario()">Submeter</button>
   </div>
+  <div class="error">{{ formError }}</div>
 </div>
 
 <div class="container">

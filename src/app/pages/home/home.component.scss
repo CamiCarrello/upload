@@ -6,8 +6,7 @@ img {
 }
 
 h2 {
-  margin-left: 54px;
-  left: 287px;
+  margin-left: 30px;
   top: 32px;
   font-family: "Poppins";
   font-style: normal;
@@ -19,23 +18,21 @@ h2 {
 }
 
 .container {
-  display: flex;
   margin-bottom: 50px;
+  width: 69%;
 
   .flex {
     display: flex;
     flex-wrap: wrap;
-    max-width: 68%;
-    margin-left: 40px;
-    flex: 1;
+    width: 100%;
+    margin-left: 20px;
 
     .informations {
       background-color: rgb(28, 28, 36);
-      width: 443px;
+      width: 100%;
       font-size: 12px;
       border-radius: 20px;
       position: relative;
-      margin-right: 50px;
       color: #f1f1f1;
 
       .user {
@@ -126,7 +123,7 @@ h2 {
   }
 
   .flex > div {
-    flex: 1 1 300px;
+    flex: 1 1 340px;
     margin: 10px;
   }
 }
@@ -134,7 +131,7 @@ h2 {
 @media only screen and (min-width: 1870px) {
   .container {
     .flex {
-      max-width: 75%;
+      max-width: 100%;
     }
   }
 }

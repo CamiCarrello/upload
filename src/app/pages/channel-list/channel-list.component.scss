@@ -1,8 +1,14 @@
 h2 {
-    color: #f1f1f1;
+    margin-left: 54px;
+    left: 287px;
+    top: 32px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
     font-size: 30px;
-    margin: 20px 0 0 50px;
-    color: white;
+    line-height: 36px;
+    letter-spacing: 0.1px;
+    color: #fafafb;
 }
 
 .line {
@@ -17,8 +23,8 @@ h2 {
         justify-content: center;
         background-color: #1c1c24;
         width: 280px;
-        height: 370px;
-        border-radius: 10px;        
+        height: 350px;
+        border-radius: 10px;
         box-shadow: rgba(0, 0, 0, 0.4);
         color: white;
         border: 1px solid;
@@ -139,6 +145,6 @@ h2 {
 
 @media only screen and (min-width: 1870px) {
     .line {
-        width: 75%;
+        width: 100%;
     }
-  }
+}

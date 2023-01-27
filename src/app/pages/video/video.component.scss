@@ -27,6 +27,30 @@
             color: #1e75ff;
         }
 
+        .tag_favorite {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 0;
+
+            .tags {
+                margin: 0 0 0 3%;
+                line-height: 36px;
+                font-weight: 400;
+                font-family: roboto;
+                font-size: 16px;
+                color: #1e75ff;
+            }
+            .bookmark {
+                width: 35px;
+                height: 35px;
+                color: #92929d;
+                text-align: center;
+                margin-right: 8%;
+                padding-top: 7px;
+            }
+        }
+
         .video {
             display: flex;
             justify-content: center;
@@ -62,6 +86,7 @@
                     height: 70px;
                     width: 70px;
                     border: 2px solid #ffffff;
+                    object-fit: cover;
                 }
             }
 
@@ -147,6 +172,13 @@
             justify-items: center;
             padding: 2% 3%;
 
+            .error {
+                color: red;
+                font-size: 20px;
+                font-family: "Poppins";
+                margin-bottom: 30px;
+            }
+
             .data-comment {
                 display: flex;
                 flex-direction: row;
@@ -188,7 +220,7 @@
 
                 button {
                     justify-content: center;
-                    width: 20%;
+                    width: 200px;
                     height: 28px;
                     right: 0;
                     background-color: #13131a;

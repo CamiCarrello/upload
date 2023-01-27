@@ -28,7 +28,7 @@ export class ThemesComponent implements OnInit {
         if (!this.video.includes(video.category)) {
           this.video.push(video.category)
         }
-      });
+      })
 
       /* Substitui a propriedade URL_VIDEO pel URL (SAFE) */
       this.videos.forEach(vid => {
@@ -45,10 +45,3 @@ export class ThemesComponent implements OnInit {
     return this.videos.filter((c: any) => c.category === category).slice(-2);
   }
 }
-
-/*     let array = [];
-    array = ["../../../assets/imgs/bart-simpson.jpg", "../../../assets/imgs/dino.jpg", "../../../assets/imgs/manpixel.png", "../../../assets/imgs/chicletinho.png", "../../../assets/imgs/batman.png"];
- 
-    array.sort(() => 0.5 - Math.random());
-    console.log('AVATAR: ' + array[0]);
- */

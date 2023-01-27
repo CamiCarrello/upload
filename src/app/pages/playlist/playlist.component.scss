@@ -1,8 +1,14 @@
 h2 {
-    color: #f1f1f1;
+    margin-left: 54px;
+    left: 287px;
+    top: 32px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
     font-size: 30px;
-    padding: 1%;
-    margin: 20px 0 -10px 30px;
+    line-height: 36px;
+    letter-spacing: 0.1px;
+    color: #fafafb;
 }
 
 .cardPage {
@@ -16,7 +22,7 @@ h2 {
 
         .title {
             font-size: 1.5em;
-            margin: 30px 0 30px 50px;
+            margin: 20px 0 30px 50px;
             color: #f1f1f1;
         }
 
@@ -59,6 +65,6 @@ h2 {
 /* Responsive columns */
 @media only screen and (min-width: 1870px) {
     .cardPage {
-        max-width: 75%;
+        max-width: 100%;
     }
 }

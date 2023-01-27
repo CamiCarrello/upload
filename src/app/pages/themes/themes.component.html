@@ -3,12 +3,11 @@
     <div class="videoCategory" *ngFor="let category of video">
         <p class="category">{{ category }}</p>
         <div class="card" *ngFor="let video of getCategory(category)" [routerLink]=" ['/video/' + video.id]">
-            <!-- <pre>{{ video | json }}</pre> -->
             <iframe [src]="video.url" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
-                <p>{{ video.title }}</p>  
-                <p id="view">Visualizações: {{ video.field_video_visualization }}</p>         
+            <p>{{ video.title }}</p>
+            <p id="view">Visualizações: {{ video.field_video_visualization }}</p>
         </div>
     </div>
 </div>

@@ -41,4 +41,11 @@ export class VideoCardsComponent implements OnInit {
       })
     })
   }
+
+  public navigateToVideo(videoCard: VideoCard) {
+    this.upload.getVideoPlayer(parseInt(videoCard.id_video)).subscribe((video) => {
+      this.router.navigateByUrl('/video/' + video[0].path.split('/').reverse()[0]
+      )
+    })
+  }
 }

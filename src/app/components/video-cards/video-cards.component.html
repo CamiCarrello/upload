@@ -5,7 +5,7 @@
                 <img id="user" src="https://dev-project-upskill-grupo02.pantheonsite.io/{{  video.user_photo }}"
                     alt="user-photo" [routerLink]="['/channel/' + video.id_channel]">
                 <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{  video.thumbnail }}" alt="thumbnail"
-                    [routerLink]="['/video/' + video.id_video]" />
+                (click)="navigateToVideo(video)" />
             </div>
             <div class="info-video">
                 <p class="channel-title"> {{ video.title_channel }}</p>

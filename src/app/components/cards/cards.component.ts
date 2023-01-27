@@ -9,12 +9,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent implements OnInit {
-
   channelList: Channel[] = [];
   channel: Channel = {} as Channel;
-
   videos: Video[] = [];
-
   suggested_theme: Themes = {} as Themes;
   suggested_themes: Themes[] = [];
 
@@ -26,8 +23,12 @@ export class CardsComponent implements OnInit {
       this.suggested_theme = this.suggested_themes[0];
     });
 
-    this.upload.getChannelsList().subscribe((channel) => {
-      this.channelList = <Channel[]>channel.slice(-4); // devolve os 4 ultimos canais inseridos.
+    this.upload.getChannelsList().subscribe(channel => {
+      this.channelList = channel.slice(-3);
+    })
+
+    this.upload.getVideos().subscribe(video => {
+      this.videos = [video[Math.floor(Math.random() * video.length)]];
     })
   }
 }

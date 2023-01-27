@@ -3,7 +3,7 @@
   <div class="flex">
     <div *ngFor="let video of videos" class="informations">
       <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}" alt="video image"
-        [routerLink]="['/video/' + video.id]" />
+      [routerLink]="['/video/' + video.path.split('/').reverse()[0]]" />
       <img alt="user photo" class="user"
         [src]="'https://dev-project-upskill-grupo02.pantheonsite.io/' + getUser(video)" />
       <div id="fontSize">

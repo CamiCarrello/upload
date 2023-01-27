@@ -20,7 +20,7 @@ export class UploadService {
   }
 
   getVideoPlayer(id_video: number) {
-    return this.http.get(BASE_URL + 'video/' + id_video);
+    return this.http.get<Video[]>(BASE_URL + 'video/' + id_video);
   }
 
   getVideoComment(id_video: number) {

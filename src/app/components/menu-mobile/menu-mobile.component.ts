@@ -4,11 +4,11 @@ import { UploadService } from 'src/app/services/upload.service';
 import { faHomeUser, faBarsStaggered, faPlay, faClapperboard, faBookmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-menu-side-bar',
-  templateUrl: './menu-side-bar.component.html',
-  styleUrls: ['./menu-side-bar.component.scss']
+  selector: 'app-menu-mobile',
+  templateUrl: './menu-mobile.component.html',
+  styleUrls: ['./menu-mobile.component.scss']
 })
-export class MenuSideBarComponent implements OnInit {
+export class MenuMobileComponent implements OnInit {
 
   @Input() showModalSideBar: Boolean = true;
 
@@ -25,14 +25,12 @@ export class MenuSideBarComponent implements OnInit {
   faBookmark = faBookmark;
 
   constructor(private upload: UploadService) {
-    this.upload.getTags().subscribe((tag) => {
-      for (let i = 0; i < 10; i++) {
-        this.tags.push(tag.splice(Math.floor(Math.random() * tag.length), 1)[0]);
-      }
+    this.upload.getTags().subscribe(tag => {
+      this.tags = tag.splice(0, 10);
     })
   }
 
   ngOnInit(): void {
-    // TODO document why this method 'ngOnInit' is empty
   }
+
 }
