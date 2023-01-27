@@ -7,7 +7,6 @@
     flex: 1;
     flex-direction: column;
     align-content: center;
-    height: 100vh;
     width: 100%;
 
     .title {
@@ -16,8 +15,7 @@
       font-weight: 400;
       font-family: poppins;
       font-size: 24px;
-      color: #FAFAFB;
-
+      color: #fafafb;
     }
 
     .tags {
@@ -26,18 +24,10 @@
       font-weight: 400;
       font-family: roboto;
       font-size: 16px;
-      color: #1E75FF;
+      color: #1e75ff;
     }
 
     .video {
-      /* display: flex;
-          justify-content: center;
-          width: 100%;
-          margin: -1% 1% -9% 1%;
-          padding-top: 56.25%;
-          position: relative; */
-      /* border: 1px solid green; */
-
       display: flex;
       justify-content: center;
       width: 95%;
@@ -45,22 +35,7 @@
       padding-top: 47%;
       position: relative;
 
-      /* Different Aspect Ratio's
-              padding-top: 56.25%; 16:9 Aspect Ratio
-              padding-top: 75%; 4:3 Aspect Ratio
-              padding-top: 62.5%; 8:5 Aspect Ratio
-              padding-top: 100%; 1:1 Aspect Ratio
-          */
-
       iframe {
-        /* border-radius: 15px;
-              position: absolute;
-              top: 3%;
-              left: 20px;
-              right: 20px;
-              height: 80%;
-              width: 95%; */
-
         border-radius: 29px;
         position: absolute;
         top: 0%;
@@ -68,19 +43,10 @@
         right: auto;
         height: 100%;
         width: 100%;
-
       }
     }
 
     .user {
-      /* display: flex;
-          justify-content: flex-start;
-          flex-direction: row; */
-      /* margin: 20% 3%; antiga*/
-      /* margin-top: 100px; */
-      /* margin: 100px 3% 1% 3%; */
-
-
       display: flex;
       justify-content: flex-start;
       flex-direction: row;
@@ -95,10 +61,9 @@
           border-radius: 50%;
           height: 70px;
           width: 70px;
-          border: 2px solid #FFFFFF;
+          border: 2px solid #ffffff;
         }
       }
-
 
       .organize-data {
         display: flex;
@@ -117,24 +82,23 @@
           font-weight: 150;
           line-height: 25px;
           letter-spacing: 0.2px;
-          color: #FAFAFB;
+          color: #fafafb;
 
           .user_name {
             margin-bottom: 5%;
           }
 
           .created {
-            color: #92929D;
+            color: #92929d;
           }
         }
-
       }
 
       .icon {
         display: flex;
         align-items: center;
         font-size: 20px;
-        color: #FAFAFB;
+        color: #fafafb;
         height: 30px;
 
         .l {
@@ -144,14 +108,13 @@
         .like {
           margin-right: 30px;
           padding: 0 30px;
-          border-right: 2px solid #FAFAFB;
+          border-right: 2px solid #fafafb;
         }
 
         .dislike {
           margin-left: 30px;
           padding-right: 10px;
         }
-
       }
     }
 
@@ -164,7 +127,6 @@
       padding: 0 3%;
 
       .desc {
-
         padding: 0 5%;
         border: 1px;
         border-radius: 13px;
@@ -174,9 +136,8 @@
         line-height: 25px;
         letter-spacing: 0.2px;
         text-align: justify;
-        color: #FAFAFB;
+        color: #fafafb;
       }
-
     }
 
     .post-comment {
@@ -185,6 +146,14 @@
       width: 100%;
       justify-items: center;
       padding: 2% 3%;
+
+      .error {
+        color: red;
+        font-size: 20px;
+        font-family: "Poppins";
+        margin-bottom: 30px;
+      }
+
 
       .data-comment {
         display: flex;
@@ -208,11 +177,9 @@
           border-bottom: 1px solid #606068;
           color: rgb(198, 198, 200);
         }
-
       }
 
       textarea {
-        /* width: 90%; */
         width: 87%;
         height: 30px;
         background-color: #13131a;
@@ -237,9 +204,16 @@
           border: 1px solid rgb(198, 198, 200);
           border-radius: 10px;
           color: rgb(198, 198, 200);
+          cursor: pointer;
+          transition-duration: 0.4s;
+          -webkit-transition-duration: 0.4s;
+        }
+
+        button:hover {
+          transition-duration: 0.1s;
+          background-color: #3a3a3a;
         }
       }
-
     }
   }
 
@@ -250,7 +224,6 @@
     padding: 1% 3%;
 
     .com-img {
-
       img {
         margin: 3% 3%;
         border-radius: 50%;
@@ -258,7 +231,6 @@
         width: 60px;
         border: 1px solid black;
       }
-
     }
 
     .com-info {
@@ -268,33 +240,21 @@
       letter-spacing: 0.1px;
       text-align: justify;
       padding: 1% 3%;
-      color: #FAFAFB;
+      color: #fafafb;
 
       .cread-comm {
-        color: #92929D;
+        color: #92929d;
       }
 
       .commen-p {
         letter-spacing: 0.2px;
       }
-
-
-
-
     }
-
   }
-
 }
-
 
 @media only screen and (max-width: 1200px) {
   .container {
-
-    /* grid-template-columns: 1fr;
-      p {
-          margin: 5%;
-      } */
     .video {
       iframe {
         width: 70%;
@@ -306,14 +266,10 @@
   app-video-cards {
     display: none;
   }
-
-
-
 }
 
 @media (mim-width: 480px) {
   .video {
     padding-top: 75%;
   }
-
 }

@@ -1,15 +1,23 @@
 <h2>Últimos Vídeos</h2>
-<div class="container">
+<div class="container" *ngIf="isReady">
   <div class="flex">
     <div *ngFor="let video of videos" class="informations">
-      
       <img
         src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
           video.thumbnail
         }}"
         alt="video image"
-        [routerLink]="['video/' + video.id]"
+        [routerLink]="['/video/' + video.path.split('/').reverse()[0]]"
       />
+      <img
+        alt="user photo"
+        class="user"
+        [src]="
+          'https://dev-project-upskill-grupo02.pantheonsite.io/' +
+          getUser(video)
+        "
+      />
+
       <div>
         <fa-icon
           [icon]="itsFavorite(video.id) ? faBookmarkSolid : faBookmark"
@@ -18,7 +26,7 @@
         ></fa-icon>
         <fa-icon
           [icon]="faShareNodes"
-          (click)="toggleModal()"
+          (click)="toggleModal(video.url_video)"
           class="faIcon share"
         >
         </fa-icon>
@@ -32,6 +40,9 @@
       </div>
     </div>
   </div>
-  <app-modal-to-share [showModal]="showModal"></app-modal-to-share>
+  <app-modal-to-share
+    [url]="modalUrl"
+    [showModal]="showModal"
+  ></app-modal-to-share>
   <app-cards></app-cards>
 </div>

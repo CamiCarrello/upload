@@ -22,6 +22,7 @@ export class FavoritesComponent implements OnInit {
   faBookmark = faBookmark;
   faBookmarkSolid = faBookmarkSolid;
   faShareNodes = faShareNodes;
+  isReady: boolean = false;
 
   constructor(private upload: UploadService, private route: ActivatedRoute) {}
 
@@ -32,7 +33,7 @@ export class FavoritesComponent implements OnInit {
   itsFavorite(id_video: string) {
     return this.upload.itsFavorite(id_video);
   }
-  
+
   ngOnInit(): void {
     this.upload.getVideos().subscribe((video) => {
       this.videos = video;
@@ -42,5 +43,6 @@ export class FavoritesComponent implements OnInit {
 
       //pego e favorito e guardo na lista de favoritos.
     });
+    this.isReady = true;
   }
 }

@@ -9,19 +9,17 @@
     <div class="content">
       <p>Compartilhe via:</p>
       <ul class="icons">
-        <a (click)="social('facebook')" title="Facebook" target="_blank"
+        <a (click)="facebook()" title="Facebook" target="_blank"
           ><i class="fab fa-facebook-f"></i
         ></a>
-        <a (click)="social('twitter')" title="Twitter" target="_blank"
+        <a (click)="twitter()" title="Twitter" target="_blank"
           ><i class="fab fa-twitter"></i
         ></a>
-        <a (click)="social('pinterest')" title="Instagram" target="_blank"
+        <a (click)="pinterest()" title="Pinterest" target="_blank"
           ><i class="fab fa-pinterest-square"></i
         ></a>
         <a
-          href="https://api.whatsapp.com/send?text="
-          title="WhatsApp"
-          target="_blank"
+        (click)="whatsApp()" title="WhatsApp" target="_blank"
           ><i class="fab fa-whatsapp"></i
         ></a>
       </ul>

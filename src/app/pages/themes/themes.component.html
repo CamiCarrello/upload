@@ -1,27 +1,14 @@
 <h2>Temáticas</h2>
-<div class="container">
-  <div class="themes">
-    <div class="title">
-
-    </div>
-    <div class="theme" *ngFor="let theme of themes">
-      <div class="header_photo">
-        <p>{{ theme.title }}</p>
-        <img
-          src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
-            theme.header
-          }}"
-          alt="header image"
-        />
-        <div class="user_photo">
-          <img
-            src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
-              theme.user
-            }}"
-            alt="logo image"
-          />
+<div class="cardPage" *ngIf="video_ready">
+    <div class="videoCategory" *ngFor="let category of video">
+        <p class="category">{{ category }}</p>
+        <div class="card" *ngFor="let video of getCategory(category)" [routerLink]=" ['/video/' + video.id]">
+            <!-- <pre>{{ video | json }}</pre> -->
+            <iframe [src]="video.url" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+                <p>{{ video.title }}</p>  
+                <p id="view">Visualizações: {{ video.field_video_visualization }}</p>         
         </div>
-      </div>
     </div>
-  </div>
 </div>

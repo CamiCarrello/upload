@@ -1,6 +1,6 @@
 <h2>FAVORITOS</h2>
 <span>Adicione alguns favoritos à sua lista!</span>
-<div class="container">
+<div class="container" *ngIf="isReady">
   <div class="flex">
     <div *ngFor="let f of favs" class="informations">
       <img

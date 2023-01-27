@@ -17,6 +17,8 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 export class HomeComponent implements OnInit {
   videos: Video[] = [];
 
+  isReady: boolean = false;
+
 
   channelList: Channel[] = [];
   faHomeUser = faHomeUser;
@@ -25,9 +27,15 @@ export class HomeComponent implements OnInit {
   faShareNodes = faShareNodes;
 
   showModal: Boolean = false;
+  modalUrl: string = '';
 
-  toggleModal() {
+  toggleModal(url_video : string) {
     this.showModal = !this.showModal;
+    this.modalUrl = encodeURIComponent(url_video);
+  }
+
+  getUser(video: Video) {
+    return this.channelList.find(channel => channel.channel_name === video.channel)?.user_photo;
   }
 
   constructor(private route: ActivatedRoute, private upload: UploadService) {}
@@ -42,10 +50,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.upload.getVideos().subscribe((video) => {
-      this.videos = video;
+      this.videos = video.slice(-6); // apresenta os 6 ultimos videos
     });
 
+    this.upload.getChannelsList().subscribe(channel => {
+      this.channelList = channel;
+    })
 
+    this.isReady = true;
   }
 
 

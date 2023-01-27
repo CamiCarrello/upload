@@ -2,7 +2,6 @@
   margin: 20px;
   position: relative;
   width: 98%;
-  // height: 40%;
   height: 300px;
 
   img {
@@ -58,8 +57,8 @@ h3 {
   .cards {
     background-color: rgb(28, 28, 36);
     margin: 0 33px 35px 0;
-    width: 369px;
-    height: 350px;
+    width: 360px;
+    height: 320px;
     border-radius: 15px;
 
     .informations {
@@ -69,57 +68,55 @@ h3 {
       text-transform: uppercase;
       position: relative;
 
-
-      .details_time {
-        margin-left: 10px;
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 18px;
-        text-align: center;
-        color: #FFFFFF;
-        position: absolute;
-        width: 55px;
-        height: 18px;
-        //left: 5px;
-        top: 175px;
-        background-color: #171725;
-        border-radius: 5px;
-      }
-
       img {
         object-fit: cover;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         width: 100%;
-        height: 220px;
-        margin-bottom: 10px;
+        height: 205px;
+        margin-bottom: 15px;
         cursor: pointer;
       }
 
+      .details_time {
+        margin-left: 10px;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        color: #ffffff;
+        position: absolute;
+        width: 55px;
+        height: 18px;
+        top: 165px;
+        background-color: #171725;
+        border-radius: 5px;
+      }
+
       .textInformation {
-        line-height: 1.2;
-        margin: 0 70px 20px 20px;
+        margin: 5px 20px 20px 20px;
       }
 
       .tags {
         color: blue;
+        font-size: 12px;
         font-weight: bold;
-        padding-bottom: -5px;
       }
 
       #title {
-        font-size: 17px;
+        font-size: 20px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        margin-top: -1px;
       }
 
       #createdDate {
         color: #606068;
         text-transform: lowercase;
-        margin-top: -5px;
+        margin-top: -15px;
       }
     }
   }
@@ -130,6 +127,13 @@ h3 {
   flex-direction: column;
   width: 75%;
   margin: 30px 0 0 40px;
+
+  .error {
+    color: red;
+    font-size: 20px;
+    font-family: "Poppins";
+    margin-bottom: 30px;
+  }
 
   .firstRow {
     display: flex;

@@ -1,0 +1,10 @@
+<div class="header" id="header">
+    <div class="logo_header">
+        <fa-icon [icon]="faBars" class="fa-xl" (click)="toggleModal()"></fa-icon>
+       <img src="./../../../assets/imgs/logo.png" alt="logoUpLoad"/>
+    </div>
+
+    <div class="navigation_header" *ngIf ="showModal">
+        <app-menu-side-bar></app-menu-side-bar>
+    </div>
+</div>

@@ -43,7 +43,7 @@
       <div>
         <p class="titleChannel">{{ channel.channel_name }}</p>
       </div>
-      <div class="headerChannel">
+      <div *ngFor="let video of videos" class="headerChannel" [routerLink]="['/video/32']">
         <img
           src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
             suggested_theme.header
@@ -51,7 +51,7 @@
           alt="header image"
         />
       </div>
-      <a routerLink="/themes" routerLinkActive="active"> </a>
+
     </div>
   </div>
 </div>

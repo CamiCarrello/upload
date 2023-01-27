@@ -10,15 +10,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class VideoCardsComponent implements OnInit {
   videos: Video[] = [];
-
   video_card: VideoCard[] = [];
 
   channel: Channel[] = [];
-
   channel_name: string[] = [];
 
-  @Input() id_video! : number;
-
+  @Input() id_video!: number;
 
   constructor(private upload: UploadService, private route: ActivatedRoute, private router: Router) { }
 
@@ -28,39 +25,20 @@ export class VideoCardsComponent implements OnInit {
       let id_video = this.id_video;
       //this upload get video player subscribe etc etc
       //this.route.snapshot.params['id_video'];
-    this.upload.getVideoPlayer(id_video).subscribe(video => {
-      this.videos = <Video[]>video;
-      let vid = this.videos[0];
-      /* console.log('O QUE ELE MOSTRA');
-      console.log(vid.id); */
+      this.upload.getVideoPlayer(id_video).subscribe(video => {
+        this.videos = <Video[]>video;
+        let vid = this.videos[0];
+        /* console.log('O QUE ELE MOSTRA');
+        console.log(vid.id); */
 
-      this.upload.getVideoCards(parseInt(vid.channel)).subscribe(videos => {
-        this.video_card = videos;
-        /* console.log('testando o console log de video_card:');
-        console.log(this.video_card); */
-        /*
-         */
-
-      });
+        this.upload.getVideoCards(parseInt(vid.channel)).subscribe(videos => {
+          this.video_card = videos.slice(-2);
+          /* console.log('testando o console log de video_card:');
+          console.log(this.video_card); */
+          /*
+           */
+        })
+      })
     })
-  });
-
-
   }
-  /* navigateToVideoChannel(item: VideoCard ) {
-
-    this.upload.getVideoCards(parseInt(item.id_channel)).subscribe(
-
-      channel => {
-
-       const matchingChannel = channel.find(video => item.title_channel === video.title_channel);
-
-       if (matchingChannel)this.router.navigateByUrl('/video/' + matchingChannel.id_video)
-
-      }
-
-    )
-
-  } */
-
 }

@@ -40,12 +40,13 @@ span {
 
   .informations {
     background-color: rgb(28, 28, 36);
-    width: 100%;
+    width: 40%;
     font-size: 12px;
     border-radius: 10px;
     position: relative;
-    margin-right: 50px;
+    margin: 0 50px 40px 0;
     color: #f1f1f1;
+    border-radius: 20px;
 
 
     .bookmark {
@@ -84,7 +85,4 @@ span {
   }
 }
 
-.flex>div {
-  flex: 1 1 300px;
-  margin: 10px;
-}
+

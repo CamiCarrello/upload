@@ -1,24 +1,15 @@
 <h2>Playlists</h2>
 <div class="cardPage" *ngIf="playlist">
-  <div class="playTitle" *ngFor="let play of playlist_name">
-    <p class="title">{{ play }}</p>
-    <div
-      class="row"
-      *ngFor="let video of getTitle(play)"
-      (click)="navigateToVideo(video)"
-    >
-      <div class="column">
-        <div class="informations">
-          <img
-            src="https://dev-project-upskill-grupo02.pantheonsite.io/{{
-              video.thumbnail
-            }}"
-          />
-          <p id="title">{{ video.name }}</p>
-          <p class="details_time">{{ video.field_time_video }}</p>
+    <div class="playTitle" *ngFor="let play of playlist_name">
+        <p class="title">{{ play }}</p>
+        <div class="row" *ngFor="let video of getTitle(play)" (click)="navigateToVideo(video)">
+            <div class="column">
+                <div class="informations">
+                    <img src="https://dev-project-upskill-grupo02.pantheonsite.io/{{ video.thumbnail }}" />
+                    <p id="title"> {{ video.name }} </p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <app-cards></app-cards>

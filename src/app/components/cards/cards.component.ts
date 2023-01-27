@@ -23,13 +23,12 @@ export class CardsComponent implements OnInit {
       this.suggested_theme = this.suggested_themes[0];
     });
 
-    this.upload.getChannelsList().subscribe((channel) => {
-      this.channelList = <Channel[]>channel;
-      this.channel = this.channelList[3];
-    });
+    this.upload.getChannelsList().subscribe(channel => {
+      this.channelList = channel.slice(-3);
+    })
 
-    this.upload.getVideos().subscribe((video) => {
-      this.videos = video;
-    });
+    this.upload.getVideos().subscribe(video => {
+      this.videos = video.slice(-1);
+    })
   }
 }

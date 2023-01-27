@@ -1,0 +1,22 @@
+.header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    // background-color: #1c1c24;
+    background-color: darkcyan;
+
+    .logo_header {
+        margin: 12px 30px 10px 25px;
+
+        fa-icon {
+            color: white;
+        }
+
+        img {
+            margin-left: 50px;
+            width: 200px;
+            vertical-align: middle;
+        }
+    }
+}
